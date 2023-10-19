@@ -40,11 +40,6 @@ from item or BagofGoods later.
 Sell [dec] amount of an item [b] within a given store [st]. 
   Requires that [b] is a good in [st] already.*)
 
-(*go THROUGH ezch bagofgoods
-go THROUGH each item in bag of goods
-Q: ask to add functionality to return item type, price, and quantity
-Q: ask to put item in front of triple  *)
-
 let sell_goods dec b st =
     match st with
       | [] -> []
@@ -52,17 +47,17 @@ let sell_goods dec b st =
       let update_bag b = 
       match h with
       | []-> []
-      | (i,p,q)::t1 -> if i == b then 
-      if (q - dec)>0 then
-          (i,p,q-dec)::t1 else t1
-      else (i,p,q) :: update_bag b t1
+      | h1::t1 -> if h1.get_name() == b then 
+      if (h1.get_quantity() - dec)>0 then
+          h1.change_quantity(h1.get_quantity()-dec)::t1 else t1
+      else h1 :: update_bag b t1
       in update_bag b in h::sell_goods dec b t 
   
   
   let determine_popular bag_goods lim =
       match bag_goods with 
       | [] -> []
-      | (i, p, q)::t -> if (i.get_quantity())<=lim then (i,p,t):: 
+      | h::t -> if (h.get_quantity())<=lim then h:: 
         determine_popular t lim else determine_popular t lim
 
   let popular_goods lim st = match st with
