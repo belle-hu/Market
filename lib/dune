@@ -1,0 +1,4 @@
+(library
+ (name chat)
+ (public_name Chat)
+ (libraries str))
