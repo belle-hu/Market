@@ -1,0 +1,6 @@
+description = ""
+requires = "str"
+archive(byte) = "chat.cma"
+archive(native) = "chat.cmxa"
+plugin(byte) = "chat.cma"
+plugin(native) = "chat.cmxs"
