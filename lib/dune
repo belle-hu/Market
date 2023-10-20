@@ -1,5 +1,4 @@
 (library
- (name chat)
- (public_name Chat)
- (libraries str)
- (modules store))
+ (name grocery)
+ (public_name Grocery)
+ (libraries str))
