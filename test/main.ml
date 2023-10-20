@@ -51,13 +51,25 @@ let cmp_demo =
 (********************************************************************
    End helper functions.
  ********************************************************************)
-
-let bag_tests = []
-let model_tests = []
+ let items_tests = [
+  (**create tests*)
+  (**get_name tests*)
+  (**get_price tests*)
+  (**get_quantity tests*)
+  (**change_price tests*)
+  (**change_quantity tests*)
+]
+let bagofgoods_tests = [
+  (**to_list tests*)
+  (**of_list tests*)
+  (**sample tests*)
+  (**count_elems tests*)
+]
+let store_tests = []
 let ngram_tests = []
 
 let suite =
   "test suite for A2"
-  >::: List.flatten [ cmp_demo; bag_tests; model_tests; ngram_tests ]
+  >::: List.flatten [ cmp_demo; items_tests; bagofgoods_tests; store_tests]
 
 let () = run_test_tt_main suite
