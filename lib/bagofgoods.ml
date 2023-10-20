@@ -10,7 +10,7 @@ end
 
 (** Sampleable bag such that sample returns elements with probability
     proportional to their multiplicity. *)
-module RandomBag : SampleGoodsType = struct
+module BagOfGoods : SampleGoodsType = struct
   type 'a t = 'a list
 
   let to_list (b : 'a t) : 'a list = b
