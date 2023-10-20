@@ -1,4 +1,5 @@
 (library
  (name chat)
  (public_name Chat)
- (libraries str))
+ (libraries str)
+ (modules store))
