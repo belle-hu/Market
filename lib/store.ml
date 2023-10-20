@@ -1,3 +1,5 @@
+open BagOfGoods
+
 module type StoreType = sig
   type 'a t = 'a list
   val count_products: 'a t -> int
@@ -32,7 +34,7 @@ let count_products st =
   add all goods of [b] to the store [st]. Q: need to account for fact 
   that item might already exist*)
   let import_goods b_lst st = 
-    
+
      st @ b_lst
   
 
@@ -70,58 +72,3 @@ let sell_goods dec b st =
  let in_stock_goods st = st 
 
 end 
-
-(**********************************************************************)
-
-(** Sanitize a string by removing non-alphanumeric symbols. Return the
-    list of words obtained by splitting on spaces. *)
-    let sanitize (s : string) : string list =
-      s
-      |> Str.global_replace (Str.regexp "[ \t\r\n]") " "
-      |> Str.global_replace (Str.regexp "[^a-zA-Z0-9' ]") ""
-      |> String.lowercase_ascii |> String.split_on_char ' '
-      |> List.filter (fun s -> s <> "")
-    
-    (** Build a random Ngram model from a training corpus consisting of a string
-        [input] and an integer parameter [n]. Requires: [n > 0]. *)
-    let build_rand_ngram (input : string) (ngram_len : int) : Store =
-      input |> sanitize |> Rand_ngram.build ngram_len
-    
-    (** Build a most-frequent Ngram model from a training corpus consisting of a
-        string [input] and an integer parameter [n]. Requires: [n > 0]. *)
-    let build_freq_ngram (input : string) (ngram_len : int) : Freq_ngram.t =
-      input |> sanitize |> Freq_ngram.build ngram_len
-    
-    (** Build an interpolated Ngram model from a training corpus consisting of a
-        string [input] and an integer parameter [n]. Requires: [n > 0]. *)
-    let build_interp_ngram (input : string) (ngram_len : int) : Interp_ngram.t
-        =
-      input |> sanitize |> Interp_ngram.build ngram_len
-    
-    (** Given a maximum number [N] of words to generate and a prompt, generate up to
-        [N] words using a random Ngram model. Requires: [N >= 0]. *)
-    let create_rand_sequence (dist : Rand_ngram.t) (max_len : int)
-        (prompt : string) : string =
-      prompt
-      |> sanitize
-      |> Rand_ngram.sample_sequence dist max_len
-      |> String.concat " "
-    
-    (** Given a maximum number [N] of words to generate and a prompt, generate up to
-        [N] words using a most-frequent Ngram model. Requires: [N >= 0]. *)
-    let create_freq_sequence (dist : Freq_ngram.t) (max_len : int)
-        (prompt : string) : string =
-      prompt
-      |> sanitize
-      |> Freq_ngram.sample_sequence dist max_len
-      |> String.concat " "
-    
-    (** Given a maximum number [N] of words to generate and a prompt, generate up to
-        [N] words using an interpolated Ngram model. Requires: [N >= 0]. *)
-    let create_interp_sequence (dist : Interp_ngram.t) (max_len : int)
-        (prompt : string) : string =
-      prompt
-      |> sanitize
-      |> Interp_ngram.sample_sequence dist max_len
-      |> String.concat " "
-    
