@@ -3,7 +3,7 @@ open Grocery
 
 (*open Chat open Ngrams open Model open Bag *)
 open Store
-open BagOfGoods
+open Bagofgoods
 
 (********************************************************************
    Here are some helper functions for your testing of bag-like lists.
