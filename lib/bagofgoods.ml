@@ -19,14 +19,19 @@ module BagOfGoods : SampleGoodsType = struct
   let sample (b : 'a t) : 'a option =
     List.nth_opt b (Random.int (List.length b))
 
-  let count_elems (b : 'a t) : int = 0
+  let count_elems (b : 'a t) : int =
+    let rec count_elements_acc list acc =
+      match list with
+      | [] -> acc
+      | _ :: rest -> count_elements_acc rest (acc + 1)
+    in
+    count_elements_acc b 0
 end
 
 (** Sampleable bag such that sample always returns the element of highest
     multiplicity. Ties are broken arbitrarily. *)
 module FrequencyPriceGoods : SampleGoodsType = struct
-  type 'a t =
-    (float * int * 'a) list (* DONE: replace with your own type definition *)
+  type 'a t = (float * int * 'a) list
 
   (**FIX: PLACEHOLDER PRICE*)
   let rec to_list (b : 'a t) : 'a list =
@@ -39,19 +44,25 @@ module FrequencyPriceGoods : SampleGoodsType = struct
   (*helper method for of_list*)
 
   (**FIX: PLACEHOLDER 0.0*)
-  let rec count_elements (lst : 'a list) : 'a t =
+  let rec of_list_helper (lst : 'a list) : 'a t =
     match lst with
     | [] -> []
     | hd :: tl ->
         let count, rest = List.partition (fun x -> x = hd) tl in
-        (0.0, List.length count + 1, hd) :: count_elements rest
+        (0.0, List.length count + 1, hd) :: of_list_helper rest
 
-  let of_list (lst : 'a list) : 'a t = count_elements lst
+  let of_list (lst : 'a list) : 'a t = of_list_helper lst
 
   let sample (b : 'a t) : 'a option =
     match b with
     | [] -> None
     | (p, q, e) :: t -> Some e
 
-  let count_elems (b : 'a t) : int = 0
+  let count_elems (b : 'a t) : int =
+    let rec count_elements_acc items acc =
+      match items with
+      | [] -> acc
+      | (_, frequency, _) :: rest -> count_elements_acc rest (acc + frequency)
+    in
+    count_elements_acc b 0
 end
