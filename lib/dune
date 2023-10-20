@@ -1,4 +1,3 @@
 (library
  (name grocery)
- (public_name Grocery)
- (libraries str))
+ (public_name Grocery))
