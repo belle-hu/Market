@@ -32,6 +32,7 @@ let count_products st =
   add all goods of [b] to the store [st]. Q: need to account for fact 
   that item might already exist*)
   let import_goods b_lst st = 
+    
      st @ b_lst
   
 
@@ -83,7 +84,7 @@ end
     
     (** Build a random Ngram model from a training corpus consisting of a string
         [input] and an integer parameter [n]. Requires: [n > 0]. *)
-    let build_rand_ngram (input : string) (ngram_len : int) : Rand_ngram.t =
+    let build_rand_ngram (input : string) (ngram_len : int) : Store =
       input |> sanitize |> Rand_ngram.build ngram_len
     
     (** Build a most-frequent Ngram model from a training corpus consisting of a
