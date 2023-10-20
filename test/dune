@@ -1,3 +1,4 @@
 (test
  (name main)
- (libraries ounit2 Chat))
+ (modules main)
+ (libraries ounit2 Grocery))

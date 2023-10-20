@@ -1,4 +1,4 @@
 (library
- (name chat)
- (public_name Chat)
+ (name grocery)
+ (public_name Grocery)
  (libraries str))
