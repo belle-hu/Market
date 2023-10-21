@@ -12,8 +12,8 @@ let () =
   | [ nam; pri; quan ] ->
       let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in
       print_endline
-        (Item.get_name item1 ^ " "
+        ("Successfully created item: " ^ Item.get_name item1 ^ " with price: "
         ^ string_of_int (Item.get_price item1)
-        ^ " "
+        ^ " and quantity: "
         ^ string_of_int (Item.get_quantity item1))
   | _ -> failwith "Invalid input"
