@@ -4,6 +4,7 @@ module type SampleGoodsType = sig
 
   val to_list : 'a t -> 'a list
   val of_list : 'a list -> 'a t
+  val join : 'a t -> 'a t -> 'a t
   val sample : 'a t -> 'a option
   val count_elems : 'a t -> int
 end
@@ -15,6 +16,7 @@ module BagOfGoods : SampleGoodsType = struct
 
   let to_list (b : 'a t) : 'a list = b
   let of_list (lst : 'a list) : 'a t = lst
+  let join (b1 : 'a t) (b2 : 'a t) : 'a t = b1 @ b2
 
   let sample (b : 'a t) : 'a option =
     List.nth_opt b (Random.int (List.length b))
@@ -52,6 +54,9 @@ module FrequencyPriceGoods : SampleGoodsType = struct
         (0.0, List.length count + 1, hd) :: of_list_helper rest
 
   let of_list (lst : 'a list) : 'a t = of_list_helper lst
+
+  (*Fix implementation later*)
+  let join (b1 : 'a t) (b2 : 'a t) : 'a t = b1 @ b2
 
   let sample (b : 'a t) : 'a option =
     match b with

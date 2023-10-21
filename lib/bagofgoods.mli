@@ -8,6 +8,9 @@ module type SampleGoodsType = sig
   val of_list : 'a list -> 'a t
   (**Convert a list of items into a sampleable bag*)
 
+  val join : 'a t -> 'a t -> 'a t
+  (**Join two bags together*)
+
   val sample : 'a t -> 'a option
   (**Draw an item from the sampleable bag. Return [None] if bag is empty*)
 
