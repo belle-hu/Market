@@ -16,12 +16,14 @@ cd (path to cs3110proj)
 4. dune build 
 
 Usage:
-So far, we have only included command line functionality for creating an item. 
-In the future, we will implement functionality for creating a bag of goods and 
-interacting with the store:
+So far, we have only included command line functionality for creating an item and
+inserting that one item in a bag, as well as changing the price of an item. 
+In the future, we will implement functionality for 
+creating a bag of multiple goods 
+and interacting with the store on the command line: 
 
 1. After dune build, insert command: 
-dune exec bin/main.exe
+make grocery
 
 You should see this message:
 Welcome to Grocery. 
@@ -39,15 +41,15 @@ ________________________________________________________________________________
     After correctly inputting in this form, 
     you should receive a message that says:
 
-Successfully created item: "NAME ENTERED" with price: PRICE ENTERED and quantity: QUANTITY ENTERED
-
+Successfully created item: NAME ENTERED with price: PRICE ENTERED and quantity: QUANTITY ENTERED
+Bag now contains: NAME ENTERED (Price: PRICE ENTERED, Quantity: QUANTITY ENTERED)
 
     If you chose 2, to modify a price, type in the product's [name price quantity added_amount]
 
     After correctly inputting in this form, 
     you should receive a message that says:
 
-Successfully created item: "NAME ENTERED" with price: ORIGINAl PRICE ENTERED + PRICE ADDED and quantity: QUANTITY ENTERED
+Successfully changed item: "NAME ENTERED" with price: ORIGINAl PRICE ENTERED + PRICE ADDED and quantity: QUANTITY ENTERED
 
 _______________________________________________________________________________________________________________________________________
 Example for choice 1: 
@@ -65,6 +67,7 @@ dune exec bin/main.exe
         Please enter the name, price, and quantity of the item you want to create:
         "apples" 1 5 
         Successfully created item: "apples" with price: 1 and quantity: 5
+        Bag now contains: "apples" (Price: 1, Quantity: 5)
 
 Example for choice 2:
 dune exec bin/main.exe
