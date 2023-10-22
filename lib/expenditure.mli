@@ -21,4 +21,6 @@ module type ExpenditureType = sig
   val total_items : 'a t -> int
   (** returns the total number of items bought, accounting for the
       multiplicities of each item*)
+  val count_elems: 'a t -> int
+  (** counts the number of distinct items bought*)
 end
