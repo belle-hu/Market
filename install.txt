@@ -19,7 +19,7 @@ Usage:
 So far, we have only included command line functionality for creating an item. 
 In the future, we will implement functionality for creating a bag of goods and 
 interacting with the store:
-1. after dune build, insert command: 
+1. After dune build, insert command: 
 dune exec bin/main.exe
 
 You should see this message:
@@ -28,7 +28,7 @@ Welcome to Grocery.
 Please enter the name, price, and quantity of the item you want to create:
 
 
-2. to create an item, type in its [name price quantity], with the form string int int:
+2. To create an item, type in its [name price quantity], with the form string int int:
 
 After correctly inputting in this form, 
 you should receive a message that says
