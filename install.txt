@@ -1,0 +1,50 @@
+Aim: We are simulating a grocery database that allows you to track items, 
+prices, quantities, expenditures, and stock of a grocery store. We want to 
+essentially track grocery store transactions and allow for customer interaction 
+with the store. We divided our functionality into 4 modules: Items, Bagofgoods,
+Expenditures, Store.
+
+Packages needed:
+OCaml and OPAM
+
+Installation steps:
+1. Clone our git repository: 
+git clone https://github.coecis.cornell.edu/ay332/cs3110proj
+2. Enter directory of project
+cd (path to cs3110proj)
+3. install opam
+4. dune build 
+
+Usage:
+So far, we have only included command line functionality for creating an item. 
+In the future, we will implement functionality for creating a bag of goods and 
+interacting with the store:
+1. after dune build, insert command: 
+dune exec bin/main.exe
+
+You should see this message:
+Welcome to Grocery. 
+
+Please enter the name, price, and quantity of the item you want to create:
+
+
+2. to create an item, type in its [name price quantity], with the form string int int:
+
+After correctly inputting in this form, 
+you should receive a message that says
+Successfully created item: "NAME ENTERED" with price: PRICE ENTERED and quantity: QUANTITY ENTERED
+
+Example: 
+dune exec bin/main.exe
+Welcome to Grocery. 
+
+Please enter the name, price, and quantity of the item you want to create:
+"apples" 1 5 
+Successfully created item: "apples" with price: 1 and quantity: 5
+
+
+Contact Info:
+Belle Hu (bh552)
+Aileen Huang (aeh245)
+Yuhan Sun (ys728)
+Alina Yuan (ay332)
