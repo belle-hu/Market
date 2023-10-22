@@ -11,7 +11,7 @@ module type ExpenditureType = sig
   val add_item : 'a -> 'a t -> 'a t
   (** add an item to the collection of items previously bought*)
 
-  val total_expenditure : 'a t -> float
+  val total_expenditure : 'a t -> int
   (** computes the total expenditure. That is, the cost of all the items, taking
       into account their multiplicities*)
 
