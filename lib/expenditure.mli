@@ -1,4 +1,4 @@
-(*module type ExpenditureType = sig
+module type ExpenditureType = sig
   type 'a t
   (** Type representing the collection of items bought*)
 
@@ -21,4 +21,4 @@
   val total_items : 'a t -> int
   (** returns the total number of items bought, accounting for the
       multiplicities of each item*)
-end*)
+end

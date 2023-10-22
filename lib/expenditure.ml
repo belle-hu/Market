@@ -1,15 +1,10 @@
-(*module Expenditure = struct
+open Items
+
+module Expenditure = struct
   (** module representing a list of items bought, including information about
       how many and amount of money spent. This log of items bought can be for
       both the store and individual customers.*)
-
-  type p = {
-    name : string;
-    price : float;
-    quantity : float;
-  }
-
-  type 'a t = p list
+  type 'a t = Item.t list
   (** note: I tried to do Item list, but it said unbound*)
 
   let to_list (bag_of_expenditures : 'a t) : 'a list = bag_of_expenditures
@@ -49,4 +44,4 @@
     List.fold_left
       (fun acc { name = n; price = p; quantity = q } -> q +. acc)
       0.0 item_list
-end*)
+end
