@@ -27,7 +27,7 @@ module type ExpenditureType = sig
   (** counts the number of distinct items bought*)
 end
 
-module Expenditure = struct
+module Expenditure= struct
   (** module representing a list of items bought, including information about
       how many and amount of money spent. This log of items bought can be for
       both the store and individual customers.*)
