@@ -18,5 +18,6 @@ module type SampleGoodsType = sig
   (**Counts number of items in a bag*)
 end
 
+module BagOfGoods: SampleGoodsType
 module FrequencyPriceGoods : SampleGoodsType
 (**type 'a t = (float * int * 'a) list, corresponds to price, quantity, item*)
