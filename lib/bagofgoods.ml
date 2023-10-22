@@ -1,3 +1,4 @@
+open Items
 (** The signature of sampleable bags (multisets). *)
 module type SampleGoodsType = sig
   type 'a t
