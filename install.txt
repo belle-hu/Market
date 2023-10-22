@@ -19,29 +19,68 @@ Usage:
 So far, we have only included command line functionality for creating an item. 
 In the future, we will implement functionality for creating a bag of goods and 
 interacting with the store:
+
 1. After dune build, insert command: 
 dune exec bin/main.exe
 
 You should see this message:
 Welcome to Grocery. 
 
-Please enter the name, price, and quantity of the item you want to create:
+1. Create new item 2. Change item price
 
+Please enter your choice of 1 or 2
 
-2. To create an item, type in its [name price quantity], with the form string int int:
+_______________________________________________________________________________________
 
-After correctly inputting in this form, 
-you should receive a message that says
+2. Type in your choice:
+        
+    If you chose choice 1, to create an item, type in its [name price quantity]
+
+    After correctly inputting in this form, 
+    you should receive a message that says:
+
 Successfully created item: "NAME ENTERED" with price: PRICE ENTERED and quantity: QUANTITY ENTERED
 
-Example: 
+
+    If you chose 2, to modify a price, type in the product's [name price quantity added_amount]
+
+    After correctly inputting in this form, 
+    you should receive a message that says:
+
+Successfully created item: "NAME ENTERED" with price: ORIGINAl PRICE ENTERED + PRICE ADDED and quantity: QUANTITY ENTERED
+
+_______________________________________________________________________________________________________________________________________
+Example for choice 1: 
 dune exec bin/main.exe
-Welcome to Grocery. 
+        Welcome to Grocery. 
 
-Please enter the name, price, and quantity of the item you want to create:
-"apples" 1 5 
-Successfully created item: "apples" with price: 1 and quantity: 5
+        1. Create new item 2. Change item price
 
+        Please enter your choice of 1 or 2
+
+        1
+
+        Welcome to Grocery. 
+
+        Please enter the name, price, and quantity of the item you want to create:
+        "apples" 1 5 
+        Successfully created item: "apples" with price: 1 and quantity: 5
+
+Example for choice 2:
+dune exec bin/main.exe
+        Welcome to Grocery. 
+
+        1. Create new item 2. Change item price
+
+        Please enter your choice of 1 or 2
+
+        2
+
+        Welcome to Grocery. 
+
+        Please enter the name, price, quantity, and new_price of the item you want to create:
+        "apples" 1 5 3
+        Successfully changed item: "apples" with price: 4 and quantity: 5
 
 Contact Info:
 Belle Hu (bh552)
