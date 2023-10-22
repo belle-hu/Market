@@ -1,4 +1,4 @@
-module Expenditure = struct
+(*module Expenditure = struct
   (** module representing a list of items bought, including information about
       how many and amount of money spent. This log of items bought can be for
       both the store and individual customers.*)
@@ -49,4 +49,4 @@ module Expenditure = struct
     List.fold_left
       (fun acc { name = n; price = p; quantity = q } -> q +. acc)
       0.0 item_list
-end
+end*)
