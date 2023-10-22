@@ -1,39 +1,41 @@
 open Items
 (** The signature of sampleable bags (multisets). *)
 module type SampleGoodsType = sig
-  type 'a t
+  type t
 
-  val to_list : 'a t -> 'a list
-  val of_list : 'a list -> 'a t
-  val join : 'a t -> 'a t -> 'a t
-  val sample : 'a t -> 'a option
-  val count_elems : 'a t -> int
+  val to_list : t -> Item.t list
+  val of_list : Item.t list -> t
+  val join : t -> t -> t
+  val sample : t -> Item.t option
+  val count_elems : t -> int
 end
 
 (** Sampleable bag such that sample returns elements with probability
     proportional to their multiplicity. *)
 module BagOfGoods : SampleGoodsType = struct
-  type 'a t = 'a list
+  type t = Item.t list
 
-  let to_list (b : 'a t) : 'a list = b
-  let of_list (lst : 'a list) : 'a t = lst
-  let join (b1 : 'a t) (b2 : 'a t) : 'a t = b1 @ b2
+  let to_list (b : t) : Item.t list = b
+  let of_list (lst : Item.t list) : t = lst
+  let join (b1 : t) (b2 : t) : t = b1 @ b2
 
-  let sample (b : 'a t) : 'a option =
+  let sample (b : t) : Item.t option =
     List.nth_opt b (Random.int (List.length b))
-
-  let count_elems (b : 'a t) : int =
+    
+  let count_elems1 (b : t) : int =
     let rec count_elements_acc list acc =
       match list with
       | [] -> acc
       | _ :: rest -> count_elements_acc rest (acc + 1)
     in
     count_elements_acc b 0
+
+  let count_elems (b : t) : int = List.length b
 end
 
-(** Sampleable bag such that sample always returns the element of highest
+(* Sampleable bag such that sample always returns the element of highest
     multiplicity. Ties are broken arbitrarily. *)
-module FrequencyPriceGoods : SampleGoodsType = struct
+(*module FrequencyPriceGoods : SampleGoodsType = struct
   type 'a t = (float * int * 'a) list
 
   (**FIX: PLACEHOLDER PRICE*)
@@ -72,3 +74,4 @@ module FrequencyPriceGoods : SampleGoodsType = struct
     in
     count_elements_acc b 0
 end
+*)

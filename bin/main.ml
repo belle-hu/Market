@@ -5,7 +5,7 @@ open Items
 open Bagofgoods
 open Expenditure
 
-let create_item() =
+let create_item () =
   print_endline "\n\nWelcome to Grocery. \n";
   print_endline
     "Please enter the name, price, and quantity of the item you want to create:";
@@ -19,7 +19,7 @@ let create_item() =
         ^ string_of_int (Item.get_quantity item1))
   | _ -> failwith "Invalid input"
 
-let change_price() =
+let change_price () =
   print_endline "\n\nWelcome to Grocery. \n";
   print_endline
     "Please enter the name, price, quantity, and new_price of the item you \
@@ -37,13 +37,41 @@ let change_price() =
         ^ string_of_int (Item.get_quantity new_item))
   | _ -> failwith "Invalid input"
 
-  let () =
-    print_endline "\n\nWelcome to Grocery. \n";
-    print_endline
-      "1. Create new item 2. Change item price";
-    print_endline 
-      "\nPlease enter your choice of 1 or 2\n";
-    match read_line() with
-    | "1" -> create_item()
-    | "2" -> change_price()
-    | _ -> failwith "Invalid input"
+(**Helper method: converts all the information in an item into a single string*)
+let item_to_string (item : Item.t) : string =
+  let name = Item.get_name item in
+  let price = string_of_int (Item.get_price item) in
+  let quantity = string_of_int (Item.get_quantity item) in
+  name ^ " (Price: " ^ price ^ ", Quantity: " ^ quantity ^ ")"
+
+let create_item_add_to_bag () =
+  print_endline "\n\nWelcome to Grocery. \n";
+  print_endline
+    "Please enter the name, price, and quantity of the item you want to create:";
+  match String.split_on_char ' ' (read_line ()) with
+  | [ nam; pri; quan ] ->
+      let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in
+      print_endline
+        ("Successfully created item: " ^ Item.get_name item1 ^ " with price: "
+        ^ string_of_int (Item.get_price item1)
+        ^ " and quantity: "
+        ^ string_of_int (Item.get_quantity item1));
+      let bag = [ item1 ] in
+      let item_to_string (item : Item.t) : string =
+        let name = Item.get_name item in
+        let price = string_of_int (Item.get_price item) in
+        let quantity = string_of_int (Item.get_quantity item) in
+        name ^ " (Price: " ^ price ^ ", Quantity: " ^ quantity ^ ")"
+      in
+      print_endline
+        ("Bag now contains: " ^ String.concat "," (List.map item_to_string bag))
+  | _ -> failwith "Invalid input"
+
+let () =
+  print_endline "\n\nWelcome to Grocery. \n";
+  print_endline "1. Create new item 2. Change item price";
+  print_endline "\nPlease enter your choice of 1 or 2\n";
+  match read_line () with
+  | "1" -> create_item_add_to_bag ()
+  | "2" -> change_price ()
+  | _ -> failwith "Invalid input"

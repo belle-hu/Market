@@ -1,23 +1,26 @@
+open Items
+
 module type SampleGoodsType = sig
-  type 'a t
+  type t
   (**Type representing the data in the bag*)
 
-  val to_list : 'a t -> 'a list
+  val to_list : t -> Item.t list
   (**Convert a sampleable bag to a list of items*)
 
-  val of_list : 'a list -> 'a t
+  val of_list : Item.t list -> t
   (**Convert a list of items into a sampleable bag*)
 
-  val join : 'a t -> 'a t -> 'a t
+  val join : t -> t -> t
   (**Join two bags together*)
 
-  val sample : 'a t -> 'a option
+  val sample : t -> Item.t option
   (**Draw an item from the sampleable bag. Return [None] if bag is empty*)
 
-  val count_elems : 'a t -> int
+  val count_elems : t -> int
   (**Counts number of items in a bag*)
 end
 
-module BagOfGoods: SampleGoodsType
-module FrequencyPriceGoods : SampleGoodsType
+module BagOfGoods : SampleGoodsType
+
+(*module FrequencyPriceGoods : SampleGoodsType*)
 (**type 'a t = (float * int * 'a) list, corresponds to price, quantity, item*)
