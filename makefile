@@ -26,8 +26,8 @@ finalcheck:
 	@bash check.sh final
 
 zip:
-	rm -f ngrams.zip
-	zip -r ngrams.zip . -x@exclude.lst
+	rm -f grocery.zip
+	zip -r grocery.zip . -x@exclude.lst
 
 clean:
 	dune clean
