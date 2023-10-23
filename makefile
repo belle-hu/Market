@@ -26,8 +26,8 @@ finalcheck:
 	@bash check.sh final
 
 zip:
-	rm -f grocery.zip
-	zip -r grocery.zip . -x@exclude.lst
+	rm -f ms2_code.zip
+	zip -r ms2_code.zip . -x@exclude.lst
 
 clean:
 	dune clean

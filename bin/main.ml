@@ -6,9 +6,10 @@ open Bagofgoods
 open Expenditure
 
 let create_item () =
-  print_endline "\n\nWelcome to Grocery. \n";
   print_endline
-    "Please enter the name, price, and quantity of the item you want to create:";
+    "Please enter the name, price, and quantity of the item you want to create \
+     in the format of \"[name] [price] [quantity]\" (eg. \"apple 1 2\")\n\
+    \ (Price and quantity should be integers.):";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; pri; quan ] ->
       let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in
@@ -20,10 +21,14 @@ let create_item () =
   | _ -> failwith "Invalid input"
 
 let change_price () =
-  print_endline "\n\nWelcome to Grocery. \n";
   print_endline
-    "Please enter the name, price, quantity, and new_price of the item you \
-     want to create:";
+    "\n\
+     Please enter the name, price, quantity, and the price_change of the item \
+     you want to create in the format of \"[name] [price] [quantity] \
+     [price_change]\" (eg. \"apple 1 2 3\")\n\
+    \ (Price, quantity, and price_change should all be integers.\n\
+    \ Price_change can be a positive or negative integer, and the new price of \
+     the item will be [price + price_change]):";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; pri; quan; new_price ] ->
       let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in
@@ -45,9 +50,11 @@ let item_to_string (item : Item.t) : string =
   name ^ " (Price: " ^ price ^ ", Quantity: " ^ quantity ^ ")"
 
 let create_item_add_to_bag () =
-  print_endline "\n\nWelcome to Grocery. \n";
   print_endline
-    "Please enter the name, price, and quantity of the item you want to create:";
+    "\n\
+     Please enter the name, price, and quantity of the item you want to create \
+     in the format of \"[name] [price] [quantity]\" (eg. \"apple 1 2\")\n\
+    \ (Price and quantity should be integers):";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; pri; quan ] ->
       let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in

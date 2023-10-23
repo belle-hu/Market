@@ -62,9 +62,8 @@ dune exec bin/main.exe
 
         1
 
-        Welcome to Grocery. 
-
-        Please enter the name, price, and quantity of the item you want to create:
+        Please enter the name, price, and quantity of the item you want to create in the format of "[name] [price] [quantity]" (eg. "apple 1 2")
+         (Price and quantity should be integers):
         "apples" 1 5 
         Successfully created item: "apples" with price: 1 and quantity: 5
         Bag now contains: "apples" (Price: 1, Quantity: 5)
@@ -77,11 +76,11 @@ dune exec bin/main.exe
 
         Please enter your choice of 1 or 2
 
-        2
+        2 
 
-        Welcome to Grocery. 
-
-        Please enter the name, price, quantity, and new_price of the item you want to create:
+        Please enter the name, price, quantity, and the price_change of the item you want to create in the format of "[name] [price] [quantity] [price_change]" (eg. "apple 1 2 3")
+         (Price, quantity, and price_change should all be integers.
+         Price_change can be a positive or negative integer, and the new price of the item will be [price + price_change]):
         "apples" 1 5 3
         Successfully changed item: "apples" with price: 4 and quantity: 5
 
