@@ -74,7 +74,18 @@ let create_item_add_to_bag () =
         ("Bag now contains: " ^ String.concat "," (List.map item_to_string bag))
   | _ -> failwith "Invalid input"
 
-let () =
+let welcome_msg () =
+  print_endline "\n\nWelcome to your new grocery store! \n";
+  print_endline "What would you like to name your store?\n";
+  let x = read_line () in
+  let _ = print_endline ("\nWelcome to " ^ x ^ "!") in
+  let _ =
+    print_endline "\nPlease provide a brief description of your store.\n"
+  in
+  let y = read_line () in
+  print_endline ("Congrats on opening your new store, " ^ x ^ ": " ^ y ^ "\n")
+
+let dont_use () =
   print_endline "\n\nWelcome to your new grocery store! \n";
   print_endline "What would you like to name your store?\n";
   match read_line () with
@@ -86,3 +97,14 @@ let () =
       | "1" -> create_item_add_to_bag ()
       | "2" -> change_price ()
       | _ -> failwith "Invalid input")
+
+let () =
+  welcome_msg ();
+  print_endline
+    "Your store can do several things!\n\
+    \ 1. Create new item 2. Change item price";
+  print_endline "\nPlease enter your choice of 1 or 2\n";
+  match read_line () with
+  | "1" -> create_item_add_to_bag ()
+  | "2" -> change_price ()
+  | _ -> failwith "Invalid input"
