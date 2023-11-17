@@ -75,10 +75,14 @@ let create_item_add_to_bag () =
   | _ -> failwith "Invalid input"
 
 let () =
-  print_endline "\n\nWelcome to Grocery. \n";
-  print_endline "1. Create new item 2. Change item price";
-  print_endline "\nPlease enter your choice of 1 or 2\n";
+  print_endline "\n\nWelcome to your new grocery store! \n";
+  print_endline "What would you like to name your store?\n";
   match read_line () with
-  | "1" -> create_item_add_to_bag ()
-  | "2" -> change_price ()
-  | _ -> failwith "Invalid input"
+  | x -> (
+      print_endline ("Welcome to " ^ x ^ "!");
+      print_endline "1. Create new item 2. Change item price";
+      print_endline "\nPlease enter your choice of 1 or 2\n";
+      match read_line () with
+      | "1" -> create_item_add_to_bag ()
+      | "2" -> change_price ()
+      | _ -> failwith "Invalid input")
