@@ -4,6 +4,7 @@ open Grocery
 (*open Chat open Ngrams open Model open Bag *)
 open Store
 open Bagofgoods
+open Items
 
 (********************************************************************
    Here are some helper functions for your testing of bag-like lists.
@@ -51,8 +52,12 @@ let cmp_demo =
 (********************************************************************
    End helper functions.
  ********************************************************************)
+
+let item_create_test out in1 in2 in3 _ = assert_equal out Item.(create in1 in2 in3|> to_string)
+
  let items_tests = [
   (**create tests*)
+  "Item create: apple 1 2">:: item_create_test "" "apple" 1 2;
   (**get_name tests*)
   (**get_price tests*)
   (**get_quantity tests*)

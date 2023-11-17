@@ -22,6 +22,11 @@ module type ItemType = sig
   val change_quantity : t -> int -> t
   (**Adding the provided change of quantity to the quantity of the item. (The
      change can be positive or negative.) *)
+
+  val to_string : t -> string
+  (**Return the information of an item in a string. For example, an item named
+     apple with price 1 and quantity 2 is represented as "apple (Price: 1,
+     Quantity: 2)"*)
 end
 
 module Item : ItemType

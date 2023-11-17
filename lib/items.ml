@@ -8,6 +8,7 @@ module type ItemType = sig
   val get_quantity : t -> int
   val change_price : t -> int -> t
   val change_quantity : t -> int -> t
+  val to_string : t -> string
 end
 
 (** A single item that has name, price, and quantity. *)
@@ -30,4 +31,10 @@ module Item : ItemType = struct
 
   let change_quantity (i : t) (q : int) =
     { name = i.name; price = i.price; quantity = i.quantity + q }
+
+  let to_string (i : t) =
+    let name = get_name i in
+    let price = string_of_int (get_price i) in
+    let quantity = string_of_int (get_quantity i) in
+    name ^ " (Price: " ^ price ^ ", Quantity: " ^ quantity ^ ")"
 end
