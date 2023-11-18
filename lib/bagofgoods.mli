@@ -22,5 +22,6 @@ end
 
 module BagOfGoods : SampleGoodsType
 
-(*module FrequencyPriceGoods : SampleGoodsType*)
+module FrequencyBagGoods : SampleGoodsType
 (**type 'a t = (float * int * 'a) list, corresponds to price, quantity, item*)
+(*module FrequencyPriceGoods : SampleGoodsType*)
