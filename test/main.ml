@@ -53,28 +53,37 @@ let cmp_demo =
    End helper functions.
  ********************************************************************)
 
-let item_create_test out in1 in2 in3 _ = assert_equal out Item.(create in1 in2 in3|> to_string)
+let item_create_test out in1 in2 in3 _ =
+  assert_equal out Item.(create in1 in2 in3 |> to_string)
 
- let items_tests = [
-  (**create tests*)
-  "Item create: apple 1 2">:: item_create_test "" "apple" 1 2;
-  (**get_name tests*)
-  (**get_price tests*)
-  (**get_quantity tests*)
-  (**change_price tests*)
-  (**change_quantity tests*)
-]
-let bagofgoods_tests = [
-  (**to_list tests*)
-  (**of_list tests*)
-  (**sample tests*)
-  (**count_elems tests*)
-]
+(* helper functions to factor out code*)
+let item_test msg out in1 =
+  msg >:: fun _ -> assert_equal ~printer:(fun s -> s) out in1
+
+let items_tests =
+  [
+    (*create tests*)
+    item_test "Create item: apple w/ price 1 & quantity 2"
+      "{name = apple; price = 1; quantity = 2}"
+      (Item.create "apple" 1 2 |> Item.to_string);
+    (*get_name tests*)
+    (*get_price tests*)
+    (*get_quantity tests*)
+    (*change_price tests*)
+    (*change_quantity tests*)
+  ]
+
+let bagofgoods_tests =
+  [ (*to_list tests*)
+    (*of_list tests*)
+    (*sample tests*)
+    (*count_elems tests*) ]
+
 let store_tests = []
 let ngram_tests = []
 
 let suite =
   "test suite for A2"
-  >::: List.flatten [ cmp_demo; items_tests; bagofgoods_tests; store_tests]
+  >::: List.flatten [ cmp_demo; items_tests; bagofgoods_tests; store_tests ]
 
 let () = run_test_tt_main suite

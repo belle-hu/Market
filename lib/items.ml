@@ -36,5 +36,6 @@ module Item : ItemType = struct
     let name = get_name i in
     let price = string_of_int (get_price i) in
     let quantity = string_of_int (get_quantity i) in
-    name ^ " (Price: " ^ price ^ ", Quantity: " ^ quantity ^ ")"
+    "{name = " ^ name ^ "; " ^ "price = " ^ price ^ "; quantity = " ^ quantity
+    ^ "}"
 end
