@@ -5,6 +5,7 @@ open Items
 module type SampleGoodsType = sig
   type t
 
+  val empty : t
   val to_list : t -> Item.t list
   val of_list : Item.t list -> t
   val join : t -> t -> t
@@ -17,6 +18,7 @@ end
 module BagOfGoods : SampleGoodsType = struct
   type t = Item.t list
 
+  let empty = []
   let to_list (b : t) : Item.t list = b
   let of_list (lst : Item.t list) : t = lst
   let join (b1 : t) (b2 : t) : t = b1 @ b2
@@ -44,6 +46,8 @@ module FrequencyBagGoods : SampleGoodsType = struct
   }
 
   type t = freq_record list
+
+  let empty = []
 
   let rec to_list (b : t) : Item.t list =
     match b with

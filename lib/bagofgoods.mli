@@ -4,6 +4,9 @@ module type SampleGoodsType = sig
   type t
   (**Type representing the data in the bag*)
 
+  val empty : t
+  (**An empty bag*)
+
   val to_list : t -> Item.t list
   (**Convert a sampleable bag to a list of items*)
 
