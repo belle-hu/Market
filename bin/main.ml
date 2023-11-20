@@ -1,5 +1,4 @@
 open Grocery
-
 open Store
 open Items
 open Bagofgoods
@@ -10,34 +9,33 @@ let bag = ref FrequencyBagGoods.empty
 
 (**Choice 2*)
 
-(*Helper method: 
-   [update_bag bg item_name quan price] searches through a Bag of goods [bg]
-   for an item with the same [item_name] and updates price and/or quantity accordingly. 
-   If the same item exists, we return an updated item 
-  with a quantity [quan] and new price [price + item's old price]. 
-  If the item doesn't already exist, we'll return a new item instead. *)
-let rec search_bag bg item_name quan price_change= 
-  match (FrequencyBagGoods.to_list) bg with 
-  | [] ->  Item.create item_name quan price_change  
-  | h::t -> if Item.get_name h == item_name 
-    then let p_change = Item.change_price h price_change
-  in Item.change_quantity p_change quan else 
-    search_bag (FrequencyBagGoods.of_list t) item_name quan price_change
-
+(*Helper method: [update_bag bg item_name quan price] searches through a Bag of
+  goods [bg] for an item with the same [item_name] and updates price and/or
+  quantity accordingly. If the same item exists, we return an updated item with
+  a quantity [quan] and new price [price + item's old price]. If the item
+  doesn't already exist, we'll return a new item instead. *)
+let rec search_bag bg item_name quan price_change =
+  match FrequencyBagGoods.to_list bg with
+  | [] -> Item.create item_name quan price_change
+  | h :: t ->
+      if Item.get_name h == item_name then
+        let p_change = Item.change_price h price_change in
+        Item.change_quantity p_change quan
+      else search_bag (FrequencyBagGoods.of_list t) item_name quan price_change
 
 let change_price () =
   print_endline
     "\n\
-     Please enter the name, price, and the price_change of the item \
-     you want to create in the format of \"[name] [quantity] \
-     [new_price]\" (eg. \"apple 2 3\")\n\
-    \ (Quantity and new_price should all be positive integers.)\n\
-    ";
+     Please enter the name, quantity, and the new_price of the item you want \
+     to create in the format of \"[name] [quantity] [new_price]\" (eg. \"apple \
+     2 3\")\n\
+    \ (Quantity and new_price should all be positive integers.)\n";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; quan; new_price ] ->
-      let updated_item = search_bag (!bag) nam (int_of_string quan) (int_of_string new_price)
+      let updated_item =
+        search_bag !bag nam (int_of_string quan) (int_of_string new_price)
       in
-      bag := FrequencyBagGoods.(join !bag (of_list [ updated_item ]));
+      (bag := FrequencyBagGoods.(join !bag (of_list [ updated_item ])));
       print_endline
         ("Successfully changed item: " ^ Item.get_name updated_item
        ^ " with price: "
