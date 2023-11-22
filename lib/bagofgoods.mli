@@ -16,6 +16,9 @@ module type SampleGoodsType = sig
   val join : t -> t -> t
   (**Join two bags together*)
 
+  val join_many : t list -> t
+  (**Join a list of bags together into one bag*)
+
   val sample : t -> Item.t option
   (**Draw an item from the sampleable bag. Return [None] if bag is empty*)
 

@@ -9,6 +9,7 @@ module type SampleGoodsType = sig
   val to_list : t -> Item.t list
   val of_list : Item.t list -> t
   val join : t -> t -> t
+  val join_many : t list -> t
   val sample : t -> Item.t option
   val count_elems : t -> int
 end
@@ -22,6 +23,7 @@ module BagOfGoods : SampleGoodsType = struct
   let to_list (b : t) : Item.t list = b
   let of_list (lst : Item.t list) : t = lst
   let join (b1 : t) (b2 : t) : t = b1 @ b2
+  let join_many (lst : t list) : t = failwith "unimplemented"
 
   let sample (b : t) : Item.t option =
     List.nth_opt b (Random.int (List.length b))
@@ -92,6 +94,8 @@ module FrequencyBagGoods : SampleGoodsType = struct
         let combine_rec1 = join t b2 in
         let combined_all = update_freq combine_rec1 rec1.element rec1.freq in
         List.sort compare_record combined_all
+
+  let join_many (lst : t list) : t = failwith "unimplemented"
 
   let sample (b : t) : Item.t option =
     match b with
