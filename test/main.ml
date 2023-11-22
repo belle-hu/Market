@@ -161,6 +161,81 @@ let items_tests =
       Item.(change_price (change_quantity item1 5) 3);
   ]
 
+(** Regular Bag of Goods Tests*)
+let items1 = Item.create "cake" 1 2
+
+let items1more = Item.create "cake" 5 4
+let items1lots = Item.create "cake" 1 6
+let items2 = Item.create "cookie" 1 3
+let items3 = Item.create "pie" 5 1
+let empty_bag = BagOfGoods.of_list []
+let items_lst = [ items1; items2; items3 ]
+let items_bag = BagOfGoods.of_list items_lst
+let items1_lst = [ items1 ]
+let items1_bag = BagOfGoods.of_list items1_lst
+
+let bag_to_list_test msg out in1 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out in1
+
+let bag_of_list_test msg out in1 =
+  msg >:: fun _ -> assert_equal ~printer:(pp_list Item.to_string) out in1
+
+let bag_join_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list (BagOfGoods.join in1 in2))
+
+let bag_count_test msg out in1 =
+  msg >:: fun _ -> assert_equal out (BagOfGoods.count_elems in1)
+
+let trial_item1 = Item.create "hello" 1000 10000
+let trial_item2 = Item.create "hi" 500000 5000000
+let trial_items_lst = [ trial_item1; trial_item2 ]
+let trial_items_bag = BagOfGoods.of_list trial_items_lst
+
+(*Frequency Bag Tests*)
+let bagofgoods_tests =
+  [
+    (*to_list tests*)
+    bag_to_list_test "to_list empty" [] (BagOfGoods.to_list empty_bag);
+    bag_to_list_test "to_list 1 item" items1_lst (BagOfGoods.to_list items1_bag);
+    bag_to_list_test "to_list 3 items" items_lst (BagOfGoods.to_list items_bag);
+    bag_to_list_test "to_list trial"
+      [ Item.create "hello" 5000 5000; Item.create "hi" 50000 500000 ]
+      (BagOfGoods.to_list
+         (BagOfGoods.of_list
+            [ Item.create "hello" 5000 5000; Item.create "hi" 50000 500000 ]));
+    bag_to_list_test "to_list trial pt2" trial_items_lst
+      (BagOfGoods.to_list trial_items_bag);
+    (*of_list tests*)
+    bag_of_list_test "of_list empty" [] [];
+    bag_of_list_test "of_list 1 item" [ items1 ]
+      (BagOfGoods.of_list items1_lst |> BagOfGoods.to_list);
+    bag_of_list_test "of_list 3 items pt1" [ items1; items2; items3 ]
+      (BagOfGoods.of_list items_lst |> BagOfGoods.to_list);
+    bag_of_list_test "of_list 3 items pt2" items_lst
+      (BagOfGoods.of_list items_lst |> BagOfGoods.to_list);
+    bag_of_list_test "of_list trial pt1"
+      [ Item.create "hello" 5000 5000; Item.create "hi" 50000 500000 ]
+      (BagOfGoods.of_list
+         [ Item.create "hello" 5000 5000; Item.create "hi" 50000 500000 ]
+      |> BagOfGoods.to_list);
+    bag_of_list_test "of_list trial pt2" trial_items_lst
+      (BagOfGoods.of_list trial_items_lst |> BagOfGoods.to_list);
+    bag_of_list_test "of_list trial pt3" trial_items_lst
+      (BagOfGoods.to_list (BagOfGoods.of_list trial_items_lst));
+    (*join tests*)
+    bag_join_test "join both empty" [] empty_bag empty_bag;
+    bag_join_test "join 1 empty pt1" items1_lst empty_bag items1_bag;
+    bag_join_test "join 1 empty pt2" items1_lst items1_bag empty_bag;
+    bag_join_test "join 1 empty pt3" items_lst empty_bag items_bag;
+    bag_join_test "join 1 empty pt4" items_lst items_bag empty_bag;
+    (*bag_join_test "join both unempty" items1_lst  *)
+    (*count_elems tests*)
+    bag_count_test "count empty" 0 empty_bag;
+  ]
+
 let freqbag_oflist_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(pp_list Item.to_string) out in1
 
@@ -199,7 +274,7 @@ let mixed_bag =
       grapes_item;
     ]
 
-let bagofgoods_tests =
+let fbagofgoods_tests =
   [
     (*of_list tests*)
     freqbag_oflist_test "freqbag of_list 3 distinct items"
@@ -253,6 +328,13 @@ let ngram_tests = []
 
 let suite =
   "test suite for Grocery"
-  >::: List.flatten [ cmp_demo; items_tests; bagofgoods_tests; store_tests ]
+  >::: List.flatten
+         [
+           cmp_demo;
+           items_tests;
+           bagofgoods_tests;
+           fbagofgoods_tests;
+           store_tests;
+         ]
 
 let () = run_test_tt_main suite
