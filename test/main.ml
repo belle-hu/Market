@@ -169,6 +169,7 @@ let items1lots = Item.create "cake" 1 6
 let items2 = Item.create "cookie" 1 3
 let items2_bag = BagOfGoods.of_list [ items2 ]
 let items3 = Item.create "pie" 5 1
+let items3_bag = BagOfGoods.of_list [ items3 ]
 let items4 = Item.create "milk" 4 2
 let items4_bag = BagOfGoods.of_list [ items4 ]
 let empty_bag = BagOfGoods.of_list []
@@ -197,6 +198,11 @@ let bag_join_test msg out in1 in2 =
   msg >:: fun _ ->
   assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
     (BagOfGoods.to_list (BagOfGoods.join in1 in2))
+
+let bag_join_many_test msg out in1 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list (BagOfGoods.join_many in1))
 
 let bag_count_test msg out in1 =
   msg >:: fun _ -> assert_equal out (BagOfGoods.count_elems in1)
@@ -261,6 +267,43 @@ let bagofgoods_tests =
     bag_join_test "join both unempty pt3" itemsmore_lst items_bag items4_bag;
     bag_join_test "join both unempty pt4" itemsmore_lst items_half1_bag
       items_half2_bag;
+    (*join_many tests*)
+    bag_join_many_test "join_many empty" [] [ empty_bag ];
+    bag_join_many_test "join_many 1 empty pt1" items1_lst
+      [ empty_bag; items1_bag ];
+    bag_join_many_test "join_many 1 empty pt2" items1_lst
+      [ items1_bag; empty_bag ];
+    bag_join_many_test "join_many 3 pt1" items_lst
+      [ items1_bag; items2_bag; items3_bag ];
+    bag_join_many_test "join_many 3 pt2" items_lst
+      [ empty_bag; items1_bag; items2_bag; items3_bag ];
+    bag_join_many_test "join_many 3 pt3" items_lst
+      [ items3_bag; items1_bag; empty_bag; items2_bag ];
+    bag_join_many_test "join_many 3 pt4" items_lst
+      [
+        empty_bag;
+        items1_bag;
+        items2_bag;
+        items3_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+        empty_bag;
+      ];
+    bag_join_many_test "join_many 4 pt1" itemsmore_lst
+      [ items_half1_bag; items_half2_bag ];
+    bag_join_many_test "join_many 4 pt2" itemsmore_lst
+      [ items_half2_bag; items_half1_bag ];
+    bag_join_many_test "join_many 4 pt3" itemsmore_lst
+      [ items1_bag; items2_bag; items3_bag; items4_bag ];
+    bag_join_many_test "join_many 4 pt4" itemsmore_lst
+      [ items4_bag; items2_bag; items1_bag; items3_bag ];
     (*count_elems tests*)
     bag_count_test "count empty" 0 empty_bag;
     bag_count_test "count 1 pt1" 1 items1_bag;

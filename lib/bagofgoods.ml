@@ -23,7 +23,7 @@ module BagOfGoods : SampleGoodsType = struct
   let to_list (b : t) : Item.t list = b
   let of_list (lst : Item.t list) : t = lst
   let join (b1 : t) (b2 : t) : t = b1 @ b2
-  let join_many (lst : t list) : t = failwith "unimplemented"
+  let join_many (lst : t list) : t = List.fold_left join empty lst
 
   let sample (b : t) : Item.t option =
     List.nth_opt b (Random.int (List.length b))
