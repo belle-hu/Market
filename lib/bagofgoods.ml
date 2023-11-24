@@ -91,14 +91,8 @@ module FrequencyBagGoods : SampleGoodsType = struct
   let rec update_freq lst elt frq =
     match lst with
     | [] -> [ { element = elt; freq = frq } ]
-    | rec1 :: t
-      when Item.get_name rec1.element = Item.get_name elt
-           && Item.get_price rec1.element = Item.get_price elt ->
-        {
-          element = Item.change_quantity rec1.element frq;
-          freq = rec1.freq + frq;
-        }
-        :: t
+    | rec1 :: t when Item.get_name rec1.element = Item.get_name elt ->
+        { element = elt; freq = rec1.freq + frq } :: t
     | rec1 :: t -> rec1 :: update_freq t elt frq
 
   (** Compares 2 records and returns 0 if they are the same frequency, a

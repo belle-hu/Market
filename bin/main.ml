@@ -27,8 +27,8 @@ let change_price () =
   print_endline
     "\n\
      Please enter the name and the price_change of the item you want to change \
-     in the format of \"[name] [price_change]\" (eg. \"apple 2 3\"). The new \
-     price of the item will be original price + price_change. \n\
+     in the format of \"[name] [price_change]\" (eg. \"apple 2 3\"). \n\
+    \ The new price of the item will be original price + price_change. \n\
     \ (Requirements: 1. new_price should be an integer. It can be negative. \n\
     \ 2. The name of the item you enter should already be created.)\n";
   match String.split_on_char ' ' (read_line ()) with
@@ -44,8 +44,8 @@ let change_quantity () =
   print_endline
     "\n\
      Please enter the name and the quntity_change of the item you want to \
-     change in the format of \"[name] [price_change]\" (eg. \"apple 2 3\"). \
-     The new quantity of the item will be original quantity + quantity_change. \n\
+     change in the format of \"[name] [price_change]\" (eg. \"apple 2 3\"). \n\
+    \ The new quantity of the item will be original quantity + quantity_change. \n\
     \ (Requirements: 1. new_quantity should be an integer. It can be negative. \n\
     \ 2. The name of the item you enter should already be created.)\n";
   match String.split_on_char ' ' (read_line ()) with
@@ -118,9 +118,9 @@ let rec work () =
     "****************************************************************";
   print_endline
     "Your store can do several things!\n\
-    \ 1. Create new item 2. Change item price 3. change item quantity 4. Show \
+    \ 1. Create new item 2. Change item price 3. Change item quantity 4. Show \
      all items in the store 5. Quit";
-  print_endline "\nPlease enter your choice of 1, 2, 3, or 4\n";
+  print_endline "\nPlease enter your choice of 1, 2, 3, 4, or 5\n";
   match read_line () with
   | "1" ->
       create_item_add_to_bag ();
