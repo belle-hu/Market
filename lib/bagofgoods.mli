@@ -24,6 +24,14 @@ module type SampleGoodsType = sig
 
   val count_elems : t -> int
   (**Counts number of items in a bag*)
+
+  val update_price : t -> string -> int -> t
+  (**Update the price of the provided item in the bag. Requires: The item
+     required to update should be already in the bag*)
+
+  val update_quantity : t -> string -> int -> t
+  (**Update the quantity of the provided item in the bag. Requires: The item
+     required to update should be already in the bag*)
 end
 
 module BagOfGoods : SampleGoodsType

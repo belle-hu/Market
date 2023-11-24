@@ -207,6 +207,16 @@ let bag_join_many_test msg out in1 =
 let bag_count_test msg out in1 =
   msg >:: fun _ -> assert_equal out (BagOfGoods.count_elems in1)
 
+let bag_update_price_test msg out in1 in2 in3 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    BagOfGoods.(update_price in1 in2 in3 |> to_list)
+
+let bag_update_quantity_test msg out in1 in2 in3 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    BagOfGoods.(update_quantity in1 in2 in3 |> to_list)
+
 let trial_item1 = Item.create "hello" 1000 10000
 let trial_item2 = Item.create "hi" 500000 5000000
 let trial_items_lst = [ trial_item1; trial_item2 ]
@@ -317,6 +327,24 @@ let bagofgoods_tests =
     bag_count_test "count 4 pt1" 4 itemsmore_bag;
     bag_count_test "count 4 pt2" 4
       (BagOfGoods.join items_half1_bag items_half2_bag);
+    bag_update_price_test "update_price: items1_bag"
+      [ Item.create "cake" 3 2 ]
+      items1_bag "cake" 2;
+    bag_update_price_test "update_price: items_half1_bag"
+      [ items1; Item.create "cookie" 6 3 ]
+      items_half1_bag "cookie" 5;
+    bag_update_price_test "update_price: itemsmore_bag"
+      [ items1; items2; items4; Item.create "pie" 3 1 ]
+      itemsmore_bag "pie" ~-2;
+    bag_update_quantity_test "update_quantity: items2_bag"
+      [ Item.create "cookie" 1 2 ]
+      items2_bag "cookie" ~-1;
+    bag_update_quantity_test "update_quantity: items_half2_bag"
+      [ items4; Item.create "pie" 5 3 ]
+      items_half2_bag "pie" 2;
+    bag_update_quantity_test "update_quantity: itemsmore_bag"
+      [ Item.create "milk" 4 6 ]
+      itemsmore_bag "milk" 4;
   ]
 
 let freqbag_oflist_test msg out in1 =
@@ -329,6 +357,16 @@ let freqbag_sample_test msg out in1 = msg >:: fun _ -> assert_equal out in1
 
 let freqbag_count_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:string_of_int out in1
+
+let freqbag_update_price_test msg out in1 in2 in3 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    FrequencyBagGoods.(update_price in1 in2 in3 |> to_list)
+
+let freqbag_update_quantity_test msg out in1 in2 in3 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    FrequencyBagGoods.(update_quantity in1 in2 in3 |> to_list)
 
 let apple_item = Item.create "apple" 1 2
 let apple_item_expensive = Item.create "apple" 5 4
@@ -404,6 +442,10 @@ let fbagofgoods_tests =
       (FrequencyBagGoods.count_elems apple_bag);
     freqbag_sample_test "freqbag count on diff_apple_bag" 6
       (FrequencyBagGoods.count_elems diff_apple_bag);
+    (*freqbag_update_price_test "freqbag update_price: fruits_bag" [ Item.create
+      "orange" 4 3; apple_item; grapes_item ] fruits_bag "orange" 2;
+      freqbag_update_price_test "update_price: big_apple_bag" [ Item.create
+      "apple" 6 6 ] big_apple_bag "apple" 5;*)
   ]
 
 let store_tests = []

@@ -26,22 +26,36 @@ let rec search_bag bg item_name quan price_change =
 let change_price () =
   print_endline
     "\n\
-     Please enter the name, quantity, and the new_price of the item you want \
-     to create in the format of \"[name] [quantity] [new_price]\" (eg. \"apple \
-     2 3\")\n\
-    \ (Quantity and new_price should all be positive integers.)\n";
+     Please enter the name and the price_change of the item you want to change \
+     in the format of \"[name] [price_change]\" (eg. \"apple 2 3\"). The new \
+     price of the item will be original price + price_change. \n\
+    \ (Requirements: 1. new_price should be an integer. It can be negative. \n\
+    \ 2. The name of the item you enter should already be created.)\n";
   match String.split_on_char ' ' (read_line ()) with
-  | [ nam; quan; new_price ] ->
-      let updated_item =
-        search_bag !bag nam (int_of_string quan) (int_of_string new_price)
-      in
-      (bag := FrequencyBagGoods.(join !bag (of_list [ updated_item ])));
+  | [ nam; price_change ] ->
+      (bag :=
+         FrequencyBagGoods.(update_price !bag nam (int_of_string price_change)));
       print_endline
-        ("Successfully changed item: " ^ Item.get_name updated_item
-       ^ " with price: "
-        ^ string_of_int (Item.get_price updated_item)
-        ^ " and quantity: "
-        ^ string_of_int (Item.get_quantity updated_item))
+        ("Successfully changed item: " ^ nam ^ " with price_change: "
+       ^ price_change)
+  | _ -> failwith "Invalid input"
+
+let change_quantity () =
+  print_endline
+    "\n\
+     Please enter the name and the quntity_change of the item you want to \
+     change in the format of \"[name] [price_change]\" (eg. \"apple 2 3\"). \
+     The new quantity of the item will be original quantity + quantity_change. \n\
+    \ (Requirements: 1. new_quantity should be an integer. It can be negative. \n\
+    \ 2. The name of the item you enter should already be created.)\n";
+  match String.split_on_char ' ' (read_line ()) with
+  | [ nam; quantity_change ] ->
+      (bag :=
+         FrequencyBagGoods.(
+           update_quantity !bag nam (int_of_string quantity_change)));
+      print_endline
+        ("Successfully changed item: " ^ nam ^ " with quantity_change: "
+       ^ quantity_change)
   | _ -> failwith "Invalid input"
 
 (**Helper method: converts all the information in an item into a single string*)
@@ -104,8 +118,8 @@ let rec work () =
     "****************************************************************";
   print_endline
     "Your store can do several things!\n\
-    \ 1. Create new item 2. Change item price 3. Show all items in the store \
-     4. Quit";
+    \ 1. Create new item 2. Change item price 3. change item quantity 4. Show \
+     all items in the store 5. Quit";
   print_endline "\nPlease enter your choice of 1, 2, 3, or 4\n";
   match read_line () with
   | "1" ->
@@ -114,13 +128,16 @@ let rec work () =
   | "2" ->
       change_price ();
       work ()
-  | "3" ->
+  | "4" ->
       print_endline
         ("Bag now contains: "
         ^ String.concat ","
             (List.map Item.to_string (FrequencyBagGoods.to_list !bag)));
       work ()
-  | "4" ->
+  | "3" ->
+      change_quantity ();
+      work ()
+  | "5" ->
       print_endline "Thank you for using our grocery system! Bye!";
       ()
   | _ -> failwith "Invalid input"

@@ -12,6 +12,8 @@ module type SampleGoodsType = sig
   val join_many : t list -> t
   val sample : t -> Item.t option
   val count_elems : t -> int
+  val update_price : t -> string -> int -> t
+  val update_quantity : t -> string -> int -> t
 end
 
 (** Sampleable bag such that sample returns elements with probability
@@ -37,6 +39,33 @@ module BagOfGoods : SampleGoodsType = struct
     count_elements_acc b 0
 
   let count_elems (b : t) : int = List.length b
+
+  let update_price (b : t) (nam : string) (pri : int) : t =
+    let rec update_p_helper bg na pr =
+      match to_list bg with
+      | [] -> b
+      | h :: t ->
+          if Item.get_name h = nam then
+            let update_item = Item.change_price h pri in
+            join [ update_item ]
+              (List.filter
+                 (fun ele -> if Item.get_name ele = nam then false else true)
+                 b)
+          else update_p_helper t nam pri
+    in
+    update_p_helper b nam pri
+
+  let rec update_quantity (b : t) (nam : string) (quan : int) : t =
+    match to_list b with
+    | [] -> b
+    | h :: t ->
+        if Item.get_name h = nam then
+          let update_item = Item.change_quantity h quan in
+          join [ update_item ]
+            (List.filter
+               (fun ele -> if Item.get_name ele = nam then false else true)
+               b)
+        else update_quantity (of_list t) nam quan
 end
 
 (** Sampleable bag such that sample always returns the element of highest
@@ -106,4 +135,28 @@ module FrequencyBagGoods : SampleGoodsType = struct
     List.fold_left
       (fun sum record -> Item.get_quantity record.element + sum)
       0 b
+
+  let rec update_price (b : t) (nam : string) (pri : int) : t =
+    let rec update_p_helper bg na pr =
+      match to_list bg with
+      | [] -> b
+      | h :: t ->
+          if Item.get_name h = nam then
+            let update_item = Item.change_price h pri in
+            join (of_list [ update_item ]) b
+          else update_p_helper (of_list t) nam pri
+    in
+    update_p_helper b nam pri
+
+  let rec update_quantity (b : t) (nam : string) (quan : int) : t =
+    let rec update_p_helper bg na qu =
+      match to_list bg with
+      | [] -> b
+      | h :: t ->
+          if Item.get_name h = nam then
+            let update_item = Item.change_quantity h qu in
+            join (of_list [ update_item ]) b
+          else update_p_helper (of_list t) nam qu
+    in
+    update_p_helper b nam quan
 end
