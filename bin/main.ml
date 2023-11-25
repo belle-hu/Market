@@ -49,7 +49,7 @@ let change_quantity () =
     \ (Requirements: 1. new_quantity should be an integer. It can be negative. \n\
     \ 2. The name of the item you enter should already be created.)\n";
   match String.split_on_char ' ' (read_line ()) with
-  | [ nam; quantity_change ] ->
+  | [ nam; quantity_change ] -> 
       (bag :=
          FrequencyBagGoods.(
            update_quantity !bag nam (int_of_string quantity_change)));
