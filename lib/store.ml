@@ -5,25 +5,22 @@
     val count_products: 'a t -> int 
     val all_products: 'a t -> 'a t  
     val sell_goods: int -> 'a -> 'a t -> 'a t 
-     val popular_goods: 'a t -> 'a t 
-    val in_stock_goods: 'a t -> 'a t 
-    val out_of_stock_goods: 'a t
     val popular_goods: int -> 'a t -> 'a t
-    end 
- 
+    val in_stock_goods: 'a t -> 'a t
+    val of_list: BagOfGoods.t list -> 'a t 
+    val to_list: 'a t -> BagOfGoods.t list
 
-  module Store:StoreType = struct
+  end 
 
-  type 'a t = BagOfGoods.t list
+  module Store : StoreType = struct
+
+  type 'a t = BagOfGoods.t list 
 
   (**Allows user to see list of all StoreProducts in given Store [st]. Returns a
   list of StoreProducts*) 
   let all_products st = st
 
-  (**Keep a list that tracks out_of_stock_goods each time we sell a good*) 
-  let out_of_stock_goods = []
-
-  let to_list st = st
+  let empty = []
 (* 
   let rec count_products_aux l= 
   match l with 
@@ -51,6 +48,17 @@
       del_items (BagOfGoods.of_list t) else 
     BagOfGoods.join (BagOfGoods.of_list [h]) (del_items (BagOfGoods.of_list t))
       
+    (**Keep a list that tracks out_of_stock_goods each time we sell a good*) 
+  let out_of_stock_goods = ref []
+
+  (*Get bag of deleted items from a bag*)
+  (* let rec get_del_items bg = 
+    match (BagOfGoods.to_list bg) with 
+    | [] -> out_of_stock_goods := List.append !out_of_stock_goods []
+    | h::t -> if Item.get_quantity h <= 0 then  
+      out_of_stock_goods :=  (List.append !out_of_stock_goods [h])
+     else 
+    out_of_stock_goods := List.append !out_of_stock_goods (get_del_items (BagOfGoods.of_list t)) *)
 
   (*[store_change_quan dec item bg] sells [dec] amount of [item] in [bg]
      and returns a new bag with the updated amount of [item] *)
@@ -92,4 +100,9 @@
 
   let in_stock_goods st = st 
 
+  (*Given a list of bag of goods list, convert to a store*)
+  let rec of_list (bg_list:BagOfGoods.t list) = bg_list
+  
+
+  let to_list (bg_list:BagOfGoods.t list) = bg_list
 end 
