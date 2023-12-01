@@ -22,7 +22,6 @@ let cmp_bag_like_lists lst1 lst2 =
 (** [pp_int i] pretty-prints int [i]. *)
 let pp_int i = "\"" ^ string_of_int i ^ "\""
 
-
 (** [pp_string s] pretty-prints string [s]. *)
 let pp_string s = "\"" ^ s ^ "\""
 
@@ -221,6 +220,9 @@ let bag_update_quantity_test msg out in1 in2 in3 =
   assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
     BagOfGoods.(update_quantity in1 in2 in3 |> to_list)
 
+let bag_contains_test msg out in1 in2 =
+  msg >:: fun _ -> assert_equal out BagOfGoods.(contains in1 in2)
+
 let trial_item1 = Item.create "hello" 1000 10000
 let trial_item2 = Item.create "hi" 500000 5000000
 let trial_items_lst = [ trial_item1; trial_item2 ]
@@ -349,6 +351,17 @@ let bagofgoods_tests =
     bag_update_quantity_test "update_quantity: itemsmore_bag"
       [ Item.create "milk" 4 6 ]
       itemsmore_bag "milk" 4;
+    (*contains test*)
+    bag_contains_test "contains: false empty bag" false empty_bag "cake";
+    bag_contains_test "contains: true one item bag" true items1_bag "cake";
+    bag_contains_test "contains: true multiple item bag" true items_bag "cake";
+    bag_contains_test "contains: true multiple item bag" true items_bag "cookie";
+    bag_contains_test "contains: true multiple item bag" true items_bag "pie";
+    bag_contains_test "contains: false one item bag" false items1_bag "pie";
+    bag_contains_test "contains: false multiple item bag" false items_bag "hi";
+    bag_contains_test "contains: true multiple item bag joined" true
+      BagOfGoods.(join items_half1_bag items_half2_bag)
+      "pie";
   ]
 
 let freqbag_oflist_test msg out in1 =

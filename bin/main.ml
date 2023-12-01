@@ -49,7 +49,7 @@ let change_quantity () =
     \ (Requirements: 1. new_quantity should be an integer. It can be negative. \n\
     \ 2. The name of the item you enter should already be created.)\n";
   match String.split_on_char ' ' (read_line ()) with
-  | [ nam; quantity_change ] -> 
+  | [ nam; quantity_change ] ->
       (bag :=
          FrequencyBagGoods.(
            update_quantity !bag nam (int_of_string quantity_change)));
@@ -71,7 +71,12 @@ let create_item_add_to_bag () =
     "\n\
      Please enter the name, price, and quantity of the item you want to create \
      in the format of \"[name] [price] [quantity]\" (eg. \"apple 1 2\")\n\
-    \ (Price and quantity should be integers):";
+     Also, please note that you should not be creating a new item with the \
+     same name as an item you have already created. For example, if you \
+     previously created \"apple 1 2\", please do not create a new \"apple 5 \
+     7\". Instead, you should use the change_price or change_quantity \
+     functionalities. \n\
+    \     (Price and quantity should be integers):";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; pri; quan ] ->
       let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in

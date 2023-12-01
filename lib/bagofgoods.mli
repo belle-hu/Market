@@ -33,8 +33,8 @@ module type SampleGoodsType = sig
   (**Update the quantity of the provided item in the bag. Requires: The item
      required to update should be already in the bag*)
 
-  val to_string : t -> string 
-  (**Converts a bag of goods to string format*)
+  val contains : t -> string -> bool
+  (**Returns true if the bag contains an element*)
 end
 
 module BagOfGoods : SampleGoodsType

@@ -14,8 +14,7 @@ module type SampleGoodsType = sig
   val count_elems : t -> int
   val update_price : t -> string -> int -> t
   val update_quantity : t -> string -> int -> t
-  val to_string : t -> string 
-
+  val contains : t -> string -> bool
 end
 
 (** Sampleable bag such that sample returns elements with probability
@@ -69,11 +68,16 @@ module BagOfGoods : SampleGoodsType = struct
                b)
         else update_quantity (of_list t) nam quan
 
-  
-    let to_string_aux acc (i:Item.t) = 
-
-      Item.to_string i ^ ";" ^ acc
-    let to_string (b:t) = List.fold_left to_string_aux "" (to_list b)
+  let rec contains (b : t) (nam : string) : bool =
+    match b with
+    | [] ->
+        print_endline ("Item with name " ^ nam ^ " not found in the bag\n");
+        print_endline
+          "Please double check if you have spelled the product name correctly, \
+           and check upper/lowercase";
+        false
+    | item :: rest ->
+        if Item.get_name item = nam then true else contains rest nam
 end
 
 (** Sampleable bag such that sample always returns the element of highest
@@ -126,7 +130,14 @@ module FrequencyBagGoods : SampleGoodsType = struct
         let combined_all = update_freq combine_rec1 rec1.element rec1.freq in
         List.sort compare_record combined_all
 
-  let join_many (lst : t list) : t = failwith "unimplemented"
+  let join_many (lst : t list) : t =
+    match lst with
+    | [] -> empty
+    | [ single_bag ] -> single_bag
+    | first_bag :: rest_bags ->
+        let merged_bag = List.fold_left join first_bag rest_bags in
+        let merged_bag_as_list = to_list merged_bag in
+        of_list merged_bag_as_list
 
   let sample (b : t) : Item.t option =
     match b with
@@ -162,9 +173,14 @@ module FrequencyBagGoods : SampleGoodsType = struct
     in
     update_p_helper b nam quan
 
-    let to_string_aux acc (i:Item.t) = 
-
-      Item.to_string i ^ ";" ^ acc
-    let to_string (b:t) = List.fold_left to_string_aux "" (to_list b)
-      
+  let rec contains (b : t) (nam : string) : bool =
+    match b with
+    | [] ->
+        print_endline ("Item with name " ^ nam ^ " not found in the bag\n");
+        print_endline
+          "Please double check if you have spelled the product name correctly, \
+           and check upper/lowercase";
+        false
+    | { element; _ } :: rest ->
+        if Item.get_name element = nam then true else contains rest nam
 end
