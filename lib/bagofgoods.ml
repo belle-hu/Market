@@ -14,6 +14,8 @@ module type SampleGoodsType = sig
   val count_elems : t -> int
   val update_price : t -> string -> int -> t
   val update_quantity : t -> string -> int -> t
+  val to_string : t -> string 
+
 end
 
 (** Sampleable bag such that sample returns elements with probability
@@ -66,6 +68,12 @@ module BagOfGoods : SampleGoodsType = struct
                (fun ele -> if Item.get_name ele = nam then false else true)
                b)
         else update_quantity (of_list t) nam quan
+
+  
+    let to_string_aux acc (i:Item.t) = 
+
+      Item.to_string i ^ ";" ^ acc
+    let to_string (b:t) = List.fold_left to_string_aux "" (to_list b)
 end
 
 (** Sampleable bag such that sample always returns the element of highest
@@ -153,4 +161,10 @@ module FrequencyBagGoods : SampleGoodsType = struct
           else update_p_helper (of_list t) nam qu
     in
     update_p_helper b nam quan
+
+    let to_string_aux acc (i:Item.t) = 
+
+      Item.to_string i ^ ";" ^ acc
+    let to_string (b:t) = List.fold_left to_string_aux "" (to_list b)
+      
 end

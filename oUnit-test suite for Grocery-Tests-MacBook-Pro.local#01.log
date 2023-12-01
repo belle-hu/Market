@@ -1,0 +1,165 @@
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:0:order is irrelevant.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:0:order is irrelevant is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:0:order is irrelevant.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:3:Create item: pear w/ price 5 & quantity 90.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:3:Create item: pear w/ price 5 & quantity 90 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:3:Create item: pear w/ price 5 & quantity 90.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:6:Get the name of an item3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:6:Get the name of an item3 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:6:Get the name of an item3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:8:Get the price of an item2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:8:Get the price of an item2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:8:Get the price of an item2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:9:Get the price of an item3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:9:Get the price of an item3 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:9:Get the price of an item3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:11:Get the quantity of an item2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:11:Get the quantity of an item2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:11:Get the quantity of an item2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:15:Leave the price of an item unchanged.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:15:Leave the price of an item unchanged is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:15:Leave the price of an item unchanged.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:16:Increase the quantity of an item.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:16:Increase the quantity of an item is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:16:Increase the quantity of an item.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:19:to_list of item1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:19:to_list of item1 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:19:to_list of item1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:21:to_list of item1 after changing the quantity.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:21:to_list of item1 after changing the quantity is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:21:to_list of item1 after changing the quantity.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:22:to_list of item2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:22:to_list of item2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:22:to_list of item2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:25:to_list of an item after more than one changes1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:25:to_list of an item after more than one changes1 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:25:to_list of an item after more than one changes1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:27:to_list empty.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:27:to_list empty is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:27:to_list empty.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:29:to_list 3 items.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:29:to_list 3 items is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:29:to_list 3 items.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:30:to_list 3 items reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:30:to_list 3 items reverse is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:30:to_list 3 items reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:32:to_list trial pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:32:to_list trial pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:32:to_list trial pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:33:to_list trial reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:33:to_list trial reverse is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:33:to_list trial reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:35:of_list 1 item.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:35:of_list 1 item is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:35:of_list 1 item.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:38:of_list 3 items pt2 reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:38:of_list 3 items pt2 reverse is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:38:of_list 3 items pt2 reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:40:of_list trial pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:40:of_list trial pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:40:of_list trial pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:42:of_list trial pt3 reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:42:of_list trial pt3 reverse is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:42:of_list trial pt3 reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:44:join 1 empty pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:44:join 1 empty pt1 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:44:join 1 empty pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:46:join 1 empty pt3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:46:join 1 empty pt3 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:46:join 1 empty pt3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:48:join 1 empty pt4 reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:48:join 1 empty pt4 reverse is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:48:join 1 empty pt4 reverse.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:50:join both unempty pt2 (reverse).
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:50:join both unempty pt2 (reverse) is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:50:join both unempty pt2 (reverse).
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:52:join both unempty pt4.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:52:join both unempty pt4 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:52:join both unempty pt4.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:54:join_many 1 empty pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:54:join_many 1 empty pt1 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:54:join_many 1 empty pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:56:join_many 3 pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:56:join_many 3 pt1 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:56:join_many 3 pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:57:join_many 3 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:57:join_many 3 pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:57:join_many 3 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:59:join_many 3 pt4.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:59:join_many 3 pt4 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:59:join_many 3 pt4.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:61:join_many 4 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:61:join_many 4 pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:61:join_many 4 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:63:join_many 4 pt4.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:63:join_many 4 pt4 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:63:join_many 4 pt4.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:65:count 1 pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:65:count 1 pt1 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:65:count 1 pt1.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:67:count 1 pt3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:67:count 1 pt3 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:67:count 1 pt3.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:69:count 2 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:69:count 2 pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:69:count 2 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:71:count 3 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:71:count 3 pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:71:count 3 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:73:count 4 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:73:count 4 pt2 is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:73:count 4 pt2.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:75:update_price: items_half1_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:75:update_price: items_half1_bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:75:update_price: items_half1_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:77:update_quantity: items2_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:77:update_quantity: items2_bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:77:update_quantity: items2_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:79:update_quantity: itemsmore_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:79:update_quantity: itemsmore_bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:79:update_quantity: itemsmore_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:81:freqbag of_list 3 of the same item & same multiplicity.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Test test suite for Grocery:81:freqbag of_list 3 of the same item & same multiplicity has failed.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: expected: [{name = apple; price = 1; quantity = 6}]
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: but got: [{name = apple; price = 1; quantity = 2}] in test test suite for Grocery:81:freqbag of_list 3 of the same item & same multiplicity.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: 
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:81:freqbag of_list 3 of the same item & same multiplicity.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:83:freqbag of_list on singleton list.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:83:freqbag of_list on singleton list is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:83:freqbag of_list on singleton list.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:86:freqbag to_list on empty bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:86:freqbag to_list on empty bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:86:freqbag to_list on empty bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:87:freqbag sample on fruits_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:87:freqbag sample on fruits_bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:87:freqbag sample on fruits_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:90:freqbag sample on diff_apple_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Test test suite for Grocery:90:freqbag sample on diff_apple_bag has failed.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: not equal in test test suite for Grocery:90:freqbag sample on diff_apple_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: 
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:90:freqbag sample on diff_apple_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:91:freqbag count on empty bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:91:freqbag count on empty bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:91:freqbag count on empty bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:94:freqbag count on diff_apple_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Test test suite for Grocery:94:freqbag count on diff_apple_bag has failed.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: not equal in test test suite for Grocery:94:freqbag count on diff_apple_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: 
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:94:freqbag count on diff_apple_bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:95:store count_products for store of one bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Test test suite for Grocery:95:store count_products for store of one bag is successful.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:95:store count_products for store of one bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: Start test test suite for Grocery:97:store sell_goods_test for item apple in store of one bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Test test suite for Grocery:97:store sell_goods_test for item apple in store of one bag has failed.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: expected: [{name = apple; price = 1; quantity = 1};{name = orange; price = 2; quantity = 3};{name = grapes; price = 3; quantity = 1};]
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: but got: [{name = grapes; price = 3; quantity = 1};{name = orange; price = 2; quantity = 3};{name = apple; price = 1; quantity = 1};] in test test suite for Grocery:97:store sell_goods_test for item apple in store of one bag.
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 E: 
+2023-11-26T04:47:49+00:00 Tests-MacBook-Pro.local#01 I: End test test suite for Grocery:97:store sell_goods_test for item apple in store of one bag.

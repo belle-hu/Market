@@ -453,20 +453,23 @@ let fbagofgoods_tests =
   ]
 
 
-  let fruits_normal_bag = BagOfGoods.of_list fruits_lst 
-  let apple_item_a = Item.create "apple" 1 1 
-
-  let updated_fruits_bag = BagOfGoods.of_list [apple_item_a; grapes_item; orange_item]
-
-  let updated_store1 = Store.of_list [updated_fruits_bag]
   let baseball = Item.create "baseball" 10 100 
 
   let baseball_updated = Item.create "baseball" 10 90
   let basketball = Item.create "basketball" 10 99 
   let tennis_racket = Item.create "tennis racket" 11 1000 
-  let updated_sports_bag = BagOfGoods.of_list [baseball_updated; basketball; tennis_racket]
-  let store2_updated = Store.of_list [updated_sports_bag; fruits_normal_bag]
   let sport_bag_lst = [baseball; basketball; tennis_racket]
+
+  let fruits_normal_bag = BagOfGoods.of_list fruits_lst 
+  let apple_item_a = Item.create "apple" 1 1 
+
+  let updated_fruits_bag = BagOfGoods.of_list [grapes_item; orange_item; apple_item_a]
+
+  let updated_sports_bag = BagOfGoods.of_list [baseball_updated; basketball; tennis_racket]
+
+  let updated_store1 = Store.of_list [updated_fruits_bag]
+  
+  let store2_updated = Store.of_list [updated_sports_bag; fruits_normal_bag]
   let sport_bag = BagOfGoods.of_list sport_bag_lst
   let store1 = Store.of_list [fruits_normal_bag]
   let store2_lst = [sport_bag; fruits_normal_bag]
@@ -474,7 +477,7 @@ let fbagofgoods_tests =
   let store_count_products_test msg out in1 = 
     msg >:: fun _ -> assert_equal ~printer:pp_int out in1
   let store_sell_goods_test msg out in1 = 
-    msg >:: fun _ -> assert_equal out in1
+    msg >:: fun _ -> assert_equal ~printer: (pp_list BagOfGoods.to_string) out in1
 
 
 let store_tests = [
@@ -486,10 +489,10 @@ let store_tests = [
     (Store.count_products store2);
 
     store_sell_goods_test "store sell_goods_test for item apple in store of one bag" 
-    updated_store1 (Store.sell_goods 1 apple_item store1);
+    (Store.to_list updated_store1) (Store.to_list (Store.sell_goods 1 apple_item store1));
 
     store_sell_goods_test "store sell_goods_test for item baseball " 
-    store2_updated (Store.sell_goods 10 baseball store2);
+    (Store.to_list store2_updated) (Store.to_list (Store.sell_goods 10 baseball store2));
     
 ]
 let ngram_tests = []

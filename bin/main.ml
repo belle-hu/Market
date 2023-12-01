@@ -87,6 +87,7 @@ let create_item_add_to_bag () =
             (List.map Item.to_string (FrequencyBagGoods.to_list !bag)))
   | _ -> failwith "Invalid input"
 
+  
 (**Welcome message*)
 let welcome_msg () =
   print_endline "\n\nWelcome to your new grocery store! \n";

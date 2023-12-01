@@ -4,7 +4,7 @@
     type 'a t 
     val count_products: 'a t -> int 
     val all_products: 'a t -> 'a t  
-    val sell_goods: int -> 'a -> 'a t -> 'a t 
+    val sell_goods: int -> Item.t -> 'a t -> 'a t 
     val popular_goods: int -> 'a t -> 'a t
     val in_stock_goods: 'a t -> 'a t
     val of_list: BagOfGoods.t list -> 'a t 
@@ -18,7 +18,7 @@
 
   (**Allows user to see list of all StoreProducts in given Store [st]. Returns a
   list of StoreProducts*) 
-  let all_products st = st
+  let all_products st:BagOfGoods.t list = st
 
   let empty = []
 (* 
@@ -27,11 +27,17 @@
   | [] -> 0 
   | h :: t -> Item.get_quantity h + (count_products_aux t) *)
   
+  (*[count_bag bg] counts the number of items in [bg]*)
+  let rec count_bag bg = 
+    match BagOfGoods.to_list bg with 
+    | []-> 0 
+    | h::t -> Item.get_quantity h + count_bag (BagOfGoods.of_list t)
+
   (**Count the number of products in a given store [st].*) 
   let rec count_products st = 
     match st with 
     | [] -> 0 
-    | h :: t -> BagOfGoods.count_elems h + count_products t
+    | h :: t -> count_bag h + count_products t
 
   (**Given a list of BagOfGoods [b_lst] and a store [st], add all
   goods of [bg] to the store [st].*) 
@@ -62,19 +68,19 @@
 
   (*[store_change_quan dec item bg] sells [dec] amount of [item] in [bg]
      and returns a new bag with the updated amount of [item] *)
-  let rec store_change_quan dec item bg = 
+  let rec store_change_quan dec (item:Item.t) bg = 
     match BagOfGoods.to_list bg with 
     | [] -> BagOfGoods.empty
-    | h :: t-> let old_quan = Item.get_quantity h in
-    if (Item.get_name h == Item.get_name h) then 
-    let new_item = Item.change_quantity h (old_quan - dec)
+    | h :: t-> 
+    if (Item.get_name item == Item.get_name h) then 
+    let new_item = Item.change_quantity h (-1 * dec)
     in (BagOfGoods.of_list (new_item::t) )
     else 
       BagOfGoods.join (BagOfGoods.of_list [h]) (store_change_quan dec item (BagOfGoods.of_list t))
           
   (**Sell [dec] amount of an item [item] within a given store
   [st]. Requires that [b] is a good in [st] already.*)
-  let rec sell_goods dec item st = 
+  let rec sell_goods dec (item:Item.t) st = 
   match st with 
   | [] -> []
   | h :: t-> 

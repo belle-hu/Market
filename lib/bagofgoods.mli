@@ -32,6 +32,9 @@ module type SampleGoodsType = sig
   val update_quantity : t -> string -> int -> t
   (**Update the quantity of the provided item in the bag. Requires: The item
      required to update should be already in the bag*)
+
+  val to_string : t -> string 
+  (**Converts a bag of goods to string format*)
 end
 
 module BagOfGoods : SampleGoodsType
