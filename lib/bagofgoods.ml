@@ -84,12 +84,14 @@ module BagOfGoods : SampleGoodsType = struct
   let rec to_string_helper (b : t) : string =
     match b with
     | [] -> ""
-    | h :: t -> Item.to_string h ^ "; " ^ to_string_helper t
+    | h :: t ->
+        if t = [] then Item.to_string h
+        else Item.to_string h ^ "; " ^ to_string_helper t
 
   let to_string (b : t) : string =
     match b with
-    | [] -> "No items. Your shopping bag is empty."
-    | h :: t -> "{ " ^ Item.to_string h ^ to_string_helper t ^ " }"
+    | [] -> "||"
+    | h :: t -> "|" ^ Item.to_string h ^ "; " ^ to_string_helper t ^ "|"
 end
 
 (** Sampleable bag such that sample always returns the element of highest
