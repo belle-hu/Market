@@ -15,6 +15,7 @@ module type SampleGoodsType = sig
   val update_price : t -> string -> int -> t
   val update_quantity : t -> string -> int -> t
   val contains : t -> string -> bool
+  val to_string : t -> string
 end
 
 (** Sampleable bag such that sample returns elements with probability
@@ -78,6 +79,17 @@ module BagOfGoods : SampleGoodsType = struct
         false
     | item :: rest ->
         if Item.get_name item = nam then true else contains rest nam
+
+  (*recursive helper for to_string*)
+  let rec to_string_helper (b : t) : string =
+    match b with
+    | [] -> ""
+    | h :: t -> Item.to_string h ^ "; " ^ to_string_helper t
+
+  let to_string (b : t) : string =
+    match b with
+    | [] -> "No items. Your shopping bag is empty."
+    | h :: t -> "{ " ^ Item.to_string h ^ to_string_helper t ^ " }"
 end
 
 (** Sampleable bag such that sample always returns the element of highest
@@ -183,4 +195,6 @@ module FrequencyBagGoods : SampleGoodsType = struct
         false
     | { element; _ } :: rest ->
         if Item.get_name element = nam then true else contains rest nam
+
+  let to_string (b : t) : string = failwith ""
 end

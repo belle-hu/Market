@@ -35,6 +35,9 @@ module type SampleGoodsType = sig
 
   val contains : t -> string -> bool
   (**Returns true if the bag contains an element*)
+
+  val to_string : t -> string
+  (**Returns the string representation of a bag.*)
 end
 
 module BagOfGoods : SampleGoodsType

@@ -465,49 +465,48 @@ let fbagofgoods_tests =
       "apple" 6 6 ] big_apple_bag "apple" 5;*)
   ]
 
+let baseball = Item.create "baseball" 10 100
+let baseball_updated = Item.create "baseball" 10 90
+let basketball = Item.create "basketball" 10 99
+let tennis_racket = Item.create "tennis racket" 11 1000
+let sport_bag_lst = [ baseball; basketball; tennis_racket ]
+let fruits_normal_bag = BagOfGoods.of_list fruits_lst
+let apple_item_a = Item.create "apple" 1 1
 
-  let baseball = Item.create "baseball" 10 100 
+let updated_fruits_bag =
+  BagOfGoods.of_list [ grapes_item; orange_item; apple_item_a ]
 
-  let baseball_updated = Item.create "baseball" 10 90
-  let basketball = Item.create "basketball" 10 99 
-  let tennis_racket = Item.create "tennis racket" 11 1000 
-  let sport_bag_lst = [baseball; basketball; tennis_racket]
+let updated_sports_bag =
+  BagOfGoods.of_list [ baseball_updated; basketball; tennis_racket ]
 
-  let fruits_normal_bag = BagOfGoods.of_list fruits_lst 
-  let apple_item_a = Item.create "apple" 1 1 
+let updated_store1 = Store.of_list [ updated_fruits_bag ]
+let store2_updated = Store.of_list [ updated_sports_bag; fruits_normal_bag ]
+let sport_bag = BagOfGoods.of_list sport_bag_lst
+let store1 = Store.of_list [ fruits_normal_bag ]
+let store2_lst = [ sport_bag; fruits_normal_bag ]
+let store2 = Store.of_list store2_lst
 
-  let updated_fruits_bag = BagOfGoods.of_list [grapes_item; orange_item; apple_item_a]
+let store_count_products_test msg out in1 =
+  msg >:: fun _ -> assert_equal ~printer:pp_int out in1
 
-  let updated_sports_bag = BagOfGoods.of_list [baseball_updated; basketball; tennis_racket]
+let store_sell_goods_test msg out in1 =
+  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
 
-  let updated_store1 = Store.of_list [updated_fruits_bag]
-  
-  let store2_updated = Store.of_list [updated_sports_bag; fruits_normal_bag]
-  let sport_bag = BagOfGoods.of_list sport_bag_lst
-  let store1 = Store.of_list [fruits_normal_bag]
-  let store2_lst = [sport_bag; fruits_normal_bag]
-  let store2 = Store.of_list store2_lst 
-  let store_count_products_test msg out in1 = 
-    msg >:: fun _ -> assert_equal ~printer:pp_int out in1
-  let store_sell_goods_test msg out in1 = 
-    msg >:: fun _ -> assert_equal ~printer: (pp_list BagOfGoods.to_string) out in1
+let store_tests =
+  [
+    store_count_products_test "store count_products for store of one bag" 6
+      (Store.count_products store1);
+    store_count_products_test "store_count_products for store of two bags" 1205
+      (Store.count_products store2);
+    store_sell_goods_test
+      "store sell_goods_test for item apple in store of one bag"
+      (Store.to_list updated_store1)
+      (Store.to_list (Store.sell_goods 1 apple_item store1));
+    store_sell_goods_test "store sell_goods_test for item baseball "
+      (Store.to_list store2_updated)
+      (Store.to_list (Store.sell_goods 10 baseball store2));
+  ]
 
-
-let store_tests = [
-
-    store_count_products_test "store count_products for store of one bag" 
-    6 (Store.count_products store1);
-
-    store_count_products_test "store_count_products for store of two bags" 1205 
-    (Store.count_products store2);
-
-    store_sell_goods_test "store sell_goods_test for item apple in store of one bag" 
-    (Store.to_list updated_store1) (Store.to_list (Store.sell_goods 1 apple_item store1));
-
-    store_sell_goods_test "store sell_goods_test for item baseball " 
-    (Store.to_list store2_updated) (Store.to_list (Store.sell_goods 10 baseball store2));
-    
-]
 let ngram_tests = []
 
 let suite =
