@@ -20,17 +20,24 @@ module Item : ItemType = struct
   }
 
   let create (nam : string) (pri : int) (quan : int) =
-    { name = nam; price = pri; quantity = quan }
+    if pri < 0 then failwith "Error: the price of an item cannot be less than 0"
+    else if quan < 0 then
+      failwith "Error: the quantity of an item cannot be less than 0"
+    else { name = nam; price = pri; quantity = quan }
 
   let get_name (i : t) = i.name
   let get_price (i : t) = i.price
   let get_quantity (i : t) = i.quantity
 
   let change_price (i : t) (p : int) =
-    { name = i.name; price = i.price + p; quantity = i.quantity }
+    if i.price + p < 0 then
+      failwith "Error: the price of an item cannot be less than 0"
+    else { name = i.name; price = i.price + p; quantity = i.quantity }
 
   let change_quantity (i : t) (q : int) =
-    { name = i.name; price = i.price; quantity = i.quantity + q }
+    if i.quantity + q < 0 then
+      failwith "Error: the quantity of an item cannot be less than 0"
+    else { name = i.name; price = i.price; quantity = i.quantity + q }
 
   let to_string (i : t) =
     let name = get_name i in

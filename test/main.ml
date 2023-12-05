@@ -90,8 +90,31 @@ let item_change_quantity_test msg out in1 in2 =
 let item_to_list_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(fun s -> s) out (Item.to_string in1)
 
+let item_change_price_exception_test msg in1 in2 =
+  msg >:: fun _ ->
+  assert_raises (Failure "Error: the price of an item cannot be less than 0")
+    (fun () -> Item.change_price in1 in2)
+
+let item_change_quantity_exception_test msg in1 in2 =
+  msg >:: fun _ ->
+  assert_raises (Failure "Error: the quantity of an item cannot be less than 0")
+    (fun () -> Item.change_quantity in1 in2)
+
+let item_create_price_exception_test msg in1 in2 in3 =
+  msg >:: fun _ ->
+  assert_raises (Failure "Error: the price of an item cannot be less than 0")
+    (fun () -> Item.create in1 in2 in3)
+
+let item_create_quantity_exception_test msg in1 in2 in3 =
+  msg >:: fun _ ->
+  assert_raises (Failure "Error: the quantity of an item cannot be less than 0")
+    (fun () -> Item.create in1 in2 in3)
+
 let item1 = Item.create "item1" 3 10
 let item2 = Item.create "item2" 10 100
+let item3 = Item.create "item3" 50 500
+let item4 = Item.create "item4" 20 1000
+let item5 = Item.create "item5" 100 10000
 
 let items_tests =
   [
@@ -111,11 +134,21 @@ let items_tests =
     item_get_name_test "Get the name of an item2" "Candy"
       (Item.create "Candy" 4 5);
     item_get_name_test "Get the name of an item3" "" (Item.create "" 6 7);
+    item_get_name_test "Get the name of item1" "item1" item1;
+    item_get_name_test "Get the name of item2" "item2" item2;
+    item_get_name_test "Get the name of item3" "item3" item3;
+    item_get_name_test "Get the name of item4" "item4" item4;
+    item_get_name_test "Get the name of item5" "item5" item5;
     (*get_price tests*)
     item_get_price_test "Get the price of an item1" 3
       (Item.create "banana" 3 10);
     item_get_price_test "Get the price of an item2" 1 (Item.create "peach" 1 30);
     item_get_price_test "Get the price of an item3" 10 (Item.create "milk" 10 5);
+    item_get_price_test "Get the price of item1" 3 item1;
+    item_get_price_test "Get the price of item2" 10 item2;
+    item_get_price_test "Get the price of item3" 50 item3;
+    item_get_price_test "Get the price of item4" 20 item4;
+    item_get_price_test "Get the price of item5" 100 item5;
     (*get_quantity tests*)
     item_get_quantity_test "Get the quantity of an item1" 10
       (Item.create "cookie" 50 10);
@@ -123,6 +156,11 @@ let items_tests =
       (Item.create "some item" 100 8);
     item_get_quantity_test "Get the quantity of an item3" 497
       (Item.create "potato" 5 497);
+    item_get_quantity_test "Get the quantity of item1" 10 item1;
+    item_get_quantity_test "Get the quantity of item2" 100 item2;
+    item_get_quantity_test "Get the quantity of item3" 500 item3;
+    item_get_quantity_test "Get the quantity of item4" 1000 item4;
+    item_get_quantity_test "Get the quantity of item5" 10000 item5;
     (*change_price tests*)
     item_change_price_test "Increase the price of an item"
       "{name = item1; price = 5; quantity = 10}" item1 2;
@@ -162,6 +200,65 @@ let items_tests =
        of changes shouldn't influence the final state of an item)"
       "{name = item1; price = 6; quantity = 15}"
       Item.(change_price (change_quantity item1 5) 3);
+    item_to_list_test
+      "to_list of an item after many changes (Property: increase the price of \
+       an item by 1 and then decrease the price by 1 will not change the price \
+       of the item)"
+      "{name = item1; price = 3; quantity = 20}"
+      Item.(change_price (change_quantity (change_price item1 ~-1) 10) 1);
+    (*change_price_exception tests*)
+    item_change_price_exception_test
+      "Raise exception if the price is below 0 after change_price item1" item1
+      ~-10000;
+    item_change_price_exception_test
+      "Raise exception if the price is below 0 after change_price item2" item2
+      ~-11;
+    item_change_price_exception_test
+      "Raise exception if the price is below 0 after change_price item3" item3
+      ~-51;
+    (*change_quantity_exception tests*)
+    item_change_quantity_exception_test
+      "Raise exception if the quantity is below 0 after change_price item1"
+      item1 ~-10000;
+    item_change_quantity_exception_test
+      "Raise exception if the quantity is below 0 after change_price item2"
+      item2 ~-101;
+    item_change_quantity_exception_test
+      "Raise exception if the quantity is below 0 after change_price item3"
+      item3 ~-501;
+    (*create_price_exception tests*)
+    item_create_price_exception_test
+      "Raise exception if an item is created with price < 0: test 1" "banana"
+      ~-1 10;
+    item_create_price_exception_test
+      "Raise exception if an item is created with price < 0: test 2" "apple"
+      ~-20 50;
+    item_create_price_exception_test
+      "Raise exception if an item is created with price < 0: test 3" "sugar"
+      ~-30 60;
+    item_create_price_exception_test
+      "Raise exception if an item is created with price < 0: test 4" "grapes"
+      ~-40 80;
+    item_create_price_exception_test
+      "Raise exception if an item is created with price < 0: test 5 (The \
+       quantity is also below 0)"
+      "pocky" ~-100 ~-10000;
+    (*create_quantity_exception tests*)
+    item_create_quantity_exception_test
+      "Raise exception if an item is created with quantity < 0: test 1" "banana"
+      1 ~-10;
+    item_create_quantity_exception_test
+      "Raise exception if an item is created with quantity < 0: test 2" "apple"
+      20 ~-50;
+    item_create_quantity_exception_test
+      "Raise exception if an item is created with quantity < 0: test 3" "grapes"
+      30 ~-60;
+    item_create_quantity_exception_test
+      "Raise exception if an item is created with quantity < 0: test 4" "sugar"
+      40 ~-80;
+    item_create_quantity_exception_test
+      "Raise exception if an item is created with quantity < 0: test 5" "pear"
+      100 ~-10000;
   ]
 
 (** Regular Bag of Goods Tests*)
