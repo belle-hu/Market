@@ -92,18 +92,58 @@ let create_item_add_to_bag () =
             (List.map Item.to_string (FrequencyBagGoods.to_list !bag)))
   | _ -> failwith "Invalid input"
 
-  
-(**Welcome message*)
+(*Choice 5*)
+let show_item_names () =
+  let item_names = FrequencyBagGoods.names !bag in
+  print_endline "The list of items are:";
+  List.iter (fun name -> print_endline ("- " ^ name)) item_names
+
+(*Choice 6*)
+let show_total_quantity () =
+  let total_quant = FrequencyBagGoods.total_quantity !bag in
+  print_endline
+    ("The total quantity of all items in the store is: "
+   ^ string_of_int total_quant)
+
+(*Choice 7*)
+let show_total_cost () =
+  let total_cost = FrequencyBagGoods.total_cost !bag in
+  print_endline
+    ("The total cost of all items in the store is: $" ^ string_of_int total_cost)
+
+(*Choice 8*)
+let remove_item () =
+  print_endline "Please enter the name of the item you want to remove:";
+  let item_name = read_line () in
+  try
+    bag := FrequencyBagGoods.remove !bag item_name;
+    print_endline ("Successfully removed item: " ^ item_name);
+    print_endline
+      ("Bag now contains: "
+      ^ String.concat ","
+          (List.map Item.to_string (FrequencyBagGoods.to_list !bag)))
+  with Failure msg -> print_endline msg
+
+(*Welcome message*)
 let welcome_msg () =
   print_endline "\n\nWelcome to your new grocery store! \n";
   print_endline "What would you like to name your store?\n";
-  let x = read_line () in
-  let _ = print_endline ("\nWelcome to " ^ x ^ "!") in
+  let rec get_store_name () =
+    let x = read_line () in
+    if String.trim x = "" then (
+      print_endline
+        "You cannot leave your store name blank! Please enter a name:";
+      get_store_name ())
+    else x
+  in
+  let store_name = get_store_name () in
+  let _ = print_endline ("\nWelcome to " ^ store_name ^ "!") in
   let _ =
     print_endline "\nPlease provide a brief description of your store.\n"
   in
   let y = read_line () in
-  print_endline ("Congrats on opening your new store, " ^ x ^ ": " ^ y ^ "\n")
+  print_endline
+    ("Congrats on opening your new store, " ^ store_name ^ ": " ^ y ^ "\n")
 
 let dont_use () =
   print_endline "\n\nWelcome to your new grocery store! \n";
@@ -124,9 +164,16 @@ let rec work () =
     "****************************************************************";
   print_endline
     "Your store can do several things!\n\
-    \ 1. Create new item 2. Change item price 3. Change item quantity 4. Show \
-     all items in the store 5. Quit";
-  print_endline "\nPlease enter your choice of 1, 2, 3, 4, or 5\n";
+     1. Create new item \n\
+     2. Change item price \n\
+     3. Change item quantity\n\
+     4. Show all items in the store \n\
+     5. Show all item names in the store \n\
+     6. Show total quantity of all items in the store \n\
+     7. Show total cost of all items in the store  \n\
+     8. Remove an item \n\
+     Q. Quit";
+  print_endline "\nPlease enter your choice of 1-8, or Q\n";
   match read_line () with
   | "1" ->
       create_item_add_to_bag ();
@@ -134,16 +181,28 @@ let rec work () =
   | "2" ->
       change_price ();
       work ()
+  | "3" ->
+      change_quantity ();
+      work ()
   | "4" ->
       print_endline
         ("Bag now contains: "
         ^ String.concat ","
             (List.map Item.to_string (FrequencyBagGoods.to_list !bag)));
       work ()
-  | "3" ->
-      change_quantity ();
-      work ()
   | "5" ->
+      show_item_names ();
+      work ()
+  | "6" ->
+      show_total_quantity ();
+      work ()
+  | "7" ->
+      show_total_cost ();
+      work ()
+  | "8" ->
+      remove_item ();
+      work ()
+  | "Q" ->
       print_endline "Thank you for using our grocery system! Bye!";
       ()
   | _ -> failwith "Invalid input"

@@ -38,6 +38,32 @@ module type SampleGoodsType = sig
 
   val to_string : t -> string
   (**Returns the string representation of a bag.*)
+
+  (*new stuff*)
+
+  val remove : t -> string -> t
+  (**Remove an item from the bag by its name*)
+
+  val names : t -> string list
+  (**Returns a list of names of items in the bag*)
+
+  val total_quantity : t -> int
+  (**Returns the total number of items in the bag*)
+
+  val total_cost : t -> int
+  (**Returns the total cost of all items in the bag*)
+
+  val map : t -> (Item.t -> Item.t) -> t
+  (**Applies a function to all items in the bag*)
+
+  val filter : t -> (Item.t -> bool) -> t
+  (**Filters items in the bag based on a predicate*)
+
+  val intersection : t -> t -> t
+  (**Returns a bag with elements that exist in both input bags*)
+
+  val difference : t -> t -> t
+  (**Returns a bag with elements existing in the first bag but not the second*)
 end
 
 module BagOfGoods : SampleGoodsType

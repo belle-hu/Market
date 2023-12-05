@@ -282,6 +282,7 @@ let items_half1_bag = BagOfGoods.of_list items_half1_lst
 let items_half2_lst = [ items3; items4 ]
 let items_half2_bag = BagOfGoods.of_list items_half2_lst
 let items1_lst = [ items1 ]
+let items2_lst = [ items2 ]
 let items1_bag = BagOfGoods.of_list items1_lst
 let itemsmore_lst = [ items1; items2; items3; items4 ]
 let itemsmore_bag = BagOfGoods.join items_bag items4_bag
@@ -322,6 +323,19 @@ let bag_contains_test msg out in1 in2 =
 
 let bag_to_string_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(fun x -> x) out in1
+
+let bag_remove_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list (BagOfGoods.remove in1 in2))
+
+let bag_remove_fail_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_raises
+    (Failure
+       "Item with the name provided does not exist in the bag. Please make \n\
+       \    sure that the name of the product is spelled correctly with proper \
+        capitalization.") (fun () -> BagOfGoods.remove in1 in2)
 
 let trial_item1 = Item.create "hello" 1000 10000
 let trial_item2 = Item.create "hi" 500000 5000000
@@ -471,6 +485,18 @@ let bagofgoods_tests =
     bag_contains_test "contains: true multiple item bag joined" true
       BagOfGoods.(join items_half1_bag items_half2_bag)
       "pie";
+    (*remove test*)
+    bag_remove_test "remove: one item to empty" [] items1_bag "cake";
+    bag_remove_test "remove: two items to one 1" items2_lst items_half1_bag
+      "cake";
+    bag_remove_test "remove: two items to one 2" items1_lst items_half1_bag
+      "cookie";
+    bag_remove_test "remove: bigger case" items_lst itemsmore_bag "milk";
+    bag_remove_fail_test "remove: fail 1" () items1_bag "hi";
+    bag_remove_fail_test "remove: fail 2" () items_half1_bag "pie";
+    bag_remove_fail_test "remove: fail 3" () itemsmore_bag "ADSLFJADS";
+    bag_remove_fail_test "remove: fail capitalization" () items_half1_bag "Cake";
+    (*todo: add rest of test cases*)
   ]
 
 let freqbag_oflist_test msg out in1 =

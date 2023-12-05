@@ -16,6 +16,14 @@ module type SampleGoodsType = sig
   val update_quantity : t -> string -> int -> t
   val contains : t -> string -> bool
   val to_string : t -> string
+  val remove : t -> string -> t
+  val names : t -> string list
+  val total_quantity : t -> int
+  val total_cost : t -> int
+  val map : t -> (Item.t -> Item.t) -> t
+  val filter : t -> (Item.t -> bool) -> t
+  val intersection : t -> t -> t
+  val difference : t -> t -> t
 end
 
 (** Sampleable bag such that sample returns elements with probability
@@ -45,7 +53,9 @@ module BagOfGoods : SampleGoodsType = struct
   let update_price (b : t) (nam : string) (pri : int) : t =
     let rec update_p_helper bg na pr =
       match to_list bg with
-      | [] -> b
+      | [] ->
+          print_endline "Item with the provided name does not exist in the bag";
+          b
       | h :: t ->
           if Item.get_name h = nam then
             let update_item = Item.change_price h pri in
@@ -59,7 +69,9 @@ module BagOfGoods : SampleGoodsType = struct
 
   let rec update_quantity (b : t) (nam : string) (quan : int) : t =
     match to_list b with
-    | [] -> b
+    | [] ->
+        print_endline "Item with the provided name does not exist in the bag";
+        b
     | h :: t ->
         if Item.get_name h = nam then
           let update_item = Item.change_quantity h quan in
@@ -92,6 +104,41 @@ module BagOfGoods : SampleGoodsType = struct
     match b with
     | [] -> "||"
     | h :: t -> "|" ^ Item.to_string h ^ "; " ^ to_string_helper t ^ "|"
+
+  let rec remove (bag : t) (name : string) : t =
+    match bag with
+    | [] ->
+        raise
+          (Failure
+             "Item with the name provided does not exist in the bag. Please \
+              make \n\
+             \    sure that the name of the product is spelled correctly with \
+              proper capitalization.")
+    | item :: rest ->
+        if Item.get_name item = name then rest else item :: remove rest name
+
+  let names (bag : t) : string list = List.map Item.get_name bag
+
+  let total_quantity (bag : t) : int =
+    List.fold_left (fun acc item -> acc + Item.get_quantity item) 0 bag
+
+  let total_cost (bag : t) : int =
+    List.fold_left
+      (fun acc item -> acc + (Item.get_price item * Item.get_quantity item))
+      0 bag
+
+  let map (bag : t) (f : Item.t -> Item.t) : t = List.map f bag
+
+  let filter (bag : t) (predicate : Item.t -> bool) : t =
+    List.filter predicate bag
+
+  let intersection (bag1 : t) (bag2 : t) : t =
+    let bag2_names = List.map Item.get_name bag2 in
+    filter bag1 (fun item -> List.mem (Item.get_name item) bag2_names)
+
+  let difference (bag1 : t) (bag2 : t) : t =
+    let bag2_names = List.map Item.get_name bag2 in
+    filter bag1 (fun item -> not (List.mem (Item.get_name item) bag2_names))
 end
 
 (** Sampleable bag such that sample always returns the element of highest
@@ -199,4 +246,32 @@ module FrequencyBagGoods : SampleGoodsType = struct
         if Item.get_name element = nam then true else contains rest nam
 
   let to_string (b : t) : string = failwith ""
+
+  let rec remove (bag : t) (name : string) : t =
+    match bag with
+    | [] ->
+        raise
+          (Failure
+             "Item with the name provided does not exist in the bag. Please \
+              make sure that the name of the product is spelled correctly with \
+              proper capitalization.")
+    | { element; freq } :: rest ->
+        if Item.get_name element = name then rest
+        else { element; freq } :: remove rest name
+
+  let names (bag : t) : string list =
+    List.map (fun { element; _ } -> Item.get_name element) bag
+
+  let total_quantity (bag : t) : int =
+    List.fold_left (fun acc { freq; _ } -> acc + freq) 0 bag
+
+  let total_cost (bag : t) : int =
+    List.fold_left
+      (fun acc { element; freq } -> acc + (freq * Item.get_price element))
+      0 bag
+
+  let map (bag : t) (f : Item.t -> Item.t) : t = failwith ""
+  let filter (bag : t) (predicate : Item.t -> bool) : t = failwith ""
+  let intersection (bag1 : t) (bag2 : t) : t = failwith ""
+  let difference (bag1 : t) (bag2 : t) : t = failwith ""
 end
