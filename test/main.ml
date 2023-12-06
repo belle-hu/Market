@@ -264,11 +264,19 @@ let items_tests =
 (** Regular Bag of Goods Tests*)
 let items1 = Item.create "cake" 1 2
 
+let items1plus1quant = Item.create "cake" 1 3
+let items1plus1price = Item.create "cake" 2 2
+let items1plusquant_lst = [ items1plus1quant ]
 let items1more = Item.create "cake" 5 4
 let items1lots = Item.create "cake" 1 6
 let items2 = Item.create "cookie" 1 3
+let items2plus1quant = Item.create "cookie" 1 4
+let items2plus1price = Item.create "cookie" 2 3
 let items2_bag = BagOfGoods.of_list [ items2 ]
 let items3 = Item.create "pie" 5 1
+let items3plus1quant = Item.create "pie" 5 2
+let items3plus1price = Item.create "pie" 6 1
+let items3_lst = [ items3 ]
 let items3_bag = BagOfGoods.of_list [ items3 ]
 let items4 = Item.create "milk" 4 2
 let items4_bag = BagOfGoods.of_list [ items4 ]
@@ -286,6 +294,12 @@ let items2_lst = [ items2 ]
 let items1_bag = BagOfGoods.of_list items1_lst
 let itemsmore_lst = [ items1; items2; items3; items4 ]
 let itemsmore_bag = BagOfGoods.join items_bag items4_bag
+
+let itemsplusquant_lst =
+  [ items1plus1quant; items2plus1quant; items3plus1quant ]
+
+let itemsplusprice_lst =
+  [ items1plus1price; items2plus1price; items3plus1price ]
 
 let bag_to_list_test msg out in1 =
   msg >:: fun _ ->
@@ -337,6 +351,38 @@ let bag_remove_fail_test msg out in1 in2 =
        \    sure that the name of the product is spelled correctly with proper \
         capitalization.") (fun () -> BagOfGoods.remove in1 in2)
 
+let bag_names_test msg out in1 =
+  msg >:: fun _ -> assert_equal out BagOfGoods.(names in1)
+
+let bag_total_quantity_test msg out in1 =
+  msg >:: fun _ -> assert_equal out BagOfGoods.(total_quantity in1)
+
+let bag_total_cost_test msg out in1 =
+  msg >:: fun _ -> assert_equal out BagOfGoods.(total_cost in1)
+
+let bag_map_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list (BagOfGoods.map in1 in2))
+
+let add_one_to_quantity item = Item.change_quantity item 1
+let add_one_to_price item = Item.change_price item 1
+
+let bag_filter_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list (BagOfGoods.filter in1 in2))
+
+let bag_intersection_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list BagOfGoods.(intersection in1 in2))
+
+let bag_difference_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (BagOfGoods.to_list BagOfGoods.(difference in1 in2))
+
 let trial_item1 = Item.create "hello" 1000 10000
 let trial_item2 = Item.create "hi" 500000 5000000
 let trial_items_lst = [ trial_item1; trial_item2 ]
@@ -346,7 +392,7 @@ let string_bag =
   "|{name = cake; price = 1; quantity = 2}; {name = cookie; price = 1; \
    quantity = 3}; {name = pie; price = 5; quantity = 1}|"
 
-(*Frequency Bag Tests*)
+(*Regular Bag Tests*)
 let bagofgoods_tests =
   [
     (*to_string tests*)
@@ -496,9 +542,61 @@ let bagofgoods_tests =
     bag_remove_fail_test "remove: fail 2" () items_half1_bag "pie";
     bag_remove_fail_test "remove: fail 3" () itemsmore_bag "ADSLFJADS";
     bag_remove_fail_test "remove: fail capitalization" () items_half1_bag "Cake";
-    (*todo: add rest of test cases*)
+    (*names test*)
+    bag_names_test "names: empty" [] empty_bag;
+    bag_names_test "names: 1 item" [ "cake" ] items1_bag;
+    bag_names_test "names: multiple items" [ "cake"; "cookie"; "pie" ] items_bag;
+    bag_names_test "names: multiple items reverse"
+      [ "pie"; "cookie"; "cake" ]
+      items_reverse_bag;
+    (*total quantity test*)
+    bag_total_quantity_test "quantity: empty" 0 empty_bag;
+    bag_total_quantity_test "quantity: 1 item 1 quantity" 1
+      BagOfGoods.(of_list [ Item.create "cake" 2 1 ]);
+    bag_total_quantity_test "quantity: 1 item multiple quantity" 2 items1_bag;
+    bag_total_quantity_test "quantity: multiple items" 6 items_bag;
+    (*total cost test*)
+    bag_total_cost_test "cost: empty" 0 empty_bag;
+    bag_total_cost_test "cost: 1 item 1 quantity $1" 1
+      BagOfGoods.(of_list [ Item.create "cake" 1 1 ]);
+    bag_total_cost_test "cost: 1 item 1 quantity $1" 2
+      BagOfGoods.(of_list [ Item.create "cake" 2 1 ]);
+    bag_total_cost_test "cost: 1 item 1 quantity $1" 2
+      BagOfGoods.(of_list [ Item.create "cake" 1 2 ]);
+    bag_total_cost_test "cost: multiple items" 10 items_bag;
+    bag_total_cost_test "cost: multiple items more" 18 itemsmore_bag;
+    (*map test*)
+    bag_map_test "map: 1 item add 1 quantity" items1plusquant_lst items1_bag
+      add_one_to_quantity;
+    bag_map_test "map: add 1 quantity" itemsplusquant_lst items_bag
+      add_one_to_quantity;
+    bag_map_test "map: add 1 price" itemsplusprice_lst items_bag
+      add_one_to_price;
+    (*filter test*)
+    bag_filter_test "filter: 1 item price less than 5" [] items1_bag
+      (fun item -> Item.get_price item > 4);
+    bag_filter_test "filter: 1 item price more than 4" items1_lst items1_bag
+      (fun item -> Item.get_price item < 4);
+    bag_filter_test "filter: price less than 5" items3_lst items_bag
+      (fun item -> Item.get_price item > 4);
+    bag_filter_test "filter: quantity more than 1" items_half1_lst items_bag
+      (fun item -> Item.get_price item < 2);
+    (*intersection test*)
+    bag_intersection_test "intersection: empty + empty" [] empty_bag empty_bag;
+    bag_intersection_test "intersection: empty + nonempty" [] empty_bag
+      items1_bag;
+    bag_intersection_test "intersection: some overlap" items1_lst items1_bag
+      itemsmore_bag;
+    (*difference test*)
+    bag_difference_test "difference: empty + empty" [] empty_bag empty_bag;
+    bag_difference_test "difference: empty + nonempty" [] empty_bag items1_bag;
+    bag_difference_test "difference: nonempty + empty" items1_lst items1_bag
+      empty_bag;
+    bag_difference_test "difference: some overlap" [ items4 ] itemsmore_bag
+      items_bag;
   ]
 
+(*Frequency Bag Test*)
 let freqbag_oflist_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(pp_list Item.to_string) out in1
 
@@ -609,16 +707,14 @@ let tennis_racket = Item.create "tennis racket" 11 1000
 let sport_bag_lst = [ baseball; basketball; tennis_racket ]
 let fruits_normal_bag = BagOfGoods.of_list fruits_lst
 let apple_item_a = Item.create "apple" 1 1
-
 let pencil = Item.create "pencil" 1 1000000
-let bookbag = Item.create "bookbag" 19 10000 
-let pen = Item.create "pen" 1 10000 
-let eraser = Item.create "eraser" 1 100000 
-
-let highlighter = Item.create "highlighter" 1 100000 
+let bookbag = Item.create "bookbag" 19 10000
+let pen = Item.create "pen" 1 10000
+let eraser = Item.create "eraser" 1 100000
+let highlighter = Item.create "highlighter" 1 100000
 let highlighter_u = Item.create "highlighter" 1 10000
-let school_supplies_lst = [pencil; bookbag; pen; eraser; highlighter]
-let school_supplies_bag = BagOfGoods.of_list school_supplies_lst 
+let school_supplies_lst = [ pencil; bookbag; pen; eraser; highlighter ]
+let school_supplies_bag = BagOfGoods.of_list school_supplies_lst
 
 let updated_fruits_bag =
   BagOfGoods.of_list [ apple_item_a; orange_item; grapes_item ]
@@ -626,60 +722,63 @@ let updated_fruits_bag =
 let updated_sports_bag =
   BagOfGoods.of_list [ baseball_updated; basketball; tennis_racket ]
 
-  let updated_school_supplies_bag = 
-    BagOfGoods.of_list [pencil; bookbag; pen; eraser; highlighter_u]
+let updated_school_supplies_bag =
+  BagOfGoods.of_list [ pencil; bookbag; pen; eraser; highlighter_u ]
+
 let updated_store1 = Store.of_list [ updated_fruits_bag ]
 let store2_updated = Store.of_list [ updated_sports_bag; fruits_normal_bag ]
 let sport_bag = BagOfGoods.of_list sport_bag_lst
 let store1 = Store.of_list [ fruits_normal_bag ]
 let store2_lst = [ sport_bag; fruits_normal_bag ]
 let store2 = Store.of_list store2_lst
-let store3_lst = [sport_bag; fruits_normal_bag; school_supplies_bag]
-
-let store3_u_lst =[sport_bag; fruits_normal_bag; updated_school_supplies_bag]
+let store3_lst = [ sport_bag; fruits_normal_bag; school_supplies_bag ]
+let store3_u_lst = [ sport_bag; fruits_normal_bag; updated_school_supplies_bag ]
 let store3_u = Store.of_list store3_u_lst
-let store3 = Store.of_list store3_lst 
+let store3 = Store.of_list store3_lst
+
 let store_count_products_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:pp_int out in1
 
 let store_sell_goods_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
 
-let store_all_products_test msg out in1 = 
+let store_all_products_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
 
-let store_popular_goods_test msg out in1 = 
+let store_popular_goods_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
-  let store_of_list_test msg out in1 = 
-    msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+
+let store_of_list_test msg out in1 =
+  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+
 let store_tests =
   [
-    store_of_list_test "store_of_list for store of one bag" 
-    (Store.to_list store1)
-    (Store.to_list (Store.of_list [fruits_normal_bag]));
-    store_of_list_test "store_of_list for store of one bag updated" 
-    (Store.to_list updated_store1)
-    (Store.to_list (Store.of_list [ updated_fruits_bag ]));
-    store_of_list_test "store_of_list for store of two bags" 
-    (Store.to_list store2)
-    (Store.to_list (Store.of_list store2_lst));
-    store_of_list_test "store_of_list for store of three bags" 
-    (Store.to_list store3)
-    (Store.to_list (Store.of_list store3_lst));
-    store_of_list_test "store_of_list for updated store of two bags" 
-    (Store.to_list store2_updated)
-    (Store.to_list (Store.of_list 
-    [ updated_sports_bag; fruits_normal_bag ]));
-    store_of_list_test "store_of_list for updated store of three bags" 
-    (Store.to_list store3_u)
-    (Store.to_list (Store.of_list 
-    [sport_bag; fruits_normal_bag; updated_school_supplies_bag]));
+    store_of_list_test "store_of_list for store of one bag"
+      (Store.to_list store1)
+      (Store.to_list (Store.of_list [ fruits_normal_bag ]));
+    store_of_list_test "store_of_list for store of one bag updated"
+      (Store.to_list updated_store1)
+      (Store.to_list (Store.of_list [ updated_fruits_bag ]));
+    store_of_list_test "store_of_list for store of two bags"
+      (Store.to_list store2)
+      (Store.to_list (Store.of_list store2_lst));
+    store_of_list_test "store_of_list for store of three bags"
+      (Store.to_list store3)
+      (Store.to_list (Store.of_list store3_lst));
+    store_of_list_test "store_of_list for updated store of two bags"
+      (Store.to_list store2_updated)
+      (Store.to_list (Store.of_list [ updated_sports_bag; fruits_normal_bag ]));
+    store_of_list_test "store_of_list for updated store of three bags"
+      (Store.to_list store3_u)
+      (Store.to_list
+         (Store.of_list
+            [ sport_bag; fruits_normal_bag; updated_school_supplies_bag ]));
     store_count_products_test "store count_products for store of one bag" 6
       (Store.count_products store1);
     store_count_products_test "store_count_products for store of two bags" 1205
       (Store.count_products store2);
     store_count_products_test "store_count_products for store of 3 bags" 1221205
-    (Store.count_products store3);
+      (Store.count_products store3);
     store_sell_goods_test
       "store sell_goods_test for item apple in store of one bag"
       (Store.to_list updated_store1)
@@ -687,33 +786,52 @@ let store_tests =
     store_sell_goods_test "store sell_goods_test for item baseball "
       (Store.to_list store2_updated)
       (Store.to_list (Store.sell_goods 10 baseball store2));
-      store_sell_goods_test "store sell_goods_test for item highlighter "
+    store_sell_goods_test "store sell_goods_test for item highlighter "
       (Store.to_list store3_u)
       (Store.to_list (Store.sell_goods 90000 highlighter store3));
-      store_count_products_test "store_count_products for updated store after selling apple" 5
+    store_count_products_test
+      "store_count_products for updated store after selling apple" 5
       (Store.count_products updated_store1);
-      store_count_products_test "store_count_products for updated store after selling baseball" 1195
+    store_count_products_test
+      "store_count_products for updated store after selling baseball" 1195
       (Store.count_products store2_updated);
-      store_count_products_test "store_count_products for updated store after selling highlighters" 1131205
+    store_count_products_test
+      "store_count_products for updated store after selling highlighters"
+      1131205
       (Store.count_products store3_u);
-    store_all_products_test "store all products for store of one bag" 
-    (Store.to_list store1) (Store.to_list (Store.all_products store1));
-    store_all_products_test "store all products for store of one bag after selling apple" 
-    (Store.to_list updated_store1) (Store.to_list (Store.all_products updated_store1));
-    store_all_products_test "store all products for store of two bags" 
-    (Store.to_list store2) (Store.to_list (Store.all_products store2));
-    store_all_products_test "store all products for store of two bags after selling baseballs" 
-    (Store.to_list store2_updated) (Store.to_list (Store.all_products store2_updated));
-    store_all_products_test "store all products for store of three bags" 
-    (Store.to_list store3) (Store.to_list (Store.all_products store3));
-    store_all_products_test "store all products for store of three bags after selling highlighters" 
-    (Store.to_list store3_u) (Store.to_list (Store.all_products store3_u));
-    store_popular_goods_test "store popular goods, goods are popular if only 10 or less in stock"
-      (Store.to_list store1) (Store.to_list (Store.popular_goods 10 store1));
-    store_popular_goods_test "store popular goods, goods are popular if only 10 or less in stock"
-      (Store.to_list store1) (Store.to_list (Store.popular_goods 10 store2));
-    store_popular_goods_test "store popular goods, goods are popular if only 10 or less in stock"
-      (Store.to_list store1) (Store.to_list (Store.popular_goods 10 store3)); 
+    store_all_products_test "store all products for store of one bag"
+      (Store.to_list store1)
+      (Store.to_list (Store.all_products store1));
+    store_all_products_test
+      "store all products for store of one bag after selling apple"
+      (Store.to_list updated_store1)
+      (Store.to_list (Store.all_products updated_store1));
+    store_all_products_test "store all products for store of two bags"
+      (Store.to_list store2)
+      (Store.to_list (Store.all_products store2));
+    store_all_products_test
+      "store all products for store of two bags after selling baseballs"
+      (Store.to_list store2_updated)
+      (Store.to_list (Store.all_products store2_updated));
+    store_all_products_test "store all products for store of three bags"
+      (Store.to_list store3)
+      (Store.to_list (Store.all_products store3));
+    store_all_products_test
+      "store all products for store of three bags after selling highlighters"
+      (Store.to_list store3_u)
+      (Store.to_list (Store.all_products store3_u));
+    store_popular_goods_test
+      "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list store1)
+      (Store.to_list (Store.popular_goods 10 store1));
+    store_popular_goods_test
+      "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list store1)
+      (Store.to_list (Store.popular_goods 10 store2));
+    store_popular_goods_test
+      "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list store1)
+      (Store.to_list (Store.popular_goods 10 store3));
   ]
 
 let ngram_tests = []
