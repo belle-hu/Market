@@ -610,31 +610,76 @@ let sport_bag_lst = [ baseball; basketball; tennis_racket ]
 let fruits_normal_bag = BagOfGoods.of_list fruits_lst
 let apple_item_a = Item.create "apple" 1 1
 
+let pencil = Item.create "pencil" 1 1000000
+let bookbag = Item.create "bookbag" 19 10000 
+let pen = Item.create "pen" 1 10000 
+let eraser = Item.create "eraser" 1 100000 
+
+let highlighter = Item.create "highlighter" 1 100000 
+let highlighter_u = Item.create "highlighter" 1 10000
+let school_supplies_lst = [pencil; bookbag; pen; eraser; highlighter]
+let school_supplies_bag = BagOfGoods.of_list school_supplies_lst 
+
 let updated_fruits_bag =
-  BagOfGoods.of_list [ grapes_item; orange_item; apple_item_a ]
+  BagOfGoods.of_list [ apple_item_a; orange_item; grapes_item ]
 
 let updated_sports_bag =
   BagOfGoods.of_list [ baseball_updated; basketball; tennis_racket ]
 
+  let updated_school_supplies_bag = 
+    BagOfGoods.of_list [pencil; bookbag; pen; eraser; highlighter_u]
 let updated_store1 = Store.of_list [ updated_fruits_bag ]
 let store2_updated = Store.of_list [ updated_sports_bag; fruits_normal_bag ]
 let sport_bag = BagOfGoods.of_list sport_bag_lst
 let store1 = Store.of_list [ fruits_normal_bag ]
 let store2_lst = [ sport_bag; fruits_normal_bag ]
 let store2 = Store.of_list store2_lst
+let store3_lst = [sport_bag; fruits_normal_bag; school_supplies_bag]
 
+let store3_u_lst =[sport_bag; fruits_normal_bag; updated_school_supplies_bag]
+let store3_u = Store.of_list store3_u_lst
+let store3 = Store.of_list store3_lst 
 let store_count_products_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:pp_int out in1
 
 let store_sell_goods_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
 
+let store_all_products_test msg out in1 = 
+  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+
+let store_popular_goods_test msg out in1 = 
+  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+  let store_of_list_test msg out in1 = 
+    msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
 let store_tests =
   [
+    store_of_list_test "store_of_list for store of one bag" 
+    (Store.to_list store1)
+    (Store.to_list (Store.of_list [fruits_normal_bag]));
+    store_of_list_test "store_of_list for store of one bag updated" 
+    (Store.to_list updated_store1)
+    (Store.to_list (Store.of_list [ updated_fruits_bag ]));
+    store_of_list_test "store_of_list for store of two bags" 
+    (Store.to_list store2)
+    (Store.to_list (Store.of_list store2_lst));
+    store_of_list_test "store_of_list for store of three bags" 
+    (Store.to_list store3)
+    (Store.to_list (Store.of_list store3_lst));
+    store_of_list_test "store_of_list for updated store of two bags" 
+    (Store.to_list store2_updated)
+    (Store.to_list (Store.of_list 
+    [ updated_sports_bag; fruits_normal_bag ]));
+    store_of_list_test "store_of_list for updated store of three bags" 
+    (Store.to_list store3_u)
+    (Store.to_list (Store.of_list 
+    [sport_bag; fruits_normal_bag; updated_school_supplies_bag]));
     store_count_products_test "store count_products for store of one bag" 6
       (Store.count_products store1);
     store_count_products_test "store_count_products for store of two bags" 1205
       (Store.count_products store2);
+    store_count_products_test "store_count_products for store of 3 bags" 1221205
+    (Store.count_products store3);
     store_sell_goods_test
       "store sell_goods_test for item apple in store of one bag"
       (Store.to_list updated_store1)
@@ -642,6 +687,33 @@ let store_tests =
     store_sell_goods_test "store sell_goods_test for item baseball "
       (Store.to_list store2_updated)
       (Store.to_list (Store.sell_goods 10 baseball store2));
+      store_sell_goods_test "store sell_goods_test for item highlighter "
+      (Store.to_list store3_u)
+      (Store.to_list (Store.sell_goods 90000 highlighter store3));
+      store_count_products_test "store_count_products for updated store after selling apple" 5
+      (Store.count_products updated_store1);
+      store_count_products_test "store_count_products for updated store after selling baseball" 1195
+      (Store.count_products store2_updated);
+      store_count_products_test "store_count_products for updated store after selling highlighters" 1131205
+      (Store.count_products store3_u);
+    store_all_products_test "store all products for store of one bag" 
+    (Store.to_list store1) (Store.to_list (Store.all_products store1));
+    store_all_products_test "store all products for store of one bag after selling apple" 
+    (Store.to_list updated_store1) (Store.to_list (Store.all_products updated_store1));
+    store_all_products_test "store all products for store of two bags" 
+    (Store.to_list store2) (Store.to_list (Store.all_products store2));
+    store_all_products_test "store all products for store of two bags after selling baseballs" 
+    (Store.to_list store2_updated) (Store.to_list (Store.all_products store2_updated));
+    store_all_products_test "store all products for store of three bags" 
+    (Store.to_list store3) (Store.to_list (Store.all_products store3));
+    store_all_products_test "store all products for store of three bags after selling highlighters" 
+    (Store.to_list store3_u) (Store.to_list (Store.all_products store3_u));
+    store_popular_goods_test "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list store1) (Store.to_list (Store.popular_goods 10 store1));
+    store_popular_goods_test "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list store1) (Store.to_list (Store.popular_goods 10 store2));
+    store_popular_goods_test "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list store1) (Store.to_list (Store.popular_goods 10 store3)); 
   ]
 
 let ngram_tests = []
@@ -654,7 +726,7 @@ let suite =
            items_tests;
            bagofgoods_tests;
            (* fbagofgoods_tests; *)
-           (* store_tests; *)
+           store_tests;
          ]
 
 let () = run_test_tt_main suite

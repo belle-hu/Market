@@ -10,6 +10,8 @@ module type StoreType = sig
   val in_stock_goods: 'a t -> 'a t
   val of_list: BagOfGoods.t list -> 'a t 
   val to_list: 'a t -> BagOfGoods.t list
+  val map: (BagOfGoods.t -> BagOfGoods.t) -> BagOfGoods.t list -> BagOfGoods.t list 
+  val filter: (BagOfGoods.t -> bool) -> BagOfGoods.t list -> BagOfGoods.t list 
 end 
 
 module Store : StoreType 
