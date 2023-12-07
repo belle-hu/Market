@@ -2,7 +2,6 @@ open Grocery
 open Store
 open Items
 open Bagofgoods
-open Expenditure
 
 (**Store history*)
 let bag = ref FrequencyBagGoods.empty
