@@ -263,11 +263,14 @@ module FrequencyBagGoods : SampleGoodsType = struct
     List.map (fun { element; _ } -> Item.get_name element) bag
 
   let total_quantity (bag : t) : int =
-    List.fold_left (fun acc { freq; _ } -> acc + freq) 0 bag
+    List.fold_left
+      (fun acc { freq; element } -> acc + Item.get_quantity element)
+      0 bag
 
   let total_cost (bag : t) : int =
     List.fold_left
-      (fun acc { element; freq } -> acc + (freq * Item.get_price element))
+      (fun acc { element; freq } ->
+        acc + (Item.get_quantity element * Item.get_price element))
       0 bag
 
   let map (bag : t) (f : Item.t -> Item.t) : t = failwith ""
