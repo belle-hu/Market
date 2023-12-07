@@ -18,7 +18,15 @@ type transac = {
   na : string;
 }
 
+type customer_transac = {
+  name : string;
+  amount : int;
+  price : int;
+  current_total : int;
+}
+
 let transaction_history = ref []
+let reciept = ref []
 
 (**Choice 2*)
 
@@ -177,6 +185,9 @@ let show_transaction_history () =
   in
   history_helper !transaction_history
 
+(* output the customer reciept*)
+let show_reciept () = failwith "unimplemented"
+
 (*Customer choice 1*)
 let customer_buy () =
   print_endline
@@ -313,7 +324,8 @@ and customer_mode () =
        Please enter your choice of 1 or 2: \n\
        1. Yes, I want to buy something.\n\
        2. No, I do not want to buy anything. (Switch back to the store owner \
-       mode)";
+       mode) \n\
+       3. I want to checkout";
     match read_line () with
     | "1" ->
         customer_buy ();
