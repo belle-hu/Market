@@ -205,6 +205,8 @@ module FrequencyBagGoods : SampleGoodsType = struct
     | [] -> None
     | rec1 :: t -> Some rec1.element
 
+  (* Requires that a bag can't have 2 items with the same name but different
+     prices. E.g. you can't have "apple" price 1 and another "apple" price 2*)
   let count_elems (b : t) : int =
     List.fold_left
       (fun sum record -> Item.get_quantity record.element + sum)
@@ -245,7 +247,21 @@ module FrequencyBagGoods : SampleGoodsType = struct
     | { element; _ } :: rest ->
         if Item.get_name element = nam then true else contains rest nam
 
-  let to_string (b : t) : string = failwith ""
+  let to_string_record (r : freq_record) : string =
+    "(" ^ Item.to_string r.element ^ ", freq: " ^ string_of_int r.freq ^ ")"
+
+  (*recursive helper for to_string*)
+  let rec to_string_helper (b : t) : string =
+    match b with
+    | [] -> ""
+    | h :: t ->
+        if t = [] then to_string_record h
+        else to_string_record h ^ "; " ^ to_string_helper t
+
+  let to_string (b : t) : string =
+    match b with
+    | [] -> "||"
+    | h :: t -> "|" ^ to_string_record h ^ "; " ^ to_string_helper t ^ "|"
 
   let rec remove (bag : t) (name : string) : t =
     match bag with
@@ -273,7 +289,11 @@ module FrequencyBagGoods : SampleGoodsType = struct
         acc + (Item.get_quantity element * Item.get_price element))
       0 bag
 
-  let map (bag : t) (f : Item.t -> Item.t) : t = failwith ""
+  let rec map (bag : t) (f : Item.t -> Item.t) : t =
+    match bag with
+    | [] -> []
+    | h :: t -> { h with element = f h.element } :: map t f
+
   let filter (bag : t) (predicate : Item.t -> bool) : t = failwith ""
   let intersection (bag1 : t) (bag2 : t) : t = failwith ""
   let difference (bag1 : t) (bag2 : t) : t = failwith ""

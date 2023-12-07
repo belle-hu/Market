@@ -644,21 +644,40 @@ let freqbag_update_quantity_test msg out in1 in2 in3 =
   assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
     FrequencyBagGoods.(update_quantity in1 in2 in3 |> to_list)
 
+let freqbag_map_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    FrequencyBagGoods.(map in1 in2 |> to_list)
+
+let freqbag_to_string_test msg out in1 =
+  msg >:: fun _ -> assert_equal ~printer:(fun x -> x) out in1
+
 let apple_item = Item.create "apple" 1 2
-let apple_item_expensive = Item.create "apple" 5 4
+let apple_item_expensive = Item.create "apple expensive" 5 4
 let orange_item = Item.create "orange" 2 3
 let grapes_item = Item.create "grapes" 3 1
 let apple_item_big = Item.create "apple" 1 6
-let fruits_lst = [ apple_item; orange_item; grapes_item ]
+let fruits_lst = [ orange_item; apple_item; grapes_item ]
 let fruits_bag = FrequencyBagGoods.of_list fruits_lst
-let big_apple_lst = [ apple_item_big ]
-let big_apple_bag = FrequencyBagGoods.of_list big_apple_lst
+let broc_item = Item.create "broccoli" 3 10
+let cucumber_item = Item.create "cucumber" 5 8
+let carrot_item = Item.create "carrot" 2 3
+let veg_lst = [ broc_item; cucumber_item; carrot_item ]
+
+let veg_lst_plus_one =
+  [
+    Item.create "broccoli" 4 10;
+    Item.create "cucumber" 6 8;
+    Item.create "carrot" 3 3;
+  ]
+
+let veg_bag = FrequencyBagGoods.of_list veg_lst
 let apple_bag = FrequencyBagGoods.of_list [ apple_item; apple_item; apple_item ]
 let empty_bag = FrequencyBagGoods.of_list []
-let diff_apple_lst = [ apple_item; apple_item_expensive ]
+let diff_apple_lst = [ apple_item_expensive; apple_item ]
 
 let diff_apple_bag =
-  FrequencyBagGoods.of_list [ apple_item; apple_item_expensive ]
+  FrequencyBagGoods.of_list [ apple_item_expensive; apple_item ]
 
 let mixed_bag =
   FrequencyBagGoods.of_list
@@ -671,16 +690,25 @@ let mixed_bag =
       grapes_item;
     ]
 
+let mixed_bag_string =
+  "|({name = apple; price = 1; quantity = 2}, freq: 6); ({name = apple \
+   expensive; price = 5; quantity = 4}, freq: 4); ({name = orange; price = 2; \
+   quantity = 3}, freq: 3); ({name = grapes; price = 3; quantity = 1}, freq: \
+   1)|"
+
 let fbagofgoods_tests =
   [
-    (*of_list tests*)
+    (*to_string_tests*)
+    freqbag_to_string_test "freqbag empty to_string" "||"
+      (FrequencyBagGoods.to_string empty_bag);
+    freqbag_to_string_test "freqbag to_string mixed bag of goods"
+      mixed_bag_string
+      (FrequencyBagGoods.to_string mixed_bag);
     freqbag_oflist_test "freqbag of_list 3 distinct items"
       [ orange_item; apple_item; grapes_item ]
       (FrequencyBagGoods.of_list fruits_lst |> FrequencyBagGoods.to_list);
-    freqbag_oflist_test "freqbag of_list 3 of the same item & same multiplicity"
-      big_apple_lst
-      (FrequencyBagGoods.of_list [ apple_item; apple_item; apple_item ]
-      |> FrequencyBagGoods.to_list);
+    freqbag_oflist_test "freqbag of_list 3 item list veg_list" veg_lst
+      (FrequencyBagGoods.of_list veg_lst |> FrequencyBagGoods.to_list);
     freqbag_oflist_test "freqbag of_list on empty list" []
       (FrequencyBagGoods.of_list [] |> FrequencyBagGoods.to_list);
     freqbag_oflist_test "freqbag of_list on singleton list" [ apple_item ]
@@ -693,8 +721,8 @@ let fbagofgoods_tests =
     (*to_list tests*)
     freqbag_tolist_test "freqbag to_list on fruits_bag" fruits_lst
       (FrequencyBagGoods.to_list fruits_bag);
-    freqbag_tolist_test "freqbag to_list on big_apple_bag" big_apple_lst
-      (FrequencyBagGoods.to_list big_apple_bag);
+    freqbag_tolist_test "freqbag to_list on big_apple_bag" veg_lst
+      (FrequencyBagGoods.to_list veg_bag);
     freqbag_tolist_test "freqbag to_list on empty bag" []
       (FrequencyBagGoods.to_list empty_bag);
     freqbag_tolist_test "freqbag to_list on diff_apple_bag" diff_apple_lst
@@ -702,7 +730,7 @@ let fbagofgoods_tests =
     (*sample tests*)
     freqbag_sample_test "freqbag sample on fruits_bag" (Some orange_item)
       (FrequencyBagGoods.sample fruits_bag);
-    freqbag_sample_test "freqbag sample on apple_bag" (Some apple_item_big)
+    freqbag_sample_test "freqbag sample on apple_bag" (Some apple_item)
       (FrequencyBagGoods.sample apple_bag);
     freqbag_sample_test "freqbag sample on empty bag" None
       (FrequencyBagGoods.sample empty_bag);
@@ -714,16 +742,11 @@ let fbagofgoods_tests =
       (FrequencyBagGoods.count_elems empty_bag);
     freqbag_count_test "freqbag count on fruits_bag" 6
       (FrequencyBagGoods.count_elems fruits_bag);
-    freqbag_count_test "freqbag count on apple bag" 6
-      (FrequencyBagGoods.count_elems apple_bag);
     freqbag_sample_test "freqbag count on diff_apple_bag" 6
       (FrequencyBagGoods.count_elems diff_apple_bag);
     freqbag_update_price_test "freqbag update_price: fruits_bag"
       [ Item.create "orange" 4 3; apple_item; grapes_item ]
       fruits_bag "orange" 2;
-    freqbag_update_price_test "update_price: big_apple_bag"
-      [ Item.create "apple" 6 6 ]
-      big_apple_bag "apple" 5;
     (*update_price tests*)
     freqbag_update_price_test "update_price: fruits_bag"
       [ Item.create "orange" 4 3; grapes_item; apple_item ]
@@ -731,9 +754,9 @@ let fbagofgoods_tests =
     freqbag_update_price_test "update_price: fruits_bag: decrease the price"
       [ Item.create "orange" 1 3; grapes_item; apple_item ]
       fruits_bag "orange" ~-1;
-    freqbag_update_price_test "update_price: big_apple_bag"
-      [ Item.create "apple" 6 6 ]
-      big_apple_bag "apple" 5;
+    freqbag_update_price_test "update_price: veg_bag"
+      [ broc_item; Item.create "cucumber" 7 8; carrot_item ]
+      veg_bag "cucumber" 2;
     (*update_quantity tests*)
     freqbag_update_quantity_test "update_quantity: fruits_bag"
       [ Item.create "orange" 2 6; grapes_item; apple_item ]
@@ -742,9 +765,14 @@ let fbagofgoods_tests =
       "update_quantity: fruits_bag: decrease the quantity"
       [ Item.create "orange" 2 0; grapes_item; apple_item ]
       fruits_bag "orange" ~-3;
-    freqbag_update_quantity_test "update_quantity: big_apple_bag"
-      [ Item.create "apple" 1 8 ]
-      big_apple_bag "apple" 2;
+    freqbag_update_quantity_test "update_quantity: veg_bag"
+      [ Item.create "cucumber" 5 10; broc_item; carrot_item ]
+      veg_bag "cucumber" 2;
+    (*map tests*)
+    freqbag_map_test "freq bag map on empty bag" [] empty_bag (fun item ->
+        Item.change_price item 1);
+    freqbag_map_test "freq bag map on veg_lst" veg_lst_plus_one veg_bag
+      (fun item -> Item.change_price item 1);
   ]
 
 let baseball = Item.create "baseball" 10 100
@@ -764,7 +792,7 @@ let school_supplies_lst = [ pencil; bookbag; pen; eraser; highlighter ]
 let school_supplies_bag = BagOfGoods.of_list school_supplies_lst
 
 let updated_fruits_bag =
-  BagOfGoods.of_list [ apple_item_a; orange_item; grapes_item ]
+  BagOfGoods.of_list [ orange_item; apple_item_a; grapes_item ]
 
 let updated_sports_bag =
   BagOfGoods.of_list [ baseball_updated; basketball; tennis_racket ]
@@ -890,7 +918,7 @@ let suite =
            cmp_demo;
            items_tests;
            bagofgoods_tests;
-           (*fbagofgoods_tests;*)
+           fbagofgoods_tests;
            store_tests;
          ]
 

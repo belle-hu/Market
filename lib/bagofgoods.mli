@@ -11,7 +11,12 @@ module type SampleGoodsType = sig
   (**Convert a sampleable bag to a list of items*)
 
   val of_list : Item.t list -> t
-  (**Convert a list of items into a sampleable bag*)
+  (**Convert a list of items into a sampleable bag. Requires that multiple Item
+     objects cannot have the same name. This includes Items with the same name
+     and different costs as well as Items with the same name and same cost. For
+     example, a bag with one "apple" of price 1 and another with price 2 cannot
+     be created. Instead, users must use the update_price function. A list with
+     an "apple" of price 1 twice occuring is also forbidden. *)
 
   val join : t -> t -> t
   (**Join two bags together*)
