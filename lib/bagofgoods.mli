@@ -70,8 +70,9 @@ module type SampleGoodsType = sig
   val difference : t -> t -> t
   (**Returns a bag with elements existing in the first bag but not the second*)
 
-  val get_price : t -> string -> int
-  (**Return the price of an item given a bag and a name.*)
+  val get_price : t -> string -> int option
+  (**Return the price of an item wrapped in [Some] given a bag and a name.
+     Returns [None] if item does not exist in the bag. *)
 end
 
 module BagOfGoods : SampleGoodsType
