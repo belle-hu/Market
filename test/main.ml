@@ -652,6 +652,21 @@ let freqbag_map_test msg out in1 in2 =
 let freqbag_to_string_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:(fun x -> x) out in1
 
+let freqbag_filter_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (FrequencyBagGoods.to_list (FrequencyBagGoods.filter in1 in2))
+
+let freqbag_intersection_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (FrequencyBagGoods.to_list FrequencyBagGoods.(intersection in1 in2))
+
+let freqbag_difference_test msg out in1 in2 =
+  msg >:: fun _ ->
+  assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
+    (FrequencyBagGoods.to_list FrequencyBagGoods.(difference in1 in2))
+
 let apple_item = Item.create "apple" 1 2
 let apple_item_expensive = Item.create "apple expensive" 5 4
 let orange_item = Item.create "orange" 2 3
@@ -663,12 +678,23 @@ let broc_item = Item.create "broccoli" 3 10
 let cucumber_item = Item.create "cucumber" 5 8
 let carrot_item = Item.create "carrot" 2 3
 let veg_lst = [ broc_item; cucumber_item; carrot_item ]
+let carrot_lst = [ carrot_item ]
+let carrot_bag = FrequencyBagGoods.of_list carrot_lst
+let broc_cucumber_lst = [ broc_item; cucumber_item ]
+let broc_cucumber_bag = FrequencyBagGoods.of_list [ broc_item; cucumber_item ]
 
 let veg_lst_plus_one =
   [
     Item.create "broccoli" 4 10;
     Item.create "cucumber" 6 8;
     Item.create "carrot" 3 3;
+  ]
+
+let veg_lst_plus_one_quant =
+  [
+    Item.create "broccoli" 3 11;
+    Item.create "cucumber" 5 9;
+    Item.create "carrot" 2 4;
   ]
 
 let veg_bag = FrequencyBagGoods.of_list veg_lst
@@ -704,6 +730,7 @@ let fbagofgoods_tests =
     freqbag_to_string_test "freqbag to_string mixed bag of goods"
       mixed_bag_string
       (FrequencyBagGoods.to_string mixed_bag);
+    (*of_list tests*)
     freqbag_oflist_test "freqbag of_list 3 distinct items"
       [ orange_item; apple_item; grapes_item ]
       (FrequencyBagGoods.of_list fruits_lst |> FrequencyBagGoods.to_list);
@@ -742,11 +769,10 @@ let fbagofgoods_tests =
       (FrequencyBagGoods.count_elems empty_bag);
     freqbag_count_test "freqbag count on fruits_bag" 6
       (FrequencyBagGoods.count_elems fruits_bag);
-    freqbag_sample_test "freqbag count on diff_apple_bag" 6
+    freqbag_count_test "freqbag count on diff_apple_bag" 6
       (FrequencyBagGoods.count_elems diff_apple_bag);
-    freqbag_update_price_test "freqbag update_price: fruits_bag"
-      [ Item.create "orange" 4 3; apple_item; grapes_item ]
-      fruits_bag "orange" 2;
+    freqbag_count_test "freqbag count on veg_bag" 21
+      (FrequencyBagGoods.count_elems veg_bag);
     (*update_price tests*)
     freqbag_update_price_test "update_price: fruits_bag"
       [ Item.create "orange" 4 3; grapes_item; apple_item ]
@@ -757,6 +783,9 @@ let fbagofgoods_tests =
     freqbag_update_price_test "update_price: veg_bag"
       [ broc_item; Item.create "cucumber" 7 8; carrot_item ]
       veg_bag "cucumber" 2;
+    freqbag_update_price_test "freqbag update_price: fruits_bag"
+      [ Item.create "orange" 4 3; apple_item; grapes_item ]
+      fruits_bag "orange" 2;
     (*update_quantity tests*)
     freqbag_update_quantity_test "update_quantity: fruits_bag"
       [ Item.create "orange" 2 6; grapes_item; apple_item ]
@@ -771,8 +800,34 @@ let fbagofgoods_tests =
     (*map tests*)
     freqbag_map_test "freq bag map on empty bag" [] empty_bag (fun item ->
         Item.change_price item 1);
-    freqbag_map_test "freq bag map on veg_lst" veg_lst_plus_one veg_bag
-      (fun item -> Item.change_price item 1);
+    freqbag_map_test "freq bag map on veg_lst incr price" veg_lst_plus_one
+      veg_bag (fun item -> Item.change_price item 1);
+    freqbag_map_test "freq bag map on veg_lst incr quant" veg_lst_plus_one_quant
+      veg_bag (fun item -> Item.change_quantity item 1);
+    (*filter tests*)
+    freqbag_filter_test "filter: only keep items w price less than 5" carrot_lst
+      carrot_bag (fun item -> Item.get_price item < 5);
+    freqbag_filter_test "filter: only keep items w price more than 11" []
+      carrot_bag (fun item -> Item.get_price item > 11);
+    freqbag_filter_test "filter: only keep items with quantity more than 6"
+      broc_cucumber_lst broc_cucumber_bag (fun item ->
+        Item.get_quantity item > 6);
+    freqbag_filter_test "filter: only keep items with quantity less than 6" []
+      broc_cucumber_bag (fun item -> Item.get_quantity item < 0);
+    (*intersection test*)
+    freqbag_intersection_test "intersection: empty + empty" [] empty_bag
+      empty_bag;
+    freqbag_intersection_test "intersection: empty + nonempty" [] empty_bag
+      veg_bag;
+    freqbag_intersection_test "intersection: some overlap" broc_cucumber_lst
+      broc_cucumber_bag veg_bag;
+    (*difference test*)
+    freqbag_difference_test "difference: empty + empty" [] empty_bag empty_bag;
+    freqbag_difference_test "difference: empty + nonempty" [] empty_bag veg_bag;
+    freqbag_difference_test "difference: nonempty + empty" veg_lst veg_bag
+      empty_bag;
+    freqbag_difference_test "difference: some overlap" [ carrot_item ] veg_bag
+      broc_cucumber_bag;
   ]
 
 let baseball = Item.create "baseball" 10 100

@@ -294,7 +294,23 @@ module FrequencyBagGoods : SampleGoodsType = struct
     | [] -> []
     | h :: t -> { h with element = f h.element } :: map t f
 
-  let filter (bag : t) (predicate : Item.t -> bool) : t = failwith ""
-  let intersection (bag1 : t) (bag2 : t) : t = failwith ""
-  let difference (bag1 : t) (bag2 : t) : t = failwith ""
+  let rec filter (bag : t) (predicate : Item.t -> bool) : t =
+    match bag with
+    | [] -> []
+    | h :: t ->
+        if predicate h.element then h :: filter t predicate
+        else filter t predicate
+
+  let flatten (bag : t) : Item.t list =
+    List.map (fun record -> record.element) bag
+
+  let intersection (bag1 : t) (bag2 : t) : t =
+    let bag2_item_lst = flatten bag2 in
+    let bag2_names = List.map Item.get_name bag2_item_lst in
+    filter bag1 (fun item -> List.mem (Item.get_name item) bag2_names)
+
+  let difference (bag1 : t) (bag2 : t) : t =
+    let bag2_item_lst = flatten bag2 in
+    let bag2_names = List.map Item.get_name bag2_item_lst in
+    filter bag1 (fun item -> not (List.mem (Item.get_name item) bag2_names))
 end
