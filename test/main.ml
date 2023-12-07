@@ -168,6 +168,14 @@ let items_tests =
       "{name = item1; price = 1; quantity = 10}" item1 ~-2;
     item_change_price_test "Leave the price of an item unchanged"
       "{name = item1; price = 3; quantity = 10}" item1 0;
+    item_change_price_test "Change the price of an item: item2"
+      "{name = item2; price = 15; quantity = 100}" item2 5;
+    item_change_price_test "Change the price of an item: item3"
+      "{name = item3; price = 56; quantity = 500}" item3 6;
+    item_change_price_test "Change the price of an item: item4"
+      "{name = item4; price = 27; quantity = 1000}" item4 7;
+    item_change_price_test "Change the price of an item: item5"
+      "{name = item5; price = 108; quantity = 10000}" item5 8;
     (*change_quantity tests*)
     item_change_quantity_test "Increase the quantity of an item"
       "{name = item2; price = 10; quantity = 110}" item2 10;
@@ -175,6 +183,16 @@ let items_tests =
       "{name = item2; price = 10; quantity = 80}" item2 ~-20;
     item_change_quantity_test "Leave the quantity of an item unchanged"
       "{name = item2; price = 10; quantity = 100}" item2 0;
+    item_change_quantity_test "Change the quantity of an item: item2"
+      "{name = item2; price = 10; quantity = 105}" item2 5;
+    item_change_quantity_test "Change the quantity of an item: item3"
+      "{name = item3; price = 50; quantity = 506}" item3 6;
+    item_change_quantity_test "Change the quantity of an item: item4"
+      "{name = item4; price = 20; quantity = 1007}" item4 7;
+    item_change_quantity_test "Change the quantity of an item: item5"
+      "{name = item5; price = 100; quantity = 10008}" item5 8;
+    item_change_quantity_test "Change the quantity of an item: item1"
+      "{name = item1; price = 3; quantity = 19}" item1 9;
     (*to_list tests*)
     item_to_list_test "to_list of item1"
       "{name = item1; price = 3; quantity = 10}" item1;
@@ -216,6 +234,9 @@ let items_tests =
     item_change_price_exception_test
       "Raise exception if the price is below 0 after change_price item3" item3
       ~-51;
+    item_change_price_exception_test
+      "Raise exception if the price is below 0 after change_price item4" item4
+      ~-21;
     (*change_quantity_exception tests*)
     item_change_quantity_exception_test
       "Raise exception if the quantity is below 0 after change_price item1"
@@ -226,6 +247,9 @@ let items_tests =
     item_change_quantity_exception_test
       "Raise exception if the quantity is below 0 after change_price item3"
       item3 ~-501;
+    item_change_quantity_exception_test
+      "Raise exception if the quantity is below 0 after change_price item3"
+      item4 ~-1001;
     (*create_price_exception tests*)
     item_create_price_exception_test
       "Raise exception if an item is created with price < 0: test 1" "banana"
@@ -502,6 +526,7 @@ let bagofgoods_tests =
     bag_count_test "count 4 pt1" 4 itemsmore_bag;
     bag_count_test "count 4 pt2" 4
       (BagOfGoods.join items_half1_bag items_half2_bag);
+    (*update_price tests*)
     bag_update_price_test "update_price: items1_bag"
       [ Item.create "cake" 3 2 ]
       items1_bag "cake" 2;
@@ -511,6 +536,7 @@ let bagofgoods_tests =
     bag_update_price_test "update_price: itemsmore_bag"
       [ items1; items2; items4; Item.create "pie" 3 1 ]
       itemsmore_bag "pie" ~-2;
+    (*update_quantity tests*)
     bag_update_quantity_test "update_quantity: items2_bag"
       [ Item.create "cookie" 1 2 ]
       items2_bag "cookie" ~-1;
@@ -698,6 +724,27 @@ let fbagofgoods_tests =
     freqbag_update_price_test "update_price: big_apple_bag"
       [ Item.create "apple" 6 6 ]
       big_apple_bag "apple" 5;
+    (*update_price tests*)
+    freqbag_update_price_test "update_price: fruits_bag"
+      [ Item.create "orange" 4 3; grapes_item; apple_item ]
+      fruits_bag "orange" 2;
+    freqbag_update_price_test "update_price: fruits_bag: decrease the price"
+      [ Item.create "orange" 1 3; grapes_item; apple_item ]
+      fruits_bag "orange" ~-1;
+    freqbag_update_price_test "update_price: big_apple_bag"
+      [ Item.create "apple" 6 6 ]
+      big_apple_bag "apple" 5;
+    (*update_quantity tests*)
+    freqbag_update_quantity_test "update_quantity: fruits_bag"
+      [ Item.create "orange" 2 6; grapes_item; apple_item ]
+      fruits_bag "orange" 3;
+    freqbag_update_quantity_test
+      "update_quantity: fruits_bag: decrease the quantity"
+      [ Item.create "orange" 2 0; grapes_item; apple_item ]
+      fruits_bag "orange" ~-3;
+    freqbag_update_quantity_test "update_quantity: big_apple_bag"
+      [ Item.create "apple" 1 8 ]
+      big_apple_bag "apple" 2;
   ]
 
 let baseball = Item.create "baseball" 10 100
@@ -843,7 +890,7 @@ let suite =
            cmp_demo;
            items_tests;
            bagofgoods_tests;
-           (* fbagofgoods_tests; *)
+           (*fbagofgoods_tests;*)
            store_tests;
          ]
 
