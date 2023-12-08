@@ -886,7 +886,7 @@ let updated_sports_bag =
   FrequencyBagGoods.of_list [ baseball_updated; basketball; tennis_racket ]
 
 let updated_school_supplies_bag =
-  FrequencyBagGoods.of_list [ pencil;  eraser; pen; highlighter_u; bookbag ]
+  FrequencyBagGoods.of_list [ pencil; eraser; pen; highlighter_u; bookbag ]
 
 let updated_store1 = Store.of_list [ updated_fruits_bag ]
 let store2_updated = Store.of_list [ updated_sports_bag; fruits_normal_bag ]
@@ -903,16 +903,20 @@ let store_count_products_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:pp_int out in1
 
 let store_sell_goods_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
+  msg >:: fun _ ->
+  assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_all_products_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
+  msg >:: fun _ ->
+  assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_popular_goods_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
+  msg >:: fun _ ->
+  assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_of_list_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
+  msg >:: fun _ ->
+  assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_tests =
   [

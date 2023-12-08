@@ -38,6 +38,10 @@ module type SampleGoodsType = sig
   (**Update the quantity of the provided item in the bag. Requires: The item
      required to update should be already in the bag*)
 
+  val update_quantity_fre : t -> string -> int -> t
+  (**Update the quantity and frequency of the provided item in the bag.
+     Requires: The item required to update should be already in the bag*)
+
   val contains : t -> string -> bool
   (**Returns true if the bag contains an element*)
 

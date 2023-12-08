@@ -14,6 +14,7 @@ module type SampleGoodsType = sig
   val count_elems : t -> int
   val update_price : t -> string -> int -> t
   val update_quantity : t -> string -> int -> t
+  val update_quantity_fre : t -> string -> int -> t
   val contains : t -> string -> bool
   val to_string : t -> string
   val remove : t -> string -> t
@@ -69,6 +70,20 @@ module BagOfGoods : SampleGoodsType = struct
     update_p_helper b nam pri
 
   let rec update_quantity (b : t) (nam : string) (quan : int) : t =
+    match to_list b with
+    | [] ->
+        print_endline "Item with the provided name does not exist in the bag";
+        b
+    | h :: t ->
+        if Item.get_name h = nam then
+          let update_item = Item.change_quantity h quan in
+          join [ update_item ]
+            (List.filter
+               (fun ele -> if Item.get_name ele = nam then false else true)
+               b)
+        else update_quantity (of_list t) nam quan
+
+  let rec update_quantity_fre (b : t) (nam : string) (quan : int) : t =
     match to_list b with
     | [] ->
         print_endline "Item with the provided name does not exist in the bag";
@@ -186,9 +201,7 @@ module FrequencyBagGoods : SampleGoodsType = struct
     | [] -> []
     | elt :: t ->
         let record_list = of_list t in
-        let updated_list =
-          update_freq record_list elt (Item.get_quantity elt)
-        in
+        let updated_list = update_freq record_list elt 0 in
         List.sort compare_record updated_list
 
   let rec join (b1 : t) (b2 : t) : t =
@@ -243,6 +256,18 @@ module FrequencyBagGoods : SampleGoodsType = struct
           else update_p_helper (of_list t) nam qu
     in
     update_p_helper b nam quan
+
+  let rec update_quantity_fre b nam quan =
+    let rec update_pf_helper bg na qu =
+      match to_list bg with
+      | [] -> b
+      | h :: t ->
+          if Item.get_name h = nam then
+            let update_item = Item.change_quantity h qu in
+            join [ { element = update_item; freq = ~-quan } ] b
+          else update_pf_helper (of_list t) nam qu
+    in
+    update_pf_helper b nam quan
 
   let rec contains (b : t) (nam : string) : bool =
     match b with
