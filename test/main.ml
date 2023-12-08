@@ -407,6 +407,15 @@ let bag_difference_test msg out in1 in2 =
   assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
     (BagOfGoods.to_list BagOfGoods.(difference in1 in2))
 
+let bag_get_price_test msg out in1 =
+  msg >:: fun _ ->
+  assert_equal
+    ~printer:(fun int_opt ->
+      match int_opt with
+      | None -> ""
+      | Some v -> string_of_int v)
+    out in1
+
 let trial_item1 = Item.create "hello" 1000 10000
 let trial_item2 = Item.create "hi" 500000 5000000
 let trial_items_lst = [ trial_item1; trial_item2 ]
@@ -620,6 +629,13 @@ let bagofgoods_tests =
       empty_bag;
     bag_difference_test "difference: some overlap" [ items4 ] itemsmore_bag
       items_bag;
+    (*get_price test*)
+    bag_get_price_test "get_price: empty bag" None
+      (BagOfGoods.get_price empty_bag "cookie");
+    bag_get_price_test "get_price: non-empty bag and item exists" (Some 1)
+      (BagOfGoods.get_price items2_bag "cookie");
+    bag_get_price_test "get_price: non-empty bag and item does not exist" None
+      (BagOfGoods.get_price items2_bag "pie");
   ]
 
 (*Frequency Bag Test*)
@@ -666,6 +682,15 @@ let freqbag_difference_test msg out in1 in2 =
   msg >:: fun _ ->
   assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
     (FrequencyBagGoods.to_list FrequencyBagGoods.(difference in1 in2))
+
+let freqbag_get_price_test msg out in1 =
+  msg >:: fun _ ->
+  assert_equal
+    ~printer:(fun int_opt ->
+      match int_opt with
+      | None -> ""
+      | Some v -> string_of_int v)
+    out in1
 
 let apple_item = Item.create "apple" 1 2
 let apple_item_expensive = Item.create "apple expensive" 5 4
@@ -828,6 +853,14 @@ let fbagofgoods_tests =
       empty_bag;
     freqbag_difference_test "difference: some overlap" [ carrot_item ] veg_bag
       broc_cucumber_bag;
+    (*get_price tests*)
+    freqbag_get_price_test "get_price: cucumber in empty bag" None
+      (FrequencyBagGoods.get_price empty_bag "cucumber");
+    freqbag_get_price_test "get_price: cucumber in veg_bag" (Some 5)
+      (FrequencyBagGoods.get_price veg_bag "cucumber");
+    freqbag_get_price_test "get_price: item does not exist in non-empty bag"
+      None
+      (FrequencyBagGoods.get_price fruits_bag "cucumber");
   ]
 
 let baseball = Item.create "baseball" 10 100
