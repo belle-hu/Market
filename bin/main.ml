@@ -22,11 +22,10 @@ type customer_transac = {
   name : string;
   amount : int;
   price : int;
-  current_total : int;
 }
 
 let transaction_history = ref []
-let reciept = ref []
+let reciept = ref ([], 0)
 
 (**Choice 2*)
 
@@ -185,9 +184,6 @@ let show_transaction_history () =
   in
   history_helper !transaction_history
 
-(* output the customer reciept*)
-let show_reciept () = failwith "unimplemented"
-
 (*Customer choice 1*)
 let customer_buy () =
   print_endline
@@ -211,10 +207,46 @@ let customer_buy () =
               typ = Quantity;
             };
           ];
+      let price_opt = FrequencyBagGoods.get_price !bag nam in
+      let product_price =
+        match price_opt with
+        | None -> 0
+        | Some v -> v
+      in
+      let total = snd !reciept in
+      let new_total = total + (int_of_string quantity_change * product_price) in
+      reciept :=
+        ( fst !reciept
+          @ [
+              {
+                name = nam;
+                amount = int_of_string quantity_change;
+                price = product_price;
+              };
+            ],
+          new_total );
       print_endline
         ("Successfully purchased item: " ^ nam ^ " with quantity: "
        ^ quantity_change)
   | _ -> failwith "Invalid input"
+
+(*print out reciept*)
+let rec print_reciept_helper tup =
+  match tup with
+  | [], n -> print_endline "Done."
+  | h :: t, v ->
+      let n = h.name in
+      let a = h.amount in
+      let p = h.price in
+      print_endline
+        ("Product: " ^ n ^ ", Amount: " ^ string_of_int a ^ ", Price: "
+       ^ string_of_int p);
+      print_reciept_helper (t, v)
+
+let print_reciept () =
+  print_endline "Here is your reciept: ";
+  print_reciept_helper !reciept;
+  print_endline ("Your total is: " ^ string_of_int (snd !reciept))
 
 (*Welcome message*)
 let welcome_msg () =
@@ -335,6 +367,9 @@ and customer_mode () =
           ("Thank you for shopping at " ^ !store_name
          ^ ". \n \n          We will return to the store owner mode");
         work ()
+    | "3" ->
+        print_endline ("Thank you for shopping at " ^ !store_name);
+        print_reciept ()
     | _ -> failwith "Invalid input"
   in
   customer_mode_helper ()
