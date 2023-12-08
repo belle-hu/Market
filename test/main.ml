@@ -868,7 +868,7 @@ let baseball_updated = Item.create "baseball" 10 90
 let basketball = Item.create "basketball" 10 99
 let tennis_racket = Item.create "tennis racket" 11 1000
 let sport_bag_lst = [ baseball; basketball; tennis_racket ]
-let fruits_normal_bag = BagOfGoods.of_list fruits_lst
+let fruits_normal_bag = FrequencyBagGoods.of_list fruits_lst
 let apple_item_a = Item.create "apple" 1 1
 let pencil = Item.create "pencil" 1 1000000
 let bookbag = Item.create "bookbag" 19 10000
@@ -876,21 +876,21 @@ let pen = Item.create "pen" 1 10000
 let eraser = Item.create "eraser" 1 100000
 let highlighter = Item.create "highlighter" 1 100000
 let highlighter_u = Item.create "highlighter" 1 10000
-let school_supplies_lst = [ pencil; bookbag; pen; eraser; highlighter ]
-let school_supplies_bag = BagOfGoods.of_list school_supplies_lst
+let school_supplies_lst = [ pencil; pen; bookbag; eraser; highlighter ]
+let school_supplies_bag = FrequencyBagGoods.of_list school_supplies_lst
 
 let updated_fruits_bag =
-  BagOfGoods.of_list [ orange_item; apple_item_a; grapes_item ]
+  FrequencyBagGoods.of_list [ orange_item; apple_item_a; grapes_item ]
 
 let updated_sports_bag =
-  BagOfGoods.of_list [ baseball_updated; basketball; tennis_racket ]
+  FrequencyBagGoods.of_list [ baseball_updated; basketball; tennis_racket ]
 
 let updated_school_supplies_bag =
-  BagOfGoods.of_list [ pencil; bookbag; pen; eraser; highlighter_u ]
+  FrequencyBagGoods.of_list [ pencil;  eraser; pen; highlighter_u; bookbag ]
 
 let updated_store1 = Store.of_list [ updated_fruits_bag ]
 let store2_updated = Store.of_list [ updated_sports_bag; fruits_normal_bag ]
-let sport_bag = BagOfGoods.of_list sport_bag_lst
+let sport_bag = FrequencyBagGoods.of_list sport_bag_lst
 let store1 = Store.of_list [ fruits_normal_bag ]
 let store2_lst = [ sport_bag; fruits_normal_bag ]
 let store2 = Store.of_list store2_lst
@@ -903,16 +903,16 @@ let store_count_products_test msg out in1 =
   msg >:: fun _ -> assert_equal ~printer:pp_int out in1
 
 let store_sell_goods_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_all_products_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_popular_goods_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_of_list_test msg out in1 =
-  msg >:: fun _ -> assert_equal ~printer:(pp_list BagOfGoods.to_string) out in1
+  msg >:: fun _ -> assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_tests =
   [
