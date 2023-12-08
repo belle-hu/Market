@@ -9,7 +9,6 @@ module type StoreType = sig
   val all_products : 'a t -> 'a t
   val sell_goods : int -> Item.t -> 'a t -> 'a t
   val popular_goods : int -> 'a t -> 'a t
-  val in_stock_goods : 'a t -> 'a t
   val of_list : FrequencyBagGoods.t list -> 'a t
   val to_list : 'a t -> FrequencyBagGoods.t list
 
@@ -123,9 +122,6 @@ module Store : StoreType = struct
             (determine_popular (FrequencyBagGoods.of_list t) lim)
         else determine_popular (FrequencyBagGoods.of_list t) lim
 
-  (*[popular_goods] returns all the bags of goods in [st] with only popular
-    items in them, determined by whether the quantity of an item is less than or
-    equal to the [lim]*)
   let rec popular_goods lim st =
     match st with
     | [] -> []

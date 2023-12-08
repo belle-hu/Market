@@ -165,7 +165,7 @@ module BagOfGoods : SampleGoodsType = struct
 end
 
 (** Sampleable bag such that sample always returns the element of highest
-    multiplicity. Ties are broken arbitrarily. *)
+    purchase rate. Ties are broken arbitrarily. *)
 module FrequencyBagGoods : SampleGoodsType = struct
   type freq_record = {
     element : Item.t;

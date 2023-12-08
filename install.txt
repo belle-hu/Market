@@ -14,76 +14,201 @@ git clone https://github.coecis.cornell.edu/ay332/cs3110proj
 cd (path to cs3110proj)
 3. install opam
 4. dune build 
-
-Usage:
+--------------------------------------------------------------------------------
+USAGE:
 So far, we have only included command line functionality for creating an item and
 inserting that one item in a bag, as well as changing the price of an item. 
 In the future, we will implement functionality for 
 creating a bag of multiple goods 
 and interacting with the store on the command line: 
 
-1. After dune build, insert command: 
+Step 1. After dune build, run command to start interacting with a store. The 
+default interface is in the perspective of the owner: 
 make grocery
 
-You should see this message:
-Welcome to Grocery. 
+SCREEN: 
+Welcome to your new grocery store! 
 
-1. Create new item 2. Change item price
+What would you like to name your store?
 
-Please enter your choice of 1 or 2
+Step 2. Enter a name in the command line for your store (i.e. Sweet Shop)
+SCREEN: 
+Welcome to your new grocery store! 
 
-_______________________________________________________________________________________
+What would you like to name your store?
 
-2. Type in your choice:
-        
-    If you chose choice 1, to create an item, type in its [name price quantity]
+Sweet Shop
 
-    After correctly inputting in this form, 
-    you should receive a message that says:
+Welcome to Sweet Shop!
 
-Successfully created item: NAME ENTERED with price: PRICE ENTERED and quantity: QUANTITY ENTERED
-Bag now contains: NAME ENTERED (Price: PRICE ENTERED, Quantity: QUANTITY ENTERED)
+Please provide a brief description of your store.
 
-    If you chose 2, to modify a price, type in the product's [name price quantity added_amount]
+Step 3. Enter a description in the command line for your store (i.e. Selling Sweets!)  
+SCREEN: 
+Welcome to your new grocery store! 
 
-    After correctly inputting in this form, 
-    you should receive a message that says:
+What would you like to name your store?
 
-Successfully changed item: "NAME ENTERED" with price: ORIGINAl PRICE ENTERED + PRICE ADDED and quantity: QUANTITY ENTERED
+Sweet Shop
 
-_______________________________________________________________________________________________________________________________________
-Example for choice 1: 
-dune exec bin/main.exe
-        Welcome to Grocery. 
+Welcome to Sweet Shop!
 
-        1. Create new item 2. Change item price
+Please provide a brief description of your store.
 
-        Please enter your choice of 1 or 2
+Selling Sweets!
+Congrats on opening your new store, Sweet Shop: Selling Sweets! 
 
-        1
+****************************************************************
+Your store can do several things!
+1. Create new item 
+2. Change item price 
+3. Import certain quantity of an item 
+4. Show all items with their categories in store 
+5. Show all item names in the store 
+6. Show total quantity of all items in the store 
+7. Show total value of all items in the store  
+8. Discard certain quantity of an item 
+9. Take a look at our most popular items! They are bought the most! 
+10. Switch to customer mode 
+11. Show transaction history 
+Q. Quit
 
-        Please enter the name, price, and quantity of the item you want to create in the format of "[name] [price] [quantity]" (eg. "apple 1 2")
-         (Price and quantity should be integers):
-        "apples" 1 5 
-        Successfully created item: "apples" with price: 1 and quantity: 5
-        Bag now contains: "apples" (Price: 1, Quantity: 5)
+Please enter your choice of 1-11, or Q
 
-Example for choice 2:
-dune exec bin/main.exe
-        Welcome to Grocery. 
+Step 4. Enter a choice from 1 to 11 to interact with your store:
 
-        1. Create new item 2. Change item price
+Here are some examples:
 
-        Please enter your choice of 1 or 2
+USER: 1
+SCREEN: Please enter the name, price, quantity, category of the item you want to create in the format of "[name] [price] [quantity] [category]" (eg. "apple 1 2 fruit")
+Also, please note that you should not be creating a new item with the same name as an item you have already created. For example, if you previously created "apple 1 2 fruit", please do not create a new "apple 5 7 fruit". Instead, you should use the change_price or change_quantity functionalities. 
+     (Price and quantity should be integers):
+USER: gummies 2 10292 candy
 
-        2 
+Successfully created item: gummies with price: 2 and quantity: 10292 in candy
+The store now contains: Category: candy|({name = gummies; price = 2; quantity = 10292}, freq: 0); ||
+****************************************************************
+Your store can do several things!
+1. Create new item 
+2. Change item price 
+3. Import certain quantity of an item 
+4. Show all items with their categories in store 
+5. Show all item names in the store 
+6. Show total quantity of all items in the store 
+7. Show total value of all items in the store  
+8. Discard certain quantity of an item 
+9. Take a look at our most popular items! They are bought the most! 
+10. Switch to customer mode 
+11. Show transaction history 
+Q. Quit
 
-        Please enter the name, price, quantity, and the price_change of the item you want to create in the format of "[name] [price] [quantity] [price_change]" (eg. "apple 1 2 3")
-         (Price, quantity, and price_change should all be integers.
-         Price_change can be a positive or negative integer, and the new price of the item will be [price + price_change]):
-        "apples" 1 5 3
-        Successfully changed item: "apples" with price: 4 and quantity: 5
+Please enter your choice of 1-11, or Q
 
+USER: 8
+SCREEN: Please enter the name, the quantity, and the category of the item you want to remove in the format of "[name] [quantity_removed] [category] " (eg. "apple 1 fruit"). 
+ The new quantity of the item will be original quantity - quantity_removed. 
+ (Requirements: 1. quantity_removed should be an positive integer. 
+ 2. The name of the item you enter should already be created.)
+USER: gummies 20 candy
+SCREEN: Successfully discard item: gummies of 20 amount in candy
+****************************************************************
+Your store can do several things!
+1. Create new item 
+2. Change item price 
+3. Import certain quantity of an item 
+4. Show all items with their categories in store 
+5. Show all item names in the store 
+6. Show total quantity of all items in the store 
+7. Show total value of all items in the store  
+8. Discard certain quantity of an item 
+9. Take a look at our most popular items! They are bought the most! 
+10. Switch to customer mode 
+11. Show transaction history 
+Q. Quit
+
+Please enter your choice of 1-11, or Q
+
+USER: 4
+SCREEN: Please enter the name, the quantity, and the category of the item you want to import in the format of "[name] [imported_quantity] [category]" (eg. "apple 2 fruit"). 
+ The new quantity of the item will be original quantity + imported_quantity. 
+ (Requirements: 1. imported_quantity should be an positive integer. 
+ 2. The name of the item you enter should already be created.)
+USER: gummies 2 candy
+SCREEN: Successfully changed item: gummies with quantity_change: 2 in candy
+****************************************************************
+Your store can do several things!
+1. Create new item 
+2. Change item price 
+3. Import certain quantity of an item 
+4. Show all items with their categories in store 
+5. Show all item names in the store 
+6. Show total quantity of all items in the store 
+7. Show total value of all items in the store  
+8. Discard certain quantity of an item 
+9. Take a look at our most popular items! They are bought the most! 
+10. Switch to customer mode 
+11. Show transaction history 
+Q. Quit
+
+Please enter your choice of 1-11, or Q
+
+(***EXAMPLE FOR CUSTOMER MODE***)
+USER: 10
+SCREEN: ****************************************************************
+Welcome to customer mode!
+Dear customer, here are the items currently in the store:
+Category: candy|({name = gummies; price = 2; quantity = 10274}, freq: 0); ||
+****************************************************************
+Do you want to buy some items? 
+Please enter your choice of 1 or 2: 
+1. Yes, I want to buy something.
+2. I want to checkout. (Switch back to the store owner mode)
+
+USER: 1
+SCREEN: Please enter the name, the quantity, and the category of the item you want to buy in the format of "[name] [quantity] [category]" (eg. "apple 1 fruit"):
+Notice: 
+     1. The name of the item you enter must be already in the store
+USER: gummies 20 candy
+
+SCREEN: Successfully purchased item: gummies with quantity: 20 in candy
+****************************************************************
+Welcome to customer mode!
+Dear customer, here are the items currently in the store:
+Category: candy|({name = gummies; price = 2; quantity = 10254}, freq: 20); ||
+****************************************************************
+Do you want to buy some items? 
+Please enter your choice of 1 or 2: 
+1. Yes, I want to buy something.
+2. I want to checkout. (Switch back to the store owner mode)
+
+USER: 2
+SCREEN: Thank you for shopping at Sweet Shop
+Here is your reciept: 
+Product: gummies, Amount: 20, Price: 2
+Done.
+Your total is: 40
+We will switch back to store mode.
+****************************************************************
+Your store can do several things!
+1. Create new item 
+2. Change item price 
+3. Import certain quantity of an item 
+4. Show all items with their categories in store 
+5. Show all item names in the store 
+6. Show total quantity of all items in the store 
+7. Show total value of all items in the store  
+8. Discard certain quantity of an item 
+9. Take a look at our most popular items! They are bought the most! 
+10. Switch to customer mode 
+11. Show transaction history 
+Q. Quit
+
+Please enter your choice of 1-11, or Q
+
+USER: Q
+SCREEN: Thank you for using our grocery system, Sweet Shop! Bye!
+
+--------------------------------------------------------------------------------
 Contact Info:
 Belle Hu (bh552)
 Aileen Huang (aeh245)

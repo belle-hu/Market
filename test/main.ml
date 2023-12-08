@@ -5,6 +5,21 @@ open Grocery
 open Store
 open Bagofgoods
 open Items
+(*** TEST PLAN: 
+  Our approach was to test every function included in the 
+  command line/user-interface very thoroughly. 
+  So all functions from store.ml, bagofgoods.ml, and 
+  items.ml were tested (except for BagOfGoods.sample because 
+  it’s random and non-deterministic). We omitted testing 
+  Store.to_list, map, filter, and item_by_name, which aren’t
+   used in the command line. We believe our test suite demonstrates 
+   the correctness of our system because we tried to use both glass 
+   box and black box testing. We considered edge cases and ordinary cases,
+    and we followed a similar testing procedure to A1 and A2 where we 
+    include at least 3 test cases for each of our functions, 
+    although usually we exceed this amount. So quantity-wise, we 
+    believe we have thoroughly tested our functions. 
+***)
 
 (********************************************************************
    Here are some helper functions for your testing of bag-like lists.
@@ -918,6 +933,8 @@ let store_of_list_test msg out in1 =
   msg >:: fun _ ->
   assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
+let store_item_by_name_test msg out in1 = 
+  msg >:: fun _ -> assert_equal out in1
 let store_tests =
   [
     store_of_list_test "store_of_list for store of one bag"
@@ -999,6 +1016,12 @@ let store_tests =
       "store popular goods, goods are popular if only 10 or less in stock"
       (Store.to_list store1)
       (Store.to_list (Store.popular_goods 10 store3));
+    store_item_by_name_test "store get item by name in store of 1 bag"
+    (Some apple_item) (Store.item_by_name "apple" store1);
+    store_item_by_name_test "store get item by name in store of 2 bag"
+    (Some baseball) (Store.item_by_name "baseball" store2);
+    store_item_by_name_test "store get another item by name in store of 2 bag"
+    (Some basketball) (Store.item_by_name "basketball" store2)
   ]
 
 let ngram_tests = []
