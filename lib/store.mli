@@ -14,9 +14,9 @@ module type StoreType = sig
  (*Returns the store*)
  val sell_goods: int -> (Item.t) -> 'a t -> 'a t
  (*[sell_goods dec item st] sells [dec] of an item in store [st]*)
- val popular_goods: int -> 'a t -> 'a t
- (*[popular_goods] returns all the bags of goods in [st] with only popular
-    items in them, determined by whether the quantity of an item is less than or
+ val almost_out: int -> 'a t -> 'a t
+ (*[almost_out] returns all the bags of goods in [st] that are almost out
+ , determined by whether the quantity of an item is less than or
     equal to the [lim]*)
  val of_list: FrequencyBagGoods.t list -> 'a t
  (*Converts a list of FrequencyBagGoods to a store.*)
@@ -32,4 +32,4 @@ end
 
 
 module Store : StoreType
-
+(*module Store following StoreType functions*)

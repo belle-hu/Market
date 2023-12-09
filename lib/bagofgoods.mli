@@ -77,6 +77,9 @@ module type SampleGoodsType = sig
   val get_price : t -> string -> int option
   (**Return the price of an item wrapped in [Some] given a bag and a name.
      Returns [None] if item does not exist in the bag. *)
+
+   val get_frequency: t -> Item.t -> int
+      (*Returns the amount of an item sold.*)
 end
 
 module BagOfGoods : SampleGoodsType

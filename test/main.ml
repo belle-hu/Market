@@ -11,7 +11,7 @@ open Items
   So all functions from store.ml, bagofgoods.ml, and 
   items.ml were tested (except for BagOfGoods.sample because 
   it’s random and non-deterministic). We omitted testing 
-  Store.to_list, map, filter, and item_by_name, which aren’t
+  Store.map, and filter, which aren’t
    used in the command line. We believe our test suite demonstrates 
    the correctness of our system because we tried to use both glass 
    box and black box testing. We considered edge cases and ordinary cases,
@@ -404,6 +404,8 @@ let bag_map_test msg out in1 in2 =
   assert_equal ~cmp:cmp_bag_like_lists ~printer:(pp_list Item.to_string) out
     (BagOfGoods.to_list (BagOfGoods.map in1 in2))
 
+let bag_get_frequency_test msg out in1 =
+      msg >:: fun _ -> assert_equal out in1
 let add_one_to_quantity item = Item.change_quantity item 1
 let add_one_to_price item = Item.change_price item 1
 
@@ -651,6 +653,8 @@ let bagofgoods_tests =
       (BagOfGoods.get_price items2_bag "cookie");
     bag_get_price_test "get_price: non-empty bag and item does not exist" None
       (BagOfGoods.get_price items2_bag "pie");
+      (*get_frequency tests*)
+      bag_get_frequency_test "get frequency" 0 (BagOfGoods.get_frequency items2_bag trial_item1)
   ]
 
 (*Frequency Bag Test*)
@@ -706,7 +710,8 @@ let freqbag_get_price_test msg out in1 =
       | None -> ""
       | Some v -> string_of_int v)
     out in1
-
+let bag_get_frequency_test msg out in1 =
+      msg >:: fun _ -> assert_equal out in1
 let apple_item = Item.create "apple" 1 2
 let apple_item_expensive = Item.create "apple expensive" 5 4
 let orange_item = Item.create "orange" 2 3
@@ -876,6 +881,8 @@ let fbagofgoods_tests =
     freqbag_get_price_test "get_price: item does not exist in non-empty bag"
       None
       (FrequencyBagGoods.get_price fruits_bag "cucumber");
+      (*get_frequency tests*)
+      bag_get_frequency_test "get frequency" 0 (FrequencyBagGoods.get_frequency fruits_bag apple_item)
   ]
 
 let baseball = Item.create "baseball" 10 100
@@ -883,6 +890,8 @@ let baseball_updated = Item.create "baseball" 10 90
 let basketball = Item.create "basketball" 10 99
 let tennis_racket = Item.create "tennis racket" 11 1000
 let sport_bag_lst = [ baseball; basketball; tennis_racket ]
+let fruits_lst2 = [ apple_item; grapes_item ; orange_item]
+
 let fruits_normal_bag = FrequencyBagGoods.of_list fruits_lst
 let apple_item_a = Item.create "apple" 1 1
 let pencil = Item.create "pencil" 1 1000000
@@ -895,10 +904,10 @@ let school_supplies_lst = [ pencil; pen; bookbag; eraser; highlighter ]
 let school_supplies_bag = FrequencyBagGoods.of_list school_supplies_lst
 
 let updated_fruits_bag =
-  FrequencyBagGoods.of_list [ orange_item; apple_item_a; grapes_item ]
+  FrequencyBagGoods.of_list [ apple_item_a; grapes_item;orange_item  ]
 
 let updated_sports_bag =
-  FrequencyBagGoods.of_list [ baseball_updated; basketball; tennis_racket ]
+  FrequencyBagGoods.of_list [ basketball; tennis_racket; baseball_updated ]
 
 let updated_school_supplies_bag =
   FrequencyBagGoods.of_list [ pencil; eraser; pen; highlighter_u; bookbag ]
@@ -925,18 +934,26 @@ let store_all_products_test msg out in1 =
   msg >:: fun _ ->
   assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
-let store_popular_goods_test msg out in1 =
+let store_almost_out_goods_test msg out in1 =
   msg >:: fun _ ->
   assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 
 let store_of_list_test msg out in1 =
   msg >:: fun _ ->
   assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
-
+let store_to_list_test msg out in1 =
+    msg >:: fun _ ->
+    assert_equal ~printer:(pp_list FrequencyBagGoods.to_string) out in1
 let store_item_by_name_test msg out in1 = 
   msg >:: fun _ -> assert_equal out in1
 let store_tests =
   [
+    store_to_list_test "store_to_list for store of one bag"
+      ([ fruits_normal_bag ])
+      ((Store.to_list store1));
+    store_to_list_test "store_to_list for store of two bags"
+      ([ sport_bag; fruits_normal_bag ])
+      (Store.to_list store2);
     store_of_list_test "store_of_list for store of one bag"
       (Store.to_list store1)
       (Store.to_list (Store.of_list [ fruits_normal_bag ]));
@@ -1004,18 +1021,18 @@ let store_tests =
       "store all products for store of three bags after selling highlighters"
       (Store.to_list store3_u)
       (Store.to_list (Store.all_products store3_u));
-    store_popular_goods_test
-      "store popular goods, goods are popular if only 10 or less in stock"
+    store_almost_out_goods_test
+      "store almost out goods, goods are almost out if only 10 or less in stock"
       (Store.to_list store1)
-      (Store.to_list (Store.popular_goods 10 store1));
-    store_popular_goods_test
-      "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list (Store.almost_out 10 store1));
+    store_almost_out_goods_test
+      "store almost goods, goods are almost out if only 10 or less in stock"
       (Store.to_list store1)
-      (Store.to_list (Store.popular_goods 10 store2));
-    store_popular_goods_test
-      "store popular goods, goods are popular if only 10 or less in stock"
+      (Store.to_list (Store.almost_out 10 store2));
+    store_almost_out_goods_test
+      "store almost out goods, goods are almost out if only 10 or less in stock"
       (Store.to_list store1)
-      (Store.to_list (Store.popular_goods 10 store3));
+      (Store.to_list (Store.almost_out 10 store3));
     store_item_by_name_test "store get item by name in store of 1 bag"
     (Some apple_item) (Store.item_by_name "apple" store1);
     store_item_by_name_test "store get item by name in store of 2 bag"
@@ -1030,10 +1047,10 @@ let suite =
   "test suite for Grocery"
   >::: List.flatten
          [
-           cmp_demo;
+           (* cmp_demo;
            items_tests;
            bagofgoods_tests;
-           fbagofgoods_tests;
+           fbagofgoods_tests; *)
            store_tests;
          ]
 

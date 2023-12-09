@@ -1,422 +1,47 @@
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:0:order is irrelevant.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:0:order is irrelevant is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:0:order is irrelevant.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:2:Create item: banana w/ price 3 & quantity 100.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:2:Create item: banana w/ price 3 & quantity 100 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:2:Create item: banana w/ price 3 & quantity 100.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:4:Get the name of an item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:4:Get the name of an item1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:4:Get the name of an item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:6:Get the name of an item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:6:Get the name of an item3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:6:Get the name of an item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:8:Get the name of item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:8:Get the name of item2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:8:Get the name of item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:10:Get the name of item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:10:Get the name of item4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:10:Get the name of item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:12:Get the price of an item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:12:Get the price of an item1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:12:Get the price of an item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:14:Get the price of an item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:14:Get the price of an item3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:14:Get the price of an item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:16:Get the price of item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:16:Get the price of item2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:16:Get the price of item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:18:Get the price of item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:18:Get the price of item4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:18:Get the price of item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:20:Get the quantity of an item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:20:Get the quantity of an item1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:20:Get the quantity of an item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:22:Get the quantity of an item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:22:Get the quantity of an item3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:22:Get the quantity of an item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:24:Get the quantity of item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:24:Get the quantity of item2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:24:Get the quantity of item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:26:Get the quantity of item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:26:Get the quantity of item4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:26:Get the quantity of item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:28:Increase the price of an item.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:28:Increase the price of an item is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:28:Increase the price of an item.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:30:Leave the price of an item unchanged.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:30:Leave the price of an item unchanged is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:30:Leave the price of an item unchanged.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:32:Change the price of an item: item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:32:Change the price of an item: item3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:32:Change the price of an item: item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:34:Change the price of an item: item5.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:34:Change the price of an item: item5 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:34:Change the price of an item: item5.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:36:Decrease the quantity of an item.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:36:Decrease the quantity of an item is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:36:Decrease the quantity of an item.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:38:Change the quantity of an item: item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:38:Change the quantity of an item: item2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:38:Change the quantity of an item: item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:40:Change the quantity of an item: item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:40:Change the quantity of an item: item4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:40:Change the quantity of an item: item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:42:Change the quantity of an item: item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:42:Change the quantity of an item: item1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:42:Change the quantity of an item: item1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:44:to_list of item1 after changing the price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:44:to_list of item1 after changing the price is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:44:to_list of item1 after changing the price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:47:to_list of item2 after changing the price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:47:to_list of item2 after changing the price is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:47:to_list of item2 after changing the price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:49:to_list of an item after more than one changes1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:49:to_list of an item after more than one changes1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:49:to_list of an item after more than one changes1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:51:to_list of an item after many changes (Property: increase the price of an item by 1 and then decrease the price by 1 will not change the price of the item).
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:51:to_list of an item after many changes (Property: increase the price of an item by 1 and then decrease the price by 1 will not change the price of the item) is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:51:to_list of an item after many changes (Property: increase the price of an item by 1 and then decrease the price by 1 will not change the price of the item).
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:53:Raise exception if the price is below 0 after change_price item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:53:Raise exception if the price is below 0 after change_price item2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:53:Raise exception if the price is below 0 after change_price item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:55:Raise exception if the price is below 0 after change_price item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:55:Raise exception if the price is below 0 after change_price item4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:55:Raise exception if the price is below 0 after change_price item4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:57:Raise exception if the quantity is below 0 after change_price item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:57:Raise exception if the quantity is below 0 after change_price item2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:57:Raise exception if the quantity is below 0 after change_price item2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:59:Raise exception if the quantity is below 0 after change_price item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:59:Raise exception if the quantity is below 0 after change_price item3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:59:Raise exception if the quantity is below 0 after change_price item3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:61:Raise exception if an item is created with price < 0: test 2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:61:Raise exception if an item is created with price < 0: test 2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:61:Raise exception if an item is created with price < 0: test 2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:63:Raise exception if an item is created with price < 0: test 4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:63:Raise exception if an item is created with price < 0: test 4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:63:Raise exception if an item is created with price < 0: test 4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:65:Raise exception if an item is created with quantity < 0: test 1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:65:Raise exception if an item is created with quantity < 0: test 1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:65:Raise exception if an item is created with quantity < 0: test 1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:67:Raise exception if an item is created with quantity < 0: test 3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:67:Raise exception if an item is created with quantity < 0: test 3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:67:Raise exception if an item is created with quantity < 0: test 3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:69:Raise exception if an item is created with quantity < 0: test 5.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:69:Raise exception if an item is created with quantity < 0: test 5 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:69:Raise exception if an item is created with quantity < 0: test 5.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:70:to_string empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:70:to_string empty bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:70:to_string empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:72:to_list empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:72:to_list empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:72:to_list empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:74:to_list 3 items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:74:to_list 3 items is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:74:to_list 3 items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:76:to_list trial.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:76:to_list trial is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:76:to_list trial.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:78:to_list trial reverse.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:78:to_list trial reverse is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:78:to_list trial reverse.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:80:of_list 1 item.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:80:of_list 1 item is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:80:of_list 1 item.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:82:of_list 3 items pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:82:of_list 3 items pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:82:of_list 3 items pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:84:of_list trial pt1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:84:of_list trial pt1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:84:of_list trial pt1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:86:of_list trial pt3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:86:of_list trial pt3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:86:of_list trial pt3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:88:join both empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:88:join both empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:88:join both empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:90:join 1 empty pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:90:join 1 empty pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:90:join 1 empty pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:92:join 1 empty pt4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:92:join 1 empty pt4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:92:join 1 empty pt4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:94:join both unempty pt1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:94:join both unempty pt1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:94:join both unempty pt1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:95:join both unempty pt2 (reverse).
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:95:join both unempty pt2 (reverse) is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:95:join both unempty pt2 (reverse).
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:98:join_many empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:98:join_many empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:98:join_many empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:100:join_many 1 empty pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:100:join_many 1 empty pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:100:join_many 1 empty pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:102:join_many 3 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:102:join_many 3 pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:102:join_many 3 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:104:join_many 3 pt4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:104:join_many 3 pt4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:104:join_many 3 pt4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:106:join_many 4 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:106:join_many 4 pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:106:join_many 4 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:108:join_many 4 pt4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:108:join_many 4 pt4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:108:join_many 4 pt4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:110:count 1 pt1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:110:count 1 pt1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:110:count 1 pt1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:112:count 1 pt3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:112:count 1 pt3 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:112:count 1 pt3.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:114:count 2 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:114:count 2 pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:114:count 2 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:116:count 3 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:116:count 3 pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:116:count 3 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:118:count 4 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:118:count 4 pt2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:118:count 4 pt2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:120:update_price: items_half1_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:120:update_price: items_half1_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:120:update_price: items_half1_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:122:update_quantity: items2_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:122:update_quantity: items2_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:122:update_quantity: items2_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:124:update_quantity: itemsmore_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:124:update_quantity: itemsmore_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:124:update_quantity: itemsmore_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:126:contains: true one item bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:126:contains: true one item bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:126:contains: true one item bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:128:contains: true multiple item bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:128:contains: true multiple item bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:128:contains: true multiple item bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:130:contains: false one item bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:130:contains: false one item bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:130:contains: false one item bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:132:contains: true multiple item bag joined.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:132:contains: true multiple item bag joined is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:132:contains: true multiple item bag joined.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:134:remove: two items to one 1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:134:remove: two items to one 1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:134:remove: two items to one 1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:136:remove: bigger case.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:136:remove: bigger case is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:136:remove: bigger case.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:138:remove: fail 2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:138:remove: fail 2 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:138:remove: fail 2.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:140:remove: fail capitalization.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:140:remove: fail capitalization is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:140:remove: fail capitalization.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:143:names: multiple items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:143:names: multiple items is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:143:names: multiple items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:145:quantity: empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:145:quantity: empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:145:quantity: empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:147:quantity: 1 item multiple quantity.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:147:quantity: 1 item multiple quantity is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:147:quantity: 1 item multiple quantity.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:149:cost: empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:149:cost: empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:149:cost: empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:151:cost: 1 item 1 quantity $1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:151:cost: 1 item 1 quantity $1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:151:cost: 1 item 1 quantity $1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:153:cost: multiple items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:153:cost: multiple items is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:153:cost: multiple items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:155:map: 1 item add 1 quantity.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:155:map: 1 item add 1 quantity is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:155:map: 1 item add 1 quantity.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:157:map: add 1 price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:157:map: add 1 price is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:157:map: add 1 price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:159:filter: 1 item price more than 4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:159:filter: 1 item price more than 4 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:159:filter: 1 item price more than 4.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:161:filter: quantity more than 1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:161:filter: quantity more than 1 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:161:filter: quantity more than 1.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:163:intersection: empty + nonempty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:163:intersection: empty + nonempty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:163:intersection: empty + nonempty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:165:difference: empty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:165:difference: empty + empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:165:difference: empty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:167:difference: nonempty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:167:difference: nonempty + empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:167:difference: nonempty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:169:get_price: empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:169:get_price: empty bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:169:get_price: empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:171:get_price: non-empty bag and item does not exist.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:171:get_price: non-empty bag and item does not exist is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:171:get_price: non-empty bag and item does not exist.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:173:freqbag to_string mixed bag of goods.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:173:freqbag to_string mixed bag of goods has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: |({name = apple; price = 1; quantity = 2}, freq: 6); ({name = apple expensive; price = 5; quantity = 4}, freq: 4); ({name = orange; price = 2; quantity = 3}, freq: 3); ({name = grapes; price = 3; quantity = 1}, freq: 1)|
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: |({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple expensive; price = 5; quantity = 4}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0)| in test test suite for Grocery:173:freqbag to_string mixed bag of goods.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:173:freqbag to_string mixed bag of goods.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:174:freqbag of_list 3 distinct items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:174:freqbag of_list 3 distinct items has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [{name = orange; price = 2; quantity = 3}; {name = apple; price = 1; quantity = 2}; {name = grapes; price = 3; quantity = 1}]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [{name = grapes; price = 3; quantity = 1}; {name = apple; price = 1; quantity = 2}; {name = orange; price = 2; quantity = 3}] in test test suite for Grocery:174:freqbag of_list 3 distinct items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:174:freqbag of_list 3 distinct items.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:176:freqbag of_list on empty list.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:176:freqbag of_list on empty list is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:176:freqbag of_list on empty list.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:178:freqbag of_list where 2 items same name but diff prices.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:178:freqbag of_list where 2 items same name but diff prices is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:178:freqbag of_list where 2 items same name but diff prices.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:182:freqbag to_list on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:182:freqbag to_list on diff_apple_bag has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [{name = apple expensive; price = 5; quantity = 4}; {name = apple; price = 1; quantity = 2}]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [{name = apple; price = 1; quantity = 2}; {name = apple expensive; price = 5; quantity = 4}] in test test suite for Grocery:182:freqbag to_list on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:182:freqbag to_list on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:183:freqbag sample on fruits_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:183:freqbag sample on fruits_bag has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: not equal in test test suite for Grocery:183:freqbag sample on fruits_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:183:freqbag sample on fruits_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:184:freqbag sample on apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:184:freqbag sample on apple_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:184:freqbag sample on apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:186:freqbag sample on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:186:freqbag sample on diff_apple_bag has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: not equal in test test suite for Grocery:186:freqbag sample on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:186:freqbag sample on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:188:freqbag count on fruits_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:188:freqbag count on fruits_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:188:freqbag count on fruits_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:189:freqbag count on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:189:freqbag count on diff_apple_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:189:freqbag count on diff_apple_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:192:update_price: fruits_bag: decrease the price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:192:update_price: fruits_bag: decrease the price is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:192:update_price: fruits_bag: decrease the price.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:193:update_price: veg_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:193:update_price: veg_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:193:update_price: veg_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:196:update_quantity: fruits_bag: decrease the quantity.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:196:update_quantity: fruits_bag: decrease the quantity is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:196:update_quantity: fruits_bag: decrease the quantity.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:197:update_quantity: veg_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:197:update_quantity: veg_bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:197:update_quantity: veg_bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:200:freq bag map on veg_lst incr quant.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:200:freq bag map on veg_lst incr quant is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:200:freq bag map on veg_lst incr quant.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:202:filter: only keep items w price more than 11.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:202:filter: only keep items w price more than 11 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:202:filter: only keep items w price more than 11.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:203:filter: only keep items with quantity more than 6.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:203:filter: only keep items with quantity more than 6 is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:203:filter: only keep items with quantity more than 6.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:206:intersection: empty + nonempty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:206:intersection: empty + nonempty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:206:intersection: empty + nonempty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:208:difference: empty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:208:difference: empty + empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:208:difference: empty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:210:difference: nonempty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:210:difference: nonempty + empty is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:210:difference: nonempty + empty.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:212:get_price: cucumber in empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:212:get_price: cucumber in empty bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:212:get_price: cucumber in empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:214:get_price: item does not exist in non-empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:214:get_price: item does not exist in non-empty bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:214:get_price: item does not exist in non-empty bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:216:store_of_list for store of one bag updated.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:216:store_of_list for store of one bag updated is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:216:store_of_list for store of one bag updated.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:218:store_of_list for store of three bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:218:store_of_list for store of three bags is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:218:store_of_list for store of three bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:220:store_of_list for updated store of three bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:220:store_of_list for updated store of three bags is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:220:store_of_list for updated store of three bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:222:store_count_products for store of two bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:222:store_count_products for store of two bags is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:222:store_count_products for store of two bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:224:store sell_goods_test for item apple in store of one bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:224:store sell_goods_test for item apple in store of one bag has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 1}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 1}, freq: 0)|] in test test suite for Grocery:224:store sell_goods_test for item apple in store of one bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:224:store sell_goods_test for item apple in store of one bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:225:store sell_goods_test for item baseball .
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:225:store sell_goods_test for item baseball  has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = tennis racket; price = 11; quantity = 1000}, freq: 0); ({name = basketball; price = 10; quantity = 99}, freq: 0); ({name = baseball; price = 10; quantity = 90}, freq: 0)|; |({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = baseball; price = 10; quantity = 90}, freq: 0); ({name = tennis racket; price = 11; quantity = 1000}, freq: 0); ({name = basketball; price = 10; quantity = 99}, freq: 0)|; |({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0)|] in test test suite for Grocery:225:store sell_goods_test for item baseball .
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:225:store sell_goods_test for item baseball .
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:226:store sell_goods_test for item highlighter .
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:226:store sell_goods_test for item highlighter  has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = tennis racket; price = 11; quantity = 1000}, freq: 0); ({name = basketball; price = 10; quantity = 99}, freq: 0); ({name = baseball; price = 10; quantity = 100}, freq: 0)|; |({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|; |({name = bookbag; price = 19; quantity = 10000}, freq: 0); ({name = highlighter; price = 1; quantity = 10000}, freq: 0); ({name = pen; price = 1; quantity = 10000}, freq: 0); ({name = eraser; price = 1; quantity = 100000}, freq: 0); ({name = pencil; price = 1; quantity = 1000000}, freq: 0)|]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = baseball; price = 10; quantity = 100}, freq: 0); ({name = tennis racket; price = 11; quantity = 1000}, freq: 0); ({name = basketball; price = 10; quantity = 99}, freq: 0)|; |({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0)|; |({name = bookbag; price = 19; quantity = 10000}, freq: 0); ({name = eraser; price = 1; quantity = 100000}, freq: 0); ({name = pen; price = 1; quantity = 10000}, freq: 0); ({name = highlighter; price = 1; quantity = 10000}, freq: 0); ({name = pencil; price = 1; quantity = 1000000}, freq: 0)|] in test test suite for Grocery:226:store sell_goods_test for item highlighter .
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:226:store sell_goods_test for item highlighter .
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:228:store_count_products for updated store after selling baseball.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:228:store_count_products for updated store after selling baseball is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:228:store_count_products for updated store after selling baseball.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:230:store all products for store of one bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:230:store all products for store of one bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:230:store all products for store of one bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:232:store all products for store of two bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:232:store all products for store of two bags is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:232:store all products for store of two bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:234:store all products for store of three bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:234:store all products for store of three bags is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:234:store all products for store of three bags.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:236:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:236:store popular goods, goods are popular if only 10 or less in stock has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0)|] in test test suite for Grocery:236:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:236:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:237:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:237:store popular goods, goods are popular if only 10 or less in stock has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0)|] in test test suite for Grocery:237:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:237:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:238:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:238:store popular goods, goods are popular if only 10 or less in stock has failed.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|]
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0)|] in test test suite for Grocery:238:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:238:store popular goods, goods are popular if only 10 or less in stock.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:240:store get item by name in store of 2 bag.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:240:store get item by name in store of 2 bag is successful.
-2023-12-08T23:25:16+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:240:store get item by name in store of 2 bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:0:store_to_list for store of one bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:0:store_to_list for store of one bag is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:0:store_to_list for store of one bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:3:store_of_list for store of one bag updated.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:3:store_of_list for store of one bag updated is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:3:store_of_list for store of one bag updated.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:4:store_of_list for store of two bags.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:4:store_of_list for store of two bags is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:4:store_of_list for store of two bags.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:6:store_of_list for updated store of two bags.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:6:store_of_list for updated store of two bags is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:6:store_of_list for updated store of two bags.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:8:store count_products for store of one bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:8:store count_products for store of one bag is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:8:store count_products for store of one bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:10:store_count_products for store of 3 bags.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:10:store_count_products for store of 3 bags is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:10:store_count_products for store of 3 bags.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:12:store sell_goods_test for item baseball .
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Test test suite for Grocery:12:store sell_goods_test for item baseball  has failed.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: expected: [|({name = baseball; price = 10; quantity = 90}, freq: 0); ({name = tennis racket; price = 11; quantity = 1000}, freq: 0); ({name = basketball; price = 10; quantity = 99}, freq: 0)|; |({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0); ({name = orange; price = 2; quantity = 3}, freq: 0)|]
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: but got: [|({name = baseball; price = 10; quantity = 90}, freq: 0); ({name = tennis racket; price = 11; quantity = 1000}, freq: 0); ({name = basketball; price = 10; quantity = 99}, freq: 0)|; |({name = orange; price = 2; quantity = 3}, freq: 0); ({name = grapes; price = 3; quantity = 1}, freq: 0); ({name = apple; price = 1; quantity = 2}, freq: 0)|] in test test suite for Grocery:12:store sell_goods_test for item baseball .
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 E: 
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:12:store sell_goods_test for item baseball .
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:14:store_count_products for updated store after selling apple.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:14:store_count_products for updated store after selling apple is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:14:store_count_products for updated store after selling apple.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:16:store_count_products for updated store after selling highlighters.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:16:store_count_products for updated store after selling highlighters is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:16:store_count_products for updated store after selling highlighters.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:18:store all products for store of one bag after selling apple.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:18:store all products for store of one bag after selling apple is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:18:store all products for store of one bag after selling apple.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:20:store all products for store of two bags after selling baseballs.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:20:store all products for store of two bags after selling baseballs is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:20:store all products for store of two bags after selling baseballs.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:22:store all products for store of three bags after selling highlighters.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:22:store all products for store of three bags after selling highlighters is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:22:store all products for store of three bags after selling highlighters.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:27:store get item by name in store of 2 bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:27:store get item by name in store of 2 bag is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:27:store get item by name in store of 2 bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Start test test suite for Grocery:28:store get another item by name in store of 2 bag.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: Test test suite for Grocery:28:store get another item by name in store of 2 bag is successful.
+2023-12-09T03:16:12+00:00 dhcp-vl2041-2415.eduroam.cornell.edu#01 I: End test test suite for Grocery:28:store get another item by name in store of 2 bag.

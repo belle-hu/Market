@@ -8,7 +8,7 @@ module type StoreType = sig
   val count_products : 'a t -> int
   val all_products : 'a t -> 'a t
   val sell_goods : int -> Item.t -> 'a t -> 'a t
-  val popular_goods : int -> 'a t -> 'a t
+  val almost_out : int -> 'a t -> 'a t
   val of_list : FrequencyBagGoods.t list -> 'a t
   val to_list : 'a t -> FrequencyBagGoods.t list
 
@@ -112,20 +112,20 @@ module Store : StoreType = struct
     | [] -> empty
     | h :: t -> if h == FrequencyBagGoods.empty then clean t else h :: clean t
 
-  let rec determine_popular bag_goods lim =
+  let rec determine_out bag_goods lim =
     match FrequencyBagGoods.to_list bag_goods with
     | [] -> FrequencyBagGoods.empty
     | h :: t ->
         if Item.get_quantity h <= lim then
           FrequencyBagGoods.join
             (FrequencyBagGoods.of_list [ h ])
-            (determine_popular (FrequencyBagGoods.of_list t) lim)
-        else determine_popular (FrequencyBagGoods.of_list t) lim
+            (determine_out (FrequencyBagGoods.of_list t) lim)
+        else determine_out (FrequencyBagGoods.of_list t) lim
 
-  let rec popular_goods lim st =
+  let rec almost_out lim st =
     match st with
     | [] -> []
-    | h :: t -> determine_popular h lim :: popular_goods lim t |> clean
+    | h :: t -> determine_out h lim :: almost_out lim t |> clean
 
   (*talk about this: how to determine if good is on sale: add a on_sale field to
     FrequencyBagGoods?*)

@@ -26,6 +26,7 @@ module type SampleGoodsType = sig
   val intersection : t -> t -> t
   val difference : t -> t -> t
   val get_price : t -> string -> int option
+  val get_frequency: t -> Item.t -> int
 end
 
 (** Sampleable bag such that sample returns elements with probability
@@ -162,6 +163,8 @@ module BagOfGoods : SampleGoodsType = struct
     | h :: t ->
         if Item.get_name h = name then Some (Item.get_price h)
         else get_price t name
+
+  let get_frequency bag str = 0
 end
 
 (** Sampleable bag such that sample always returns the element of highest
@@ -353,4 +356,10 @@ module FrequencyBagGoods : SampleGoodsType = struct
     | h :: t ->
         if Item.get_name h.element = name then Some (Item.get_price h.element)
         else get_price t name
+
+    let rec get_frequency bag item = 
+      match bag with 
+      | [] -> 0
+      | h:: t -> if Item.get_name h.element = Item.get_name item 
+        then h.freq else get_frequency t item
 end

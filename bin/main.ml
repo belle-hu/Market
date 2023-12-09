@@ -36,8 +36,35 @@ let map_to_string mp =
 let cat_bg_to_string e =
   "Category: " ^ fst e ^ FrequencyBagGoods.to_string (snd e) ^ "|"
 
-let store_name = ref ""
+  
+
+  let store_name = ref ""
 let our_store = ref Store.empty
+
+
+
+(*[pop_goods_by_freq freq_lim] returns the most popular goods in bag [bg]. If the good has been sold at least  
+     [freq_lim] number of times, it is considered popular. *)
+let pop_goods_by_freq_aux freq_lim bg= 
+  (*frequency bag of goods= list of records, need
+     each product and its frequency!*)
+     let lst = FrequencyBagGoods.to_list bg in 
+     let rec r1 acc lst= 
+     match lst with 
+     | [] -> acc
+     | h::t -> if FrequencyBagGoods.get_frequency bg h >= freq_lim then 
+       r1 (h::acc) t else r1 acc t
+    in r1 [] lst
+  
+(*[pop_goods_by_freq freq_lim] returns the most popular goods in store. If the good has been sold at least  
+     [freq_lim] number of times, it is considered popular. *)
+    let pop_goods_by_freq freq_lim = 
+      let store_lst = Store.to_list !our_store in 
+      let rec r1 acc store_lst = 
+      match store_lst with 
+      | [] -> acc
+      | h ::t -> r1 (pop_goods_by_freq_aux freq_lim h @ acc) t
+      in r1 [] store_lst 
 
 type ty =
   | Price
@@ -271,21 +298,6 @@ let discard_items_aux cat nam quan_change st =
           let m' = StringMap.add cat v' !category_map in
           category_map := m')
 
-let sell_items_aux cat nam quan_change st =
-  let item_opt = Store.item_by_name nam st in
-  match item_opt with
-  | None -> failwith "Sorry, item doesn't exist in store."
-  | Some i -> (
-      our_store := Store.sell_goods ~-quan_change i st;
-      match StringMap.find_opt cat !category_map with
-      | None -> failwith "Category not found!"
-      | Some v ->
-          let v' =
-            FrequencyBagGoods.update_quantity_fre v nam (1 * quan_change)
-          in
-          let m' = StringMap.add cat v' !category_map in
-          category_map := m')
-
 let rec discard_items () =
   print_endline
     "\n\
@@ -336,12 +348,20 @@ let remove_item () =
   with Failure msg -> print_endline msg
 
 (*Choice 9*)
-let show_popular_goods () =
-  let pop_goods = Store.popular_goods 10 !our_store in
+let show_almost_out_goods () =
+  let almost_out_goods = Store.almost_out 10 !our_store in
   print_endline
-    ("Popular items include: "
+    ("Items that are almost out include: "
     ^ String.concat ","
-        (List.map FrequencyBagGoods.to_string (Store.to_list pop_goods)))
+        (List.map FrequencyBagGoods.to_string (Store.to_list almost_out_goods)))
+
+(*Choice 10*)
+(* let show_popular_goods () =
+  let popular_goods = pop_goods_by_freq 100 in
+  print_endline
+    ("Our popular items in store are: "
+    ^ String.concat ","
+        (List.map Item.to_string (popular_goods))) *)
 
 (*Choice 11*)
 let show_transaction_history () =
@@ -429,7 +449,7 @@ let rec customer_buy () =
               };
             ],
           new_total );
-      sell_items_aux cat nam ~-(int_of_string quantity_change) !our_store;
+      discard_items_aux cat nam ~-(int_of_string quantity_change) !our_store;
       print_endline
         ("Successfully purchased item: " ^ nam ^ " with quantity: "
        ^ quantity_change ^ " in " ^ cat)
@@ -505,7 +525,7 @@ let rec work () =
      6. Show total quantity of all items in the store \n\
      7. Show total value of all items in the store  \n\
      8. Discard certain quantity of an item \n\
-     9. Take a look at our most popular items! They are bought the most! \n\
+     9. Take a look at our items that have almost run out! \n\
      10. Switch to customer mode \n\
      11. Show transaction history \n\
      Q. Quit";
@@ -536,7 +556,7 @@ let rec work () =
       discard_items ();
       work ()
   | "9" ->
-      show_popular_goods ();
+      show_almost_out_goods ();
       work ()
   | "10" -> customer_mode ()
   | "11" ->

@@ -68,7 +68,7 @@ Your store can do several things!
 6. Show total quantity of all items in the store 
 7. Show total value of all items in the store  
 8. Discard certain quantity of an item 
-9. Take a look at our most popular items! They are bought the most! 
+9. Take a look at our items that have almost run out! 
 10. Switch to customer mode 
 11. Show transaction history 
 Q. Quit
@@ -97,7 +97,7 @@ Your store can do several things!
 6. Show total quantity of all items in the store 
 7. Show total value of all items in the store  
 8. Discard certain quantity of an item 
-9. Take a look at our most popular items! They are bought the most! 
+9. Take a look at our items that have almost run out!
 10. Switch to customer mode 
 11. Show transaction history 
 Q. Quit
@@ -121,7 +121,7 @@ Your store can do several things!
 6. Show total quantity of all items in the store 
 7. Show total value of all items in the store  
 8. Discard certain quantity of an item 
-9. Take a look at our most popular items! They are bought the most! 
+9. Take a look at our items that have almost run out! 
 10. Switch to customer mode 
 11. Show transaction history 
 Q. Quit
@@ -145,7 +145,7 @@ Your store can do several things!
 6. Show total quantity of all items in the store 
 7. Show total value of all items in the store  
 8. Discard certain quantity of an item 
-9. Take a look at our most popular items! They are bought the most! 
+9. Take a look at our items that have almost run out! 
 10. Switch to customer mode 
 11. Show transaction history 
 Q. Quit
@@ -198,7 +198,7 @@ Your store can do several things!
 6. Show total quantity of all items in the store 
 7. Show total value of all items in the store  
 8. Discard certain quantity of an item 
-9. Take a look at our most popular items! They are bought the most! 
+9. Take a look at our items that have almost run out!
 10. Switch to customer mode 
 11. Show transaction history 
 Q. Quit
