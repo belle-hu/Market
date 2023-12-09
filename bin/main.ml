@@ -36,35 +36,36 @@ let map_to_string mp =
 let cat_bg_to_string e =
   "Category: " ^ fst e ^ FrequencyBagGoods.to_string (snd e) ^ "|"
 
-  
-
-  let store_name = ref ""
+let store_name = ref ""
 let our_store = ref Store.empty
 
+(*[pop_goods_by_freq freq_lim] returns the most popular goods in bag [bg]. If
+  the good has been sold at least [freq_lim] number of times, it is considered
+  popular. *)
+let pop_goods_by_freq_aux freq_lim bg =
+  (*frequency bag of goods= list of records, need each product and its
+    frequency!*)
+  let lst = FrequencyBagGoods.to_list bg in
+  let rec r1 acc lst =
+    match lst with
+    | [] -> acc
+    | h :: t ->
+        if FrequencyBagGoods.get_frequency bg h >= freq_lim then r1 (h :: acc) t
+        else r1 acc t
+  in
+  r1 [] lst
 
-
-(*[pop_goods_by_freq freq_lim] returns the most popular goods in bag [bg]. If the good has been sold at least  
-     [freq_lim] number of times, it is considered popular. *)
-let pop_goods_by_freq_aux freq_lim bg= 
-  (*frequency bag of goods= list of records, need
-     each product and its frequency!*)
-     let lst = FrequencyBagGoods.to_list bg in 
-     let rec r1 acc lst= 
-     match lst with 
-     | [] -> acc
-     | h::t -> if FrequencyBagGoods.get_frequency bg h >= freq_lim then 
-       r1 (h::acc) t else r1 acc t
-    in r1 [] lst
-  
-(*[pop_goods_by_freq freq_lim] returns the most popular goods in store. If the good has been sold at least  
-     [freq_lim] number of times, it is considered popular. *)
-    let pop_goods_by_freq freq_lim = 
-      let store_lst = Store.to_list !our_store in 
-      let rec r1 acc store_lst = 
-      match store_lst with 
-      | [] -> acc
-      | h ::t -> r1 (pop_goods_by_freq_aux freq_lim h @ acc) t
-      in r1 [] store_lst 
+(*[pop_goods_by_freq freq_lim] returns the most popular goods in store. If the
+  good has been sold at least [freq_lim] number of times, it is considered
+  popular. *)
+let pop_goods_by_freq freq_lim =
+  let store_lst = Store.to_list !our_store in
+  let rec r1 acc store_lst =
+    match store_lst with
+    | [] -> acc
+    | h :: t -> r1 (pop_goods_by_freq_aux freq_lim h @ acc) t
+  in
+  r1 [] store_lst
 
 type ty =
   | Price
@@ -353,15 +354,13 @@ let show_almost_out_goods () =
   print_endline
     ("Items that are almost out include: "
     ^ String.concat ","
-        (List.map FrequencyBagGoods.to_string (Store.to_list almost_out_goods)))
+        (List.map FrequencyBagGoods.to_string (Store.to_list almost_out_goods))
+    )
 
 (*Choice 10*)
-(* let show_popular_goods () =
-  let popular_goods = pop_goods_by_freq 100 in
-  print_endline
-    ("Our popular items in store are: "
-    ^ String.concat ","
-        (List.map Item.to_string (popular_goods))) *)
+(* let show_popular_goods () = let popular_goods = pop_goods_by_freq 100 in
+   print_endline ("Our popular items in store are: " ^ String.concat ","
+   (List.map Item.to_string (popular_goods))) *)
 
 (*Choice 11*)
 let show_transaction_history () =
