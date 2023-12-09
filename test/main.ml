@@ -1047,10 +1047,10 @@ let suite =
   "test suite for Grocery"
   >::: List.flatten
          [
-           (* cmp_demo;
+           cmp_demo;
            items_tests;
            bagofgoods_tests;
-           fbagofgoods_tests; *)
+           fbagofgoods_tests;
            store_tests;
          ]
 
