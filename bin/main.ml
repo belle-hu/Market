@@ -125,7 +125,10 @@ let rec change_price () =
     \ (Requirements: 1. price_change should be an integer. \n\
     \ It can be negative, but the original price + price_change cannot be \
      smaller than or equal to 0. \n\
-    \ 2. The name of the item you enter should already be created.)\n";
+    \ 2. The name of the item you enter should already be created. \n\
+     3. The item and the category you enter should be correctly matched. \n\
+     (If you create banana in fruit category, don't try to change price: \
+     banana 2 vegetable))\n";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; price_change; cat ] ->
       (bag :=
@@ -173,7 +176,10 @@ let rec change_quantity () =
     \ The new quantity of the item will be original quantity + \
      imported_quantity. \n\
     \ (Requirements: 1. imported_quantity should be an positive integer. \n\
-    \ 2. The name of the item you enter should already be created.)\n";
+    \ 2. The name of the item you enter should already be created.\n\
+     3. The item and the category you enter should be correctly matched. \n\
+     (If you create banana in fruit category, don't try to change quantity: \
+     banana 2 vegetable))\n";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; quantity_change; cat ] ->
       (bag :=
@@ -234,7 +240,8 @@ let rec create_item_add_to_store () =
      previously created \"apple 1 2 fruit\", please do not create a new \
      \"apple 5 7 fruit\". Instead, you should use the change_price or \
      change_quantity functionalities. \n\
-    \     (Price and quantity should be integers):";
+    \     (Requirements: 1. Price and quantity should be positive integers. \n\
+     2. You cannot create the same item in different categories.):";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; pri; quan; cat ] ->
       let item1 = Item.create nam (int_of_string pri) (int_of_string quan) in
@@ -308,7 +315,12 @@ let rec discard_items () =
     \ The new quantity of the item will be original quantity - \
      quantity_removed. \n\
     \ (Requirements: 1. quantity_removed should be an positive integer. \n\
-    \ 2. The name of the item you enter should already be created.)\n";
+    \ 2. The name of the item you enter should already be created.\n\
+    \ 3. You cannot discard an item of a quantity which is more than you \
+     currently have in the store.\n\
+    \ 4. The item and the category you enter should be correctly matched. \n\
+     (If you create banana in fruit category, don't try to discard: banana 2 \
+     vegetable))\n";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; quantity_change; cat ] ->
       (bag :=
@@ -406,7 +418,12 @@ let rec customer_buy () =
      \"apple 1 fruit\"):";
   print_endline
     "Notice: \n\
-    \     1. The name of the item you enter must be already in the store";
+    \     1. The name of the item you enter must be already in the store \n\
+     2. The item and the category you enter should be correctly matched. \n\
+     (If you create banana in fruit category, don't try to buy: banana 2 \
+     vegetable \n\
+     3. You cannot buy an item with a quantity which is more than what you \
+     have in the store.)";
   match String.split_on_char ' ' (read_line ()) with
   | [ nam; quantity_change; cat ] ->
       (bag :=
@@ -528,7 +545,10 @@ let rec work () =
      10. Switch to customer mode \n\
      11. Show transaction history \n\
      Q. Quit";
-  print_endline "\nPlease enter your choice of 1-11, or Q\n";
+  print_endline
+    "\n\
+     Please enter your choice of 1-11, or Q\n\
+     Please don't try to type anything other than 1-11 and Q.";
   match read_line () with
   | "1" ->
       create_item_add_to_store ();

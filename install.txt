@@ -16,11 +16,6 @@ cd (path to cs3110proj)
 4. dune build 
 --------------------------------------------------------------------------------
 USAGE:
-So far, we have only included command line functionality for creating an item and
-inserting that one item in a bag, as well as changing the price of an item. 
-In the future, we will implement functionality for 
-creating a bag of multiple goods 
-and interacting with the store on the command line: 
 
 Step 1. After dune build, run command to start interacting with a store. The 
 default interface is in the perspective of the owner: 
