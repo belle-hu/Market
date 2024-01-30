@@ -14,26 +14,27 @@ OCaml and OPAM
 
 Installation steps:
 1. Clone our git repository: 
-git clone https://github.coecis.cornell.edu/ay332/cs3110proj
+git clone https://github.com/belle-hu/market.git
 2. Enter directory of project
-cd (path to cs3110proj)
+cd [project name]
 3. install opam
 4. dune build 
 
 # Navigation Instructions
-## USAGE:
+### Step 1
 
 Step 1. After dune build, run command to start interacting with a store. The 
 default interface is in the perspective of the owner: 
 make grocery
 
-## SCREEN: 
 Welcome to your new grocery store! 
 
 What would you like to name your store?
 
+### Step 2
+
 Step 2. Enter a name in the command line for your store (i.e. Sweet Shop)
-## SCREEN: 
+
 Welcome to your new grocery store! 
 
 What would you like to name your store?
@@ -44,6 +45,7 @@ Welcome to Sweet Shop!
 
 Please provide a brief description of your store.
 
+### Step 3
 Step 3. Enter a description in the command line for your store (i.e. Selling Sweets!)  
 SCREEN: 
 Welcome to your new grocery store! 
@@ -76,6 +78,7 @@ Q. Quit
 
 Please enter your choice of 1-11, or Q
 
+### Step 4
 Step 4. Enter a choice from 1 to 11 to interact with your store:
 
 Here are some examples:
@@ -106,6 +109,7 @@ Q. Quit
 Please enter your choice of 1-11, or Q
 
 USER: 8
+
 SCREEN: Please enter the name, the quantity, and the category of the item you want to remove in the format of "[name] [quantity_removed] [category] " (eg. "apple 1 fruit"). 
  The new quantity of the item will be original quantity - quantity_removed. 
  (Requirements: 1. quantity_removed should be an positive integer. 
@@ -130,6 +134,7 @@ Q. Quit
 Please enter your choice of 1-11, or Q
 
 USER: 4
+
 SCREEN: Please enter the name, the quantity, and the category of the item you want to import in the format of "[name] [imported_quantity] [category]" (eg. "apple 2 fruit"). 
  The new quantity of the item will be original quantity + imported_quantity. 
  (Requirements: 1. imported_quantity should be an positive integer. 
