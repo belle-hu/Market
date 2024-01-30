@@ -20,45 +20,43 @@ cd [project name]
 3. install opam
 4. dune build 
 
-# Navigation Instructions
-### Step 1
+# Navigation Demo
+## Step 1
 
 Step 1. After dune build, run command to start interacting with a store. The 
 default interface is in the perspective of the owner: 
-make grocery
+### Command: make grocery
+### Output
 
 Welcome to your new grocery store! 
 
 What would you like to name your store?
 
-### Step 2
+## Step 2
 
 Step 2. Enter a name in the command line for your store (i.e. Sweet Shop)
 
 Welcome to your new grocery store! 
 
 What would you like to name your store?
+### Input: Sweet Shop
 
-Sweet Shop
+### Output
 
 Welcome to Sweet Shop!
 
 Please provide a brief description of your store.
 
-### Step 3
+## Step 3
 Step 3. Enter a description in the command line for your store (i.e. Selling Sweets!)  
-SCREEN: 
+
 Welcome to your new grocery store! 
 
 What would you like to name your store?
 
-Sweet Shop
+### Input: Selling Sweets
 
-Welcome to Sweet Shop!
-
-Please provide a brief description of your store.
-
-Selling Sweets!
+### Output
 Congrats on opening your new store, Sweet Shop: Selling Sweets! 
 
 ****************************************************************
@@ -83,11 +81,14 @@ Step 4. Enter a choice from 1 to 11 to interact with your store:
 
 Here are some examples:
 
-USER: 1
-SCREEN: Please enter the name, price, quantity, category of the item you want to create in the format of "[name] [price] [quantity] [category]" (eg. "apple 1 2 fruit")
+### Input: 1
+
+### Output: 
+Please enter the name, price, quantity, category of the item you want to create in the format of "[name] [price] [quantity] [category]" (eg. "apple 1 2 fruit")
 Also, please note that you should not be creating a new item with the same name as an item you have already created. For example, if you previously created "apple 1 2 fruit", please do not create a new "apple 5 7 fruit". Instead, you should use the change_price or change_quantity functionalities. 
      (Price and quantity should be integers):
-USER: gummies 2 10292 candy
+### Input: gummies 2 10292 candy
+### Output
 
 Successfully created item: gummies with price: 2 and quantity: 10292 in candy
 The store now contains: Category: candy|({name = gummies; price = 2; quantity = 10292}, freq: 0); ||
@@ -108,14 +109,18 @@ Q. Quit
 
 Please enter your choice of 1-11, or Q
 
-USER: 8
+### Input: 8
 
-SCREEN: Please enter the name, the quantity, and the category of the item you want to remove in the format of "[name] [quantity_removed] [category] " (eg. "apple 1 fruit"). 
+### Output
+
+Please enter the name, the quantity, and the category of the item you want to remove in the format of "[name] [quantity_removed] [category] " (eg. "apple 1 fruit"). 
  The new quantity of the item will be original quantity - quantity_removed. 
  (Requirements: 1. quantity_removed should be an positive integer. 
  2. The name of the item you enter should already be created.)
-USER: gummies 20 candy
-SCREEN: Successfully discard item: gummies of 20 amount in candy
+
+ ### Input: gummies 20 candy
+ ### Output
+Successfully discard item: gummies of 20 amount in candy
 ****************************************************************
 Your store can do several things!
 1. Create new item 
@@ -133,14 +138,17 @@ Q. Quit
 
 Please enter your choice of 1-11, or Q
 
-USER: 4
+### Input: 4
 
-SCREEN: Please enter the name, the quantity, and the category of the item you want to import in the format of "[name] [imported_quantity] [category]" (eg. "apple 2 fruit"). 
+### Output
+Please enter the name, the quantity, and the category of the item you want to import in the format of "[name] [imported_quantity] [category]" (eg. "apple 2 fruit"). 
  The new quantity of the item will be original quantity + imported_quantity. 
  (Requirements: 1. imported_quantity should be an positive integer. 
  2. The name of the item you enter should already be created.)
-USER: gummies 2 candy
-SCREEN: Successfully changed item: gummies with quantity_change: 2 in candy
+
+ ### Input: gummies 2 candy
+ ### Output
+Successfully changed item: gummies with quantity_change: 2 in candy
 ****************************************************************
 Your store can do several things!
 1. Create new item 
@@ -160,9 +168,8 @@ Please enter your choice of 1-11, or Q
 
 ## Customer mode example
 
-(***EXAMPLE FOR CUSTOMER MODE***)
-USER: 10
-SCREEN: ****************************************************************
+### Input: 10
+### Output
 Welcome to customer mode!
 Dear customer, here are the items currently in the store:
 Category: candy|({name = gummies; price = 2; quantity = 10274}, freq: 0); ||
@@ -171,14 +178,16 @@ Do you want to buy some items?
 Please enter your choice of 1 or 2: 
 1. Yes, I want to buy something.
 2. I want to checkout. (Switch back to the store owner mode)
-
-USER: 1
-SCREEN: Please enter the name, the quantity, and the category of the item you want to buy in the format of "[name] [quantity] [category]" (eg. "apple 1 fruit"):
+### Input: 1
+### Output
+Please enter the name, the quantity, and the category of the item you want to buy in the format of "[name] [quantity] [category]" (eg. "apple 1 fruit"):
 Notice: 
      1. The name of the item you enter must be already in the store
-USER: gummies 20 candy
 
-SCREEN: Successfully purchased item: gummies with quantity: 20 in candy
+### Input: gummies 20 candy
+### Output
+
+Successfully purchased item: gummies with quantity: 20 in candy
 ****************************************************************
 Welcome to customer mode!
 Dear customer, here are the items currently in the store:
@@ -189,12 +198,13 @@ Please enter your choice of 1 or 2:
 1. Yes, I want to buy something.
 2. I want to checkout. (Switch back to the store owner mode)
 
-USER: 2
-SCREEN: Thank you for shopping at Sweet Shop
+### Input: 2
+### Output
+Thank you for shopping at Sweet Shop
 Here is your reciept: 
 Product: gummies, Amount: 20, Price: 2
 Done.
-Your total is: 40
+Your total is: 40  
 We will switch back to store mode.
 ****************************************************************
 Your store can do several things!
@@ -212,13 +222,13 @@ Your store can do several things!
 Q. Quit
 
 Please enter your choice of 1-11, or Q
-
-USER: Q
-SCREEN: Thank you for using our grocery system, Sweet Shop! Bye!
+# How to quit
+## Command: Q
+### Output
+Thank you for using our grocery system, Sweet Shop! Bye!
 
 # Collaborators
-Contact Info:
-Bellerina Hu (bh552@cornell.edu)
-Aileen Huang (aeh245@cornell.edu)
-Yuhan Sun (ys728@cornell.edu)
-Alina Yuan (ay332@cornell.edu)
+Bellerina Hu (bh552@cornell.edu)  
+Aileen Huang (aeh245@cornell.edu)  
+Yuhan Sun (ys728@cornell.edu)  
+Alina Yuan (ay332@cornell.edu)  
